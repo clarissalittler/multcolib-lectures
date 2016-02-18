@@ -1,0 +1,27 @@
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+
+#+BEAMER_FRAME_LEVEL: 2
+
+* What Is Programming?
+** Following Directions
+** Understanding Recipes
+** Programming as Precise Instructions
+** Machines, Hand Holding, and New Ways of Thinking
+* Why Learn Javascript?
+** Programming the Web
+** Write Scripts
+** Program User Interfaces
+** Clients and Servers
+** Javascript is Ubiquitous
+** Javascript is Simple(ish)
+* Basics of Javascript
+** Syntax vs. Semantics
+** Verbs vs. Nouns
+** Data vs. Control Flow
+** Evaluating Code By Hand
+** Writing to Console
+** Arithmetic
+** Arithmetic Continued
+** Booleans 
