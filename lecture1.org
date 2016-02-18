@@ -1,21 +1,65 @@
+#+TITLE: Beginning Programming in Javascript
+#+AUTHOR: Clarissa Littler
+
 #+startup: beamer
+#+BEAMER_THEME: Madrid
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [bigger]
 
+
 #+BEAMER_FRAME_LEVEL: 2
+* Why Learn Javascript?
+** Why Learn Programming?
+   + To get a job \pause
+   + To make your own websites \pause
+   + To write your own mobile apps \pause
+   + Because it's fun! 
+** Programming The Web
+   + Browsers \pause
+   + Servers \pause
+   + Modern interactive webpages 
+** Write Scripts
+   + Browser extensions \pause
+   + Chrome plugins \pause
+   + General user interface improvements
+** Program User Interfaces
+** Javascript is Ubiquitous
+** Javascript is Simple(ish)
+   + The core of Javascript is simple
+   + Features that make it complicated can be avoided
 
 * What Is Programming?
 ** Following Directions
+*** Directions to Central Library 				    :B_block:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :END:
+    (insert screenshot)
+*** 								    :B_block:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :END:
+    As a person you know how to translate directions into actions, maps into navigation
 ** Understanding Recipes
+*** 								    :B_block:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :END:
+Cook celery and onion together til soft, then add frozen spinach and cook to get some of the moisture out and reduce volume add broth lentils cilantro and other spices, stir thoroughly, throw bay leaves on top.
+
+Cook for 40 minutes
+
+Turn off heat, wait til it stops bubbling and blend thoroughly.
+
+Cook for 5-10 minutes after blending   
 ** Programming as Precise Instructions
+   + A program is a way to give instructions to a computer
+   + A program needs to be 
 ** Machines, Hand Holding, and New Ways of Thinking
-* Why Learn Javascript?
-** Programming the Web
-** Write Scripts
-** Program User Interfaces
-** Clients and Servers
-** Javascript is Ubiquitous
-** Javascript is Simple(ish)
+   + Humans can infer instructions \pause
+   + Machines cannot \pause
+   + Thinking about 
+** Algorithms
 * Basics of Javascript
 ** Syntax vs. Semantics
 ** Verbs vs. Nouns
@@ -24,4 +68,7 @@
 ** Writing to Console
 ** Arithmetic
 ** Arithmetic Continued
-** Booleans 
+** Choices 
+** Booleans
+** If-Statements
+** Iteration
