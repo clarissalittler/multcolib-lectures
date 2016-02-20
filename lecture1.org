@@ -21,8 +21,7 @@
 ** Write Scripts
    + Browser extensions \pause
    + Chrome plugins \pause
-   + General user interface improvements
-** Program User Interfaces
+   + Make websites what you want to be
 ** Javascript is Ubiquitous
 ** Javascript is Simple(ish)
    + The core of Javascript is simple
@@ -58,10 +57,15 @@ Cook for 5-10 minutes after blending
 ** Machines, Hand Holding, and New Ways of Thinking
    + Humans can infer instructions \pause
    + Machines cannot \pause
-   + Thinking about 
-** Algorithms
+   + Precise thinking is hard \pause
+   + And that's okay!
+** Programming Languages
+   + Programming language as /formal/ language of instructions \pause
+   + Many different languages \pause
+   + 
 * Basics of Javascript
-** Syntax vs. Semantics
+** Syntax
+   +
 ** Verbs vs. Nouns
 ** Data vs. Control Flow
 ** Evaluating Code By Hand
@@ -72,3 +76,23 @@ Cook for 5-10 minutes after blending
 ** Booleans
 ** If-Statements
 ** Iteration
+* What Makes a Website Tick
+** What Happens When You Visit a Webpage
+** The Server
+** The Client
+** Where Javascript fits in
+* Intermmediate Javascript
+** Lists in real life
+** Arrays in JavaScript
+** Array Examples
+** Objects
+** Making Objects
+** Objects-as-Containers
+* Where To Go From Here?
+** Web Programming Track
+   + jQuery
+   + Node
+   + Other frameworks
+** jQuery
+** Node
+   + nodeschool.io
