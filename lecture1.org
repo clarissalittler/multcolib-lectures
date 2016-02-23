@@ -72,10 +72,14 @@ Cook for 5-10 minutes after blending
 ** Writing to Console
 ** Arithmetic
 ** Arithmetic Continued
+** Variables
+** Variables As Containers
 ** Choices 
 ** Booleans
 ** If-Statements
 ** Iteration
+** For-Loops
+** While-Loops
 * What Makes a Website Tick
 ** What Happens When You Visit a Webpage
 ** The Server
