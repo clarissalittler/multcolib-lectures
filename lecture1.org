@@ -65,7 +65,10 @@ Cook for 5-10 minutes after blending
    + 
 * Basics of Javascript
 ** Syntax
-   +
+   + Human language is fluid \pause
+   + Exhibit A: Tumblr \pause
+   + Computers need unambiguous language \pause
+   + 
 ** Verbs vs. Nouns
 ** Data vs. Control Flow
 ** Evaluating Code By Hand
