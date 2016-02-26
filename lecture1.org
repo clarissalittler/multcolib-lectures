@@ -68,7 +68,7 @@ Cook for 5-10 minutes after blending
    + Human language is fluid \pause
    + Exhibit A: Tumblr \pause
    + Computers need unambiguous language \pause
-   + 
+   + Formal syntax
 ** Verbs vs. Nouns
 ** Data vs. Control Flow
 ** Evaluating Code By Hand
