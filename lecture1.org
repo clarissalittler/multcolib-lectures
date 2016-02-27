@@ -8,12 +8,20 @@
 
 
 #+BEAMER_FRAME_LEVEL: 2
-* Why Learn Javascript?
+* Why Learn Programming?
+** What You'll Learn Here
+   + What programming *is* \pause
+   + The basics of Javascript \pause
+   + What to learn next
 ** Why Learn Programming?
    + To get a job \pause
    + To make your own websites \pause
    + To write your own mobile apps \pause
-   + Because it's fun! 
+   + Because it's fun!
+** This Course
+   + Three weeks \pause
+   + Two hours each \pause
+   + Lecture and small exercises
 ** Programming The Web
    + Browsers \pause
    + Servers \pause
@@ -24,9 +32,8 @@
    + Make websites what you want to be
 ** Javascript is Ubiquitous
 ** Javascript is Simple(ish)
-   + The core of Javascript is simple
-   + Features that make it complicated can be avoided
-
+   + The core of Javascript is simple \pause
+   + Complicated features are avoidable \pause
 * What Is Programming?
 ** Following Directions
 *** Directions to Central Library 				    :B_block:
@@ -51,9 +58,13 @@ Cook for 40 minutes
 Turn off heat, wait til it stops bubbling and blend thoroughly.
 
 Cook for 5-10 minutes after blending   
-** Programming as Precise Instructions
-   + A program is a way to give instructions to a computer
-   + A program needs to be 
+** Programs Are...
+   + Precise instructions for the computer \pause
+   + Describe computations \pause
+   + Readable for humans
+** A Programming Language Is
+   + A specialized language for instructions \pause
+   + 
 ** Machines, Hand Holding, and New Ways of Thinking
    + Humans can infer instructions \pause
    + Machines cannot \pause
@@ -70,37 +81,117 @@ Cook for 5-10 minutes after blending
    + Computers need unambiguous language \pause
    + Formal syntax
 ** Verbs vs. Nouns
-** Data vs. Control Flow
+   + Every language has nouns and verbs \pause
+   + Nouns :: subject matter \pause
+   + Verbs :: how it's used \pause
+   + Nouns and verbs of Javascript \pause
+     + Data \pause
+     + Control flow
+** Forms of Data
+   + Strings \pause
+   + Numbers \pause
+   + Lists \pause
+   + Collections
 ** Evaluating Code By Hand
+   + All code can be evaluated by hand \pause
+   + Useful skill \pause
+   + Helps debugging
 ** Writing to Console
+   + ~console.log~
+   + takes a value and prints it
 ** Arithmetic
-** Arithmetic Continued
+*** 							      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+   + basic arithmetic operations
+   + addition, subtraction, multiplication, division
+   + ~+~ , ~-~, ~*~, ~/~
+*** 							      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+   + 
 ** Variables
 ** Variables As Containers
 ** Choices 
+*** 								    :B_block:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :END:
+    Choices appear in our informal experience with computation.
+*** 								    :B_block:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :END:
+   + *if* the water is boiling, add the pasta \pause
+   + *if* you owe taxes, send money to the IRS \pause
+   + *if* it's friday, go grab tea with friends \pause
 ** Booleans
+   + Need a way to make decisions \pause
+   + ~true~ \pause
+   + ~false~ \pause
+   + Boolean type
+** Equality
+   + ~===~ compares two things \pause
 ** If-Statements
-** Iteration
-** For-Loops
-** While-Loops
+#+BEGIN_SRC js :exports code
+  if (condition){
+      ...
+  // do these things if the condition is true
+  }
+  else {
+      ...
+  // do these things if the condition is false
+  }
+#+END_SRC
+** If-statement examples
+#+BEGIN_SRC js :exports code
+  if (10 < 20) {
+  console.log("one thing");
+  }
+  else {
+  console.log("another thing"):
+  }
+#+END_SRC
+** If-statement examples
+
+** If-statement examples
+** Repetition
+** For Loops
+#+BEGIN_SRC js :exports code
+  for(var v = i; v < 100; v = v + 1){
+  }
+#+END_SRC
+** For Loop Examples
+** While Loops
 * What Makes a Website Tick
 ** What Happens When You Visit a Webpage
+   + 
 ** The Server
 ** The Client
 ** Where Javascript fits in
 * Intermmediate Javascript
-** Lists in real life
+** Lists in real computation
 ** Arrays in JavaScript
 ** Array Examples
 ** Objects
+   + Collections with names
 ** Making Objects
+   
 ** Objects-as-Containers
 ** this and That
 * Where To Go From Here?
+** Learning More Programming
+   + Continuing Code Academy \pause
+   + 
 ** Web Programming Track
-   + jQuery
-   + Node
-   + Other frameworks
+   + jQuery \pause
+   + Node \pause
+   + Frameworks
 ** jQuery
+   + 
 ** Node
    + nodeschool.io
