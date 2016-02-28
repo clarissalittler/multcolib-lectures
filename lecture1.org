@@ -25,12 +25,15 @@
 ** Programming The Web
    + Browsers \pause
    + Servers \pause
-   + Modern interactive webpages 
+   + Modern interactive webpages
 ** Write Scripts
    + Browser extensions \pause
    + Chrome plugins \pause
-   + Make websites what you want to be
+   + Make websites what you want to be \pause
+   + Millenials => Lizard People
 ** Javascript is Ubiquitous
+   + One of the most common languages \pause
+   + Powers all interactive websites
 ** Javascript is Simple(ish)
    + The core of Javascript is simple \pause
    + Complicated features are avoidable \pause
@@ -58,8 +61,25 @@ Cook for 40 minutes
 Turn off heat, wait til it stops bubbling and blend thoroughly.
 
 Cook for 5-10 minutes after blending   
+** Building Furniture
+*** 								    :B_block:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :END:
+    Let's say you're building furniture from Scandanavian Store. You follow their wordless visual instructions to fit everything together step-by-step.
+** Computation
+   + Everything we can do is computation \pause
+     + Finite data \pause
+     + Finite steps \pause
+     + Finite time
+** Computers
+   + Machines for performing computation \pause
+   + Computers have limits \pause
+     + Finite memory \pause
+     + Finite programs \pause
+     + Finite time
 ** Programs Are...
-   + Precise instructions for the computer \pause
+   + Precise instructions for computers \pause
    + Describe computations \pause
    + Readable for humans
 ** A Programming Language Is
@@ -96,9 +116,24 @@ Cook for 5-10 minutes after blending
    + All code can be evaluated by hand \pause
    + Useful skill \pause
    + Helps debugging
+** Two Preliminaries
+   + 
 ** Writing to Console
-   + ~console.log~
+*** 							      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+   + ~console.log~ 
    + takes a value and prints it
+*** 							      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+#+BEGIN_SRC js :exports code
+  console.log("this message will print to the console");
+#+END_SRC
 ** Arithmetic
 *** 							      :B_block:BMCOL:
     :PROPERTIES:
@@ -113,8 +148,26 @@ Cook for 5-10 minutes after blending
     :BEAMER_env: block
     :BEAMER_col: 0.4
     :END:
-   + 
+#+BEGIN_SRC js :exports code :results output
+  console.log(10 + 10);
+  console.log(10 * 10);
+  console.log(10 / 10);
+#+END_SRC
+
+#+RESULTS:
+: 20
+: 100
+: 1
+
 ** Variables
+*** 							      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+    + Variables store data
+    + 
+*** 
 ** Variables As Containers
 ** Choices 
 *** 								    :B_block:
