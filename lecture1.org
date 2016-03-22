@@ -1,13 +1,12 @@
-#+TITLE: Beginning Programming in Javascript
+#+TITLE: Beginning Programming in JavaScript
 #+AUTHOR: Clarissa Littler
 
 #+startup: beamer
 #+BEAMER_THEME: Madrid
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [bigger]
-
-
 #+BEAMER_FRAME_LEVEL: 2
+
 * Why Learn Programming?
 ** What You'll Learn Here
    + What programming *is* \pause
@@ -94,7 +93,8 @@ Cook for 5-10 minutes after blending
    + Programming language as /formal/ language of instructions \pause
    + Many different languages \pause
    + 
-* Basics of Javascript
+
+* Preliminaries
 ** Syntax
    + Human language is fluid \pause
    + Exhibit A: Tumblr \pause
@@ -116,8 +116,7 @@ Cook for 5-10 minutes after blending
    + All code can be evaluated by hand \pause
    + Useful skill \pause
    + Helps debugging
-** Two Preliminaries
-   + 
+
 ** Writing to Console
 *** 							      :B_block:BMCOL:
     :PROPERTIES:
@@ -134,6 +133,8 @@ Cook for 5-10 minutes after blending
 #+BEGIN_SRC js :exports code
   console.log("this message will print to the console");
 #+END_SRC
+** Expressions vs. Statements
+* Basics of Javascript
 ** Arithmetic
 *** 							      :B_block:BMCOL:
     :PROPERTIES:
@@ -166,9 +167,21 @@ Cook for 5-10 minutes after blending
     :BEAMER_col: 0.4
     :END:
     + Variables store data
-    + 
-*** 
+    + Names to keep track of things for later
+    + "So my friend, let's call her 'Sue'..."
+*** 							      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+#+BEGIN_SRC js :exports code
+  var thisThing = "a variable!"
+  console.log(thisThing);
+#+END_SRC
 ** Variables As Containers
+   + Variables are like boxes
+   + What's in the box can change
+   + 
 ** Choices 
 *** 								    :B_block:
     :PROPERTIES:
@@ -210,41 +223,69 @@ Cook for 5-10 minutes after blending
   }
 #+END_SRC
 ** If-statement examples
-
-** If-statement examples
-** Repetition
-** For Loops
 #+BEGIN_SRC js :exports code
-  for(var v = i; v < 100; v = v + 1){
+  if (10 < 30) {
+      console.log("we'll do this thing");
+  }
+  console.log("afterwards we do these things");
+#+END_SRC
+** If-statement examples
+*** Nesting if's					      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+Many times there's more than two choices. How do we represent that in JavaScript?
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
+#+BEGIN_SRC js :exports code
+  if (...) {
+      ...
+  }
+  else if (...) {
+      ...
+  }
+  else if (...) {
+      ...
   }
 #+END_SRC
+** If-statement examples
+   if 
+** Repetition
+*** Informally						      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+   + Do something a number of times \pause
+   + Chop three onions \pause
+   + Read fourty pages \pause
+   + Take three lefts since you can't turn right
+*** In JavaScript					      :B_block:BMCOL:
+    :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.4
+    :END:
+    For-statements 
+** For Loops
+#+BEGIN_SRC js :exports code
+for(setup; condition; next step){
+   ...
+}
+#+END_SRC
 ** For Loop Examples
+#+BEGIN_SRC js :exports code
+  for(var v = 0; v < 10; v = v + 1){
+     console.log(v);
+  }
+#+END_SRC
 ** While Loops
-* What Makes a Website Tick
-** What Happens When You Visit a Webpage
-   + 
-** The Server
-** The Client
-** Where Javascript fits in
-* Intermmediate Javascript
-** Lists in real computation
-** Arrays in JavaScript
-** Array Examples
-** Objects
-   + Collections with names
-** Making Objects
-   
-** Objects-as-Containers
-** this and That
-* Where To Go From Here?
-** Learning More Programming
-   + Continuing Code Academy \pause
-   + 
-** Web Programming Track
-   + jQuery \pause
-   + Node \pause
-   + Frameworks
-** jQuery
-   + 
-** Node
-   + nodeschool.io
+*** Informally							      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.4
+    :END:
++ While /this/ is true, do /that/
++ 
+*** Formally 

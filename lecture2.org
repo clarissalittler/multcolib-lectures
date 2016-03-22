@@ -1,0 +1,28 @@
+#+TITLE: Beginning Programming in JavaScript
+#+AUTHOR: Clarissa Littler
+
+#+startup: beamer
+#+BEAMER_THEME: Madrid
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+BEAMER_FRAME_LEVEL: 2
+
+* What Makes a Website Tick
+** What Happens When You Visit a Webpage
+   + Your browser requests a page \pause
+   + The DNS system finds the server \pause
+   + 
+** The Server
+** The Client
+** Where Javascript fits in
+* Intermmediate Javascript
+** Lists in real computation
+** Arrays in JavaScript
+** Array Examples
+** Objects
+   + Collections with names
+** Making Objects
+   
+** Objects-as-Containers
+** this and That
+

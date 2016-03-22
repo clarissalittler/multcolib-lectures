@@ -1,0 +1,21 @@
+#+TITLE: Beginning Programming in JavaScript
+#+AUTHOR: Clarissa Littler
+
+#+startup: beamer
+#+BEAMER_THEME: Madrid
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [bigger]
+#+BEAMER_FRAME_LEVEL: 2
+
+* Where To Go From Here?
+** Learning More Programming
+   + Continuing Code Academy \pause
+   + 
+** Web Programming Track
+   + jQuery \pause
+   + Node \pause
+   + Frameworks
+** jQuery
+   + 
+** Node
+   + nodeschool.io
