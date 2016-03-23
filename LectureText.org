@@ -1,0 +1,81 @@
+#+TITLE: Beginning Programming in JavaScript (Lecture Notes)
+#+AUTHOR: Clarissa Littler
+
+* Lecture 1
+** Introduction
+   If you're here in the class, I'll presume that you're hoping to learn at least a little bit about programming. This class is going to be 
+   + three lectures
+   + two hours each
+ which isn't a lot of time together. So, rather than trying to take everyone from beginner to expert in this short time, my goal is to make sure that everyone gets a solid foundation to buid on and, maybe, a bit of exitement and enthusiasm for the subject.
+*** Why Programming?
+    First, let's talk about why someone would even want to learn computer programming in the first place. There's the obvious pragmatic reason of hoping to get a job as a programmer. There's also all the things you can potentially /do/ as a programmer. These days we talk a lot about coding websites and mobile apps, which are massively important in their own right, but there's even more beyond that. In just the last few years we've reached a point where we can programmatically control the electronics in our houses, we can write code to control 3D printers, we can program AIs and robots and self-driving vehicles. A larger and larger portion of our lives is going to be mediated by code and automation, and since I have a strong populist streak I'd love to see more people be able to take control of this dependence on automation and artificial intelligence.
+
+    Even beyond all of those good reasons for learning programming, there's also just the pleasure of it. Coding can be a lot like cooking or any other form of crafting: you're figuring out how to make something and just the act of /making/ brings a certain pleasure with it.
+*** What Is Programming?
+    Before we start talking about /how/ to program, we need to discuss /what/ programming is. The answer I think I lot of people would give is something like "programming is how you tell a computer to do things", which is true but I think we can go a little deeper than that by taking a detour through what "computer" and "computation" really mean. 
+
+    Once upon a time, by which I mean the first half of the twentieth century, "computer" was a job title not a noun. A computer was a person who made calculations, often for physics experiments or firing solution tables for the military. In other words, computers were people whose job was to /perform computation/. As a historical side-note, computers were mostly women and these computers, in turn, were some of the first programmers. 
+
+    Computers, whether people or machines, perform computations by executing a series of steps. Think back to how you learned to add big numbers together with a pencil and paper: you start at the rightmost column, add the two numbers together, carry the one if you need to, and proceed to the next column. In fact, every calculation you learned how to do in math classes all had some series of steps you were supposed to do to get the answer. 
+
+    We can generalize this idea of taking steps and calculations to be about more than just numbers. Any procedure that takes
+    + a finite[fn:1] number of steps 
+    + a finite amount of "material"
+    + a finite amount of time to complete 
+ can be described as a computation. This includes things like
+    + cooking
+    + following a map
+    + building furniture from a wordless diagram
+
+ And while tasks like these might seem like a bit of a digression when we're talkinga about /computers/, the point here is that anything that *can* be described in the "finite" way we did above can potentially be done by programmed machine. Self-driving cars can follow map directions to get to a destination. 3D printers can assemble solid objects given a blue print and enough matieral. 
+
+ Computation is not just number crunching or showing you a webpage. Now, you might be wondering what /can't/ be described by a computation, and it turns out the answer is "quite a lot, but not a lot you'd care about". You're most likely to run into the limits of computation when writing programs that try to analyze other programs. This is why there's no perfect anti-virus program: it's physically impossible for there to be a program that can look at another program and determine, with perfect accuracy, whether or not its a virus. I'm not joking when I say "physically impossible". The limits of computation are as real and physical as the laws of motion. No amount of making computers faster can get around them. 
+
+ The difference between a recipe and a "program" is the level of precision. A recipe can be short, to the point, and you can fill in the gaps because you're a person and you have experience you can draw on to make conclusions, to read between the lines. A computer doesn't have that ability. It needs instructions to be absolutely precise, to be 100% clear with no ambiguity. Writing in English, or any other natural language, isn't precise enough to be certain that you're telling the machine what you *think* you're telling it. 
+
+ Because of this, programming languages tend to be small and with a very rigid, non-extensible grammar. The same way that in any language we speak there's a notion of "correct" and "incorrect" grammar, there's correct and incorrect grammar for a programming language. Unlike a natural language, where I can speak my native tongue of Texan and say "y'all'd've" and you probably know what I mean. Spend five minutes on tumblr and you'll see new idioms and words being coined constantly. It's really cool! Programming languages don't generally have this flexibility, though. Their grammar is set. 
+
+ Instead, we have specialized, simple, languages for exactly describing what the computer should do. Unsurprisingly, we call these /programming languages/. There's many, many programming languages out there and some are good, some are bad, but most are just /different/ ways of describing computations to the computer. For this course, we'll be specifically learning a language called JavaScript.
+*** Why JavaScript?
+    In this mini-course we'll be learning JavaScript. Why JavaScript in particular, though? First, JavaScript is the language that makes interactive websites *work*. Now, if your first thought is "what's a non-interactice site?" then I suggest you try looking at one of the GeoCities archive projects to see what 90s web pages looked like. They were ugly and they were basically just static text, images, and links. Nothing changed when you interacted with it. The only real points of interaction were forms and links.
+
+    Obviously, that's nothing what websites look like now. We have animations as you hover over and click things. We have pages that change constantly as you're interacting with them. We even have rich games that can run in the browser. All of that is possible because we now have the ability to run code that creates this interactive experience. All of the code that runs in your web browser is in JavaScript.
+
+    Why? Well, like most things related to programming language adoption it's a matter of someone deciding to use it and eventually everyone else settling on the ready solution rather than inventing their own. The end result, though, is that every browser that exists, whether on a phone, or a laptop, or a desktop, or a tablet all have what's called an /interpreter/ that can understand JavaScript programs and run them in order to make the page your own interactive. We'll talk more later about /what/ happens in your browser when you visit a webpage.
+
+    Suffice it to say, JavaScript is a ubiquitous and important language now.
+
+    Lukily, I happen to also think it's a fairly decent one. If you look online for people's opinions on JavaScript you'll find it gets some hate because there are some pretty weird and counterintuitve aspects of the language, but they're also mostly avoidable unless you're running into someone else's code that uses them. "JavaScript: The Good Parts" by Crockford is a good reference for the nice, clean core of the language. 
+**  Beginning JavaScript
+*** Opening The JavaScript Console
+    The first thing we should do is show how to open up the JavaScript console for your browser. The console is a place where you can type in code and have the built-in interpreter that comes with your browser /run/ the code and give you its result.
+
+    http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers 
+*** Syntax and Semantics
+    As we delve into JavaScript, let's first discuss the difference between /syntax/ and /semantics/. Syntax is the grammar of the language and the semantics is the /meaning/ of the syntax. We're going to introduce the syntax of JavaScript piece by piece, explaining how each piece relates to our intuitive notions of /computation/.
+*** Nouns and Verbs
+    The same way that, in English, there's nouns that describe objects and verbs that describe actions, in a programming language there's a distinction between the "nouns" that describe data and the "verbs" that describe what to do with the data. 
+
+    Data in a programming language are going to be things like numbers, pieces of text called strings, lists of things, and collections of things. 
+
+    The actions in a programming language are things like reading in user input, printing out messages, changing the webpage, changing data, and storing data. There's even more complicated constructs to do things multiple times or to even store code so it can be reused again and again. 
+*** Arithmetic
+    The first kind of data we'll look at are /numbers/. Numbers in JavaScript are just like numbers in math classes you took. The operations you're familiar with are all here: multiplication, division, addition, and subtraction. 
+
+    In JavaScript
+    + addition :: +
+    + subtraction :: -
+    + division :: /
+    + multiplication :: *
+
+    If you type in something like ~10*(3-2)+5~ into the console you'll see the JavaScript interpreter /evaluate/ the expression and then return the value, which in this case is 15.
+
+    Go ahead and try a few arithmetic expressions just to see what happens.
+*** Strings
+    One of the other incredibly important kinds of data are /strings/. Strings are pieces of text held within quotation marks, either double or single quotes. A programming language needs strings so that it can interact with text: either reading and understanding it or displaying it to the user. Most programming languages have a lot of strings 
+*** Functions 
+** Code Academy 
+
+* Footnotes
+
+[fn:1] Finite means a quantity that can be held, measured, stored. Infinite means that it's too big to be held. 
