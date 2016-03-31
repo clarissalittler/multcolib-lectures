@@ -46,7 +46,7 @@
     Suffice it to say, JavaScript is a ubiquitous and important language now.
 
     Lukily, I happen to also think it's a fairly decent one. If you look online for people's opinions on JavaScript you'll find it gets some hate because there are some pretty weird and counterintuitve aspects of the language, but they're also mostly avoidable unless you're running into someone else's code that uses them. "JavaScript: The Good Parts" by Crockford is a good reference for the nice, clean core of the language. 
-**  Beginning JavaScript
+** Beginning JavaScript
 *** Opening The JavaScript Console
     The first thing we should do is show how to open up the JavaScript console for your browser. The console is a place where you can type in code and have the built-in interpreter that comes with your browser /run/ the code and give you its result.
 
@@ -72,10 +72,143 @@
 
     Go ahead and try a few arithmetic expressions just to see what happens.
 *** Strings
-    One of the other incredibly important kinds of data are /strings/. Strings are pieces of text held within quotation marks, either double or single quotes. A programming language needs strings so that it can interact with text: either reading and understanding it or displaying it to the user. Most programming languages have a lot of strings 
-*** Functions 
-** Code Academy 
+    One of the other incredibly important kinds of data are /strings/. Strings are pieces of text held within quotation marks, either double or single quotes. A programming language needs strings so that it can interact with text: either reading and understanding it or displaying it to the user. 
 
+You can make a string either like 
+#+BEGIN_SRC js :exports code
+  "this is a string, or should I say 'a string'"
+#+END_SRC
+or like this
+#+BEGIN_SRC js :exports code
+  'this is a string, or should I say "a string"'
+#+END_SRC
+but there's a few things that /aren't/ valid. You can't do 
+#+BEGIN_SRC js :exports code
+  "this is a string, or should I say "a string""
+#+END_SRC
+because since you started the string with a double-quote its not obvious to the interpreter where you wanted the end of the string to be. If you want to represent quotations-within-strings you should really just switch between single and double quotes.
+
+This also means that it isn't valid to mis-match the kinds of quotation marks. So something like
+#+BEGIN_SRC js :exports code
+  "this is a string'
+#+END_SRC
+will not work.
+*** Variables
+    In any programming language, there's some notion of "variable" that allows you to give a name to a value. In JavaScript, these variables are defined as something like
+    #+BEGIN_SRC js :exports code
+      var thisIsAVariable = "and this is its value"
+    #+END_SRC
+*** Undefined
+*** Using Functions
+    So far we've only seen very simple operations. Obviously a programming language needs a lot more to be able to be useful. A lot of the functionality of a programming language is going to be in the, well, /functions/.
+
+    Functions in a programming language such as JavaScript are a little the same and a little different from functions as you may have seen them in an algebra class. In algebra, there are things like
+#+BEGIN_EXAMPLE
+f(x) = x + 2
+#+END_EXAMPLE
+and then you can /apply/ the function to an argument. In this case, we have that =f(2)= is going to compute to 4. In algebra, we can think of functions as things that take arguments and perform computations, it's just that the computations are limited to number crunching.
+In a programming language such as JavaScript, there's many things that a function can do that aren't giving you back a number. Functions in JavaScript are allowed to 
+    + change variables
+    + display messages to a user
+    + communicate with other computers
+    + etc.
+in addition to returning a value. 
+
+Many functions, if they don't need to return anything particularly useful, will just return ~undefined~. 
+
+We'll cover how to define functions shortly, but for now let's talk about an example of a function, ~console.log~, which prints out a value to the console.
+
+We can use it like 
+#+BEGIN_SRC js :exports code
+  console.log(10+20)
+#+END_SRC
+
+We can see from this example the form, or syntax, of using a function is just like our example from algebra: you put the argument in parentheses just after the function name. If you have multiple arguments, you separate them by commas. 
+*** Sequencing Operations
+So far we've only looked at the ability to do one thing at a time. In JavaScript, as with most programming languages, you can have a /sequence/ of steps. In a set of instructions you might have something like a bulleted or numbered list giving the steps needed and the order to take them in. In JavaScript you're going to have something akin to these lists of steps. Namely, you separate steps of computation with linebreaks and a semi-colon.
+
+For example if you ran a JavaScript program with the following lines,
+#+BEGIN_SRC js :exports code
+  console.log("this is one step"):
+  console.log("this is another step");
+  console.log("gracious, a third step");
+#+END_SRC
+it would print out, in order,
+#+BEGIN_EXAMPLE
+this is one step
+this is another step
+gracious, a third step
+#+END_EXAMPLE
+and be done.
+
+Whenever we want to sequence actions we need to separate them on separate lines and use semicolons. The semicolons don't *mean* anything per se, they're just useful for the JavaScript interpreter to very easily check "what's the end of a step".
+*** Making Choices
+    Often when we're discussing instructions there's a notion of /choice/. *If* it's raining, take an umbrella. *If* you see the purple Little Free Library, take a right, otherwise you should keep walking. *If* the avocados are ripe, make tacos.
+
+    We can make these choices in programming as well. *If* the username and password match, log the user in. *If* the user clicks send, send the email. 
+**** Booleans
+     In order to make these choices, though, we need for the programming language to understand what it means for something to be "true".
+
+     While truth is a pretty complicated concept if you ask a philosopher, for the purposes of basic programming it's quite simple: there is a kind of data called a /boolean/. Booleans are either ~true~ or ~false~. In order to make decisions, we need operations and functions that will return booleans. 
+
+     For example, we have the equality operator, ~===~, and the less than operator ~<~, and the greater than operator ~>~. These operations follow our intuitive notions of what they should mean. ~2 < 5~ is true, but ~2 === 5~ is false. 
+**** If-statements
+    As you can imagine from the way I've been emphasizing the word "if", it's somehow important to the syntax of making choices.
+
+    We call these "if-statements", and we use them like
+#+BEGIN_SRC js :exports code
+  if (2 < 5) {
+      console.log("two is less than five");
+  }
+#+END_SRC
+
+What if you have alternatives in mind: code that you want to run if the condition /isn't true/? In that case you need the keyword ~else~, as in
+#+BEGIN_SRC  js :exports code
+  if (2 === 5) {
+      console.log("two is equal to five");
+  }
+  else {
+      console.log("two wasn't equal to five");
+  }
+#+END_SRC
+
+**** An aside on truthyness
+** Code Academy 
+As some actual practice with the concepts we're talking about, Code Academy has a free basic introduction to JavaScript. Since there's only so much one can lecture and have it be useful, I think spending some time going through their exercises might help. If they're too simple and boring, feel free to jump ahead or ask for something else to do.
+* Lecture 2
+** More JavaScript
+Welcome back! Now we return to the details of JavaScript. The first thing we're going to do is introduce notions of /iteration/. 
+*** Iteration
+We're all familiar with instructions of the form 
+    + chop three onions
+    + knit five rows
+    + walk three blocks
+These are all directions that involve doing /something/ a set /number of times/. We've seen before that our intuitive notions of how instructions work have a direct analog in programming languages and this  
+** What Are Servers?
+*** What Happens When You Visit a Webpage
+    So what happens when you direct your browser to a website? The first thing is that our computer needs to /find/ the server that it's supposed to talk to. This whole process is handled by what's called /DNS lookup/. 
+
+    DNS stands for "domain name system". The domain name system is a global infrastructure of machines that keep track of the link between "domain names", e.g. "google.com" or "facebook.com" or "multcolib.org", and the actual "address" of the server on the global internet. The details of how this works aren't particularly important here, but the overall point is that there is this underlying system we use that helps us relate the domain name part of a web address to the physical machine.
+
+    Once your computer knows how to communicate with the actual server, then you make an /HTTP/ request to the server. HTTP stands for Hypertext Transfer Protocol, and it's the agreed on "language" for a web browser to talk to a web server. There's HTTP requests for
+    + GETting data
+    + For sending, or POSTing, data
+    + For changing, or PUTting, data
+    + For DELETEing data
+and others, but those are probably the main ones you'll see. 
+
+When you actually visit a webpage, you perform a GET request to get the HTML and JavaScript code to run the page. Then, your browser will /render/ that data as a webpage. 
+** Code Academy
+   At this point, we'll take a break from lecturing and you can go back to CodeAcademy, or any other studying you want to do, and I'll answer questions. 
+* Lecture 3
+** Where To Go From Here?
+   We come now to the end of these lectures. We haven't been able to cover a lot more than the very basics of programming and there's so much more to learn.
+
+   If you're interested mostly in making rich websites then you're going to want to continue learning JavaScript. In addition, you'll want to learn about the Node framework, which allows you to write servers in JavaScript, and jQuery, which allows you to more easily script browsers. Thankfully, there are fairly decent learning resources for both of those. In particular, I recommend "learnyounode" and the related tutorials there. 
+
+   If you're interested in making mobile apps, where you need to go from here depends on whether you primarily want to make Android applications or iOS applications. Android is probably the more upfront accessible, but it does means you'll need to learn another language called Java. iOS on the other hand involves learning a language called Swift. 
+
+   If you're mostly interested in programming for general computers such as laptops and desktops or /solely/ interested in the server side of web programming, then you have a massive number of language options. I seriously recommend learning a few different languages, such as Erlang or Haskell or Idris or C: languages that have a wide variety of features and ways of expressing themselves. 
 * Footnotes
 
 [fn:1] Finite means a quantity that can be held, measured, stored. Infinite means that it's too big to be held. 
