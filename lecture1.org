@@ -17,38 +17,40 @@
    + Two hours each \pause
    + Lecture and small exercises \pause
      + Piggybacking on Code Academy
-** Why Learn Programming?
-   + To get a job \pause
-   + To make your own websites \pause
-   + To write your own mobile apps \pause
-   + Because it's fun!
-** Programming The Web
-   + Browsers \pause
-   + Servers \pause
-   + Modern interactive webpages
-** Write Scripts
-   + Browser extensions \pause
-   + Make websites what you want to be \pause
-   + Millenials => Snake People
-** Why JavaScript?
-   + One of the most common languages \pause
-   + Powers all interactive websites \pause
-   + The core of JavaScript is simple \pause
-   + Complicated features are avoidable
+** Why Programming?
+   + Jobs \pause
+   + Automation \pause
+   + Fun
+** What You Can Do
+file:website.png
+** What You Can Do
+file:servers.jpg
+** What You Can Do
+file:talkwriting.jpg
+** What You Can Do
+file:selfdrivingcar.jpg
 * What Is Programming?
-** Following Directions
-*** Directions to Central Library 				    :B_block:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :END:
-    (insert screenshot)
-*** 								    :B_block:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :END:
-    As a person you know how to translate directions into actions, maps into navigation
-** Understanding Recipes
-*** 								    :B_block:
+** Programming Is...
+   + a way to instruct a computer \pause
+   + to do /what/? \pause
+   + are their limits?
+** Computers as people
+   + Computer as a job title \pause
+   + Computers calculated as a series of steps \pause
+   + Mostly number crunching \pause
+   + Computation 
+** Computation
+   Computation is anything that uses \pause
+     + Finite instructions \pause
+     + Finite time \pause
+     + Finite resources
+** More Than Number Crunching
+   + Computation > arithmetic \pause
+   + 3D printers \pause
+   + Robots \pause
+   + Computation is physical
+** Other Examples of Computation
+*** Spinach Celery Soup						    :B_block:
     :PROPERTIES:
     :BEAMER_env: block
     :END:
@@ -59,224 +61,38 @@ Cook for 40 minutes
 Turn off heat, wait til it stops bubbling and blend thoroughly.
 
 Cook for 5-10 minutes after blending
-** Building Furniture
+** Other Examples of Computations
+   Many more examples exist in the wild including: \pause
+   + counting on your fingers \pause
+   + long division \pause
+   + sorting your vinyl collection
+** Limits of Computation
+   + Are there things not programmable? \pause
+   + Yes! \pause
+     + But not much you care about \pause
+   + Programs that analyze programs
+** Limits of Computation
+   + Physical limits \pause
+   + No better computer can save you \pause
+     + Not even quantum computers
+** What are Programs?
 *** 								    :B_block:
     :PROPERTIES:
     :BEAMER_env: block
     :END:
-    Let's say you're building furniture from Scandanavian Store. You follow their wordless visual instructions to fit everything together step-by-step.
-** Computation
-   + Everything set of steps is computation \pause
-     + Finite data \pause
-     + Finite steps \pause
-     + Finite time
-** Computers
-   + Machines for performing computation \pause
-   + Computers have limits \pause
-     + Finite memory \pause
-     + Finite programs \pause
-     + Finite time
-** Programs Are
-   + Precise instructions for computers \pause
-   + Describe computations \pause
-   + Readable for humans
-** A Programming Language Is
-   + A specialized language for instructions \pause
-   + Many different languages \pause
-   + No language is *best* \pause
-   + Different languages appeal to different people
-** Machines, Hand Holding, and New Ways of Thinking
-   + Humans can infer instructions \pause
-   + Machines cannot \pause
-   + Precise thinking is hard \pause
-   + And that's okay!
-* Preliminaries
-** Syntax
-   + Human language is fluid \pause
-   + Exhibit A: Tumblr \pause
-   + Computers need unambiguous language \pause
-   + Formal syntax
-** Verbs vs. Nouns
-   + Every language has nouns and verbs \pause
-   + Nouns :: subject matter \pause
-   + Verbs :: how it's used \pause
-   + Nouns and verbs of Javascript \pause
-     + Data \pause
-     + Control flow
-** Forms of Data
-   + Strings \pause
-   + Numbers \pause
-   + Lists \pause
-   + Collections
-** Writing to Console
-*** 							      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-   + ~console.log~ 
-   + takes a value and prints it
-*** 							      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-#+BEGIN_SRC js :exports code
-  console.log("this message will print to the console");
-#+END_SRC
-** Expressions vs. Statements
-* Basics of Javascript
+Programs are \pause descriptions of computations \pause in a special language \pause that's understandable to a computer
+** Programming Languages
+   + Human languages are too complicated \pause
+   + "y'all'd've" \pause
+   + Ever had trouble with directions?
+** Programming Languages
+   + Simpler than human ones \pause
+   + Inflexible \pause
+   + Precise \pause
+   + Harder to think in
+** Why JavaScript?
+   + JavaScript runs in the browser
+** JavaScript Console
+** Syntax vs. Semantics
 ** Arithmetic
-*** 							      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-   + basic arithmetic operations
-   + addition, subtraction, multiplication, division
-   + ~+~ , ~-~, ~*~, ~/~
-*** 							      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-#+BEGIN_SRC js :exports code :results output
-  console.log(10 + 10);
-  console.log(10 * 10);
-  console.log(10 / 10);
-#+END_SRC
-
-#+RESULTS:
-: 20
-: 100
-: 1
-
-** Variables
-*** 							      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-    + Variables store data
-    + Names to keep track of things for later
-    + "So my friend, let's call her 'Sue'..."
-*** 							      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-#+BEGIN_SRC js :exports code
-  var thisThing = "a variable!"
-  console.log(thisThing);
-#+END_SRC
-** Variables As Containers
-   + Variables are like boxes
-   + What's in the box can change
-   + 
-** Choices 
-*** 								    :B_block:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :END:
-    Choices appear in our informal experience with computation.
-*** 								    :B_block:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :END:
-   + *if* the water is boiling, add the pasta \pause
-   + *if* you owe taxes, send money to the IRS \pause
-   + *if* it's friday, go grab tea with friends \pause
-** Booleans
-   + Need a way to make decisions \pause
-   + ~true~ \pause
-   + ~false~ \pause
-   + Boolean type
-** Equality
-   + ~===~ compares two things \pause
-** If-Statements
-#+BEGIN_SRC js :exports code
-  if (condition){
-      ...
-  // do these things if the condition is true
-  }
-  else {
-      ...
-  // do these things if the condition is false
-  }
-#+END_SRC
-** If-statement examples
-#+BEGIN_SRC js :exports code
-  if (10 < 20) {
-  console.log("one thing");
-  }
-  else {
-  console.log("another thing"):
-  }
-#+END_SRC
-** If-statement examples
-#+BEGIN_SRC js :exports code
-  if (10 < 30) {
-      console.log("we'll do this thing");
-  }
-  console.log("afterwards we do these things");
-#+END_SRC
-** If-statement examples
-*** Nesting if's					      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-Many times there's more than two choices. How do we represent that in JavaScript?
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-#+BEGIN_SRC js :exports code
-  if (...) {
-      ...
-  }
-  else if (...) {
-      ...
-  }
-  else if (...) {
-      ...
-  }
-#+END_SRC
-** If-statement examples
-   if 
-** Repetition
-*** Informally						      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-   + Do something a number of times \pause
-   + Chop three onions \pause
-   + Read fourty pages \pause
-   + Take three lefts since you can't turn right
-*** In JavaScript					      :B_block:BMCOL:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :BEAMER_col: 0.4
-    :END:
-    For-statements 
-** For Loops
-#+BEGIN_SRC js :exports code
-for(setup; condition; next step){
-   ...
-}
-#+END_SRC
-** For Loop Examples
-#+BEGIN_SRC js :exports code
-  for(var v = 0; v < 10; v = v + 1){
-     console.log(v);
-  }
-#+END_SRC
-** While Loops
-*** Informally							      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.4
-    :END:
-+ While /this/ is true, do /that/
-+ 
-*** Formally 
+** Arithmetic Examples
