@@ -98,7 +98,23 @@ will not work.
     #+BEGIN_SRC js :exports code
       var thisIsAVariable = "and this is its value"
     #+END_SRC
+
+    Variables in JavaScript act as a kind of container that holds information. Once created, you can change what goes /in/ the variable as follows
+    #+BEGIN_SRC js :exports code
+      thisIsAVariable = "and now the value has changed"
+    #+END_SRC
+
+    To retrieve the data in the container, just use the name of the variable. If you type ~thisIsAVariable~ into the console, you'll get back the data you put in the container, which in this case should be "and now the value has changed".
 *** Undefined
+    Now, it's actually possible, though not recommended, to declare a variable without giving it a value just by not giving a right hand side, like in the following example
+    #+BEGIN_SRC js :exports code
+      var isItEmpty
+    #+END_SRC
+Now what's actually in this variable? If you try typing ~isItEmpty~ into the console you'll see a value of ~undefined~.
+
+~undefined~ is the special JavaScript value that signifies that something /doesn't/ have a value. It's the value of no-value, much like how 0 was originally seen as the absence of anything. This special value is used often in JavaScript to designate that something isn't well-defined.
+
+It is, though, just a value that you can type in the command line or assign to a variable.
 *** Using Functions
     So far we've only seen very simple operations. Obviously a programming language needs a lot more to be able to be useful. A lot of the functionality of a programming language is going to be in the, well, /functions/.
 
@@ -172,7 +188,6 @@ What if you have alternatives in mind: code that you want to run if the conditio
   }
 #+END_SRC
 
-**** An aside on truthyness
 ** Code Academy 
 As some actual practice with the concepts we're talking about, Code Academy has a free basic introduction to JavaScript. Since there's only so much one can lecture and have it be useful, I think spending some time going through their exercises might help. If they're too simple and boring, feel free to jump ahead or ask for something else to do.
 * Lecture 2

@@ -1,11 +1,9 @@
 #+TITLE: Beginning Programming in JavaScript
 #+AUTHOR: Clarissa Littler
-
+#+OPTIONS: H:2 toc:nil
 #+startup: beamer
 #+BEAMER_THEME: Madrid
 #+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [bigger]
-#+BEAMER_FRAME_LEVEL: 2
 
 * Why Learn Programming?
 ** What You'll Learn Here
@@ -26,14 +24,14 @@ file:website.png
 ** What You Can Do
 file:servers.jpg
 ** What You Can Do
-file:talkwriting.jpg
+file:talkwriting.png
 ** What You Can Do
-file:selfdrivingcar.jpg
+file:SelfDrivingCar.jpg
 * What Is Programming?
 ** Programming Is...
    + a way to instruct a computer \pause
    + to do /what/? \pause
-   + are their limits?
+   + are there limits?
 ** Computers as people
    + Computer as a job title \pause
    + Computers calculated as a series of steps \pause
@@ -76,10 +74,6 @@ Cook for 5-10 minutes after blending
    + No better computer can save you \pause
      + Not even quantum computers
 ** What are Programs?
-*** 								    :B_block:
-    :PROPERTIES:
-    :BEAMER_env: block
-    :END:
 Programs are \pause descriptions of computations \pause in a special language \pause that's understandable to a computer
 ** Programming Languages
    + Human languages are too complicated \pause
@@ -91,8 +85,150 @@ Programs are \pause descriptions of computations \pause in a special language \p
    + Precise \pause
    + Harder to think in
 ** Why JavaScript?
-   + JavaScript runs in the browser
+   + A JavaScript interpreter in every browser \pause
+   + JavaScript for servers \pause
+   + Relatively simple language \pause
+     + At least the [[https://multcolib.bibliocommons.com/item/show/2980712068]["good parts"]]
 ** JavaScript Console
+file:console.png
 ** Syntax vs. Semantics
+   + syntax is the grammar of a programming language \pause
+   + what it does is the /semantics/ \pause
+   + need to be very careful understanding both
+** Nouns and Verbs 
+   + Human languages have nouns and verbs \pause
+   + So do computer's languages \pause
+   + Nouns => data \pause
+   + Verbs => control constructs
+** Kinds of Data
+   + Numbers \pause
+   + Text \pause
+   + Lists \pause
+   + Labeled collections (think dictionaries)
 ** Arithmetic
-** Arithmetic Examples
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** Numbers In JavaScript
+   + Numbers \pause
+   + Arithmetic operations \pause
+     + Addition
+     + Multiplication
+     + Division
+     + Subtraction
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** Arithmetic Operations
+   + ~20 + 5~
+   + ~20 * 5~
+   + ~20 / 5~
+   + ~20 - 5~
+** Strings
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** What Are Strings?
+   + Computers need to manipulate text \pause
+   + Text between double quotes \pause
+     + or single quotes \pause
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** Examples of Strings
+    + "this is a 'string'" \pause
+    + 'this is also a "string"' \pause
+    + 'this isn't a 'string''
+** Variables
+   + Variables are in every language
+   + Two uses of variables in programming \pause
+     + "So I have a friend, let's call her Alice..." \pause
+     + Containers for your stuff \pause
+*** Making Variables
+#+BEGIN_SRC js :exports code
+var thisIsAVariable = "and this is its value"
+#+END_SRC
+
+** Variables
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** Using Variables
+     + The value is retrieved by name \pause
+     + Type ~thisIsAVariable~ \pause    
+*** Setting Variables						      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** Setting Variables
+    + ~name = value~ \pause
+    + ~thisIsAVariable = 10~
+** Undefined
+   + Try typing ~var thisVar~ \pause
+   + What's the value of ~thisVar~? \pause
+   + ~undefined~ is the value of not having a value \pause
+   + Like 0 is the value of having no quantity
+** Using Functions
+   + Functions in algebra \pause
+     #+BEGIN_EXAMPLE
+     f(x) = x + 2
+     #+END_EXAMPLE
+   \pause
+   + Functions in JavaScript \pause
+     + Can do more than crunch numbers \pause
+     + Change variables \pause
+     + Print output \pause
+     + Render HTML \pause
+     + ... \pause
+   + ~console.log("message")~
+** Sequencing Operations
+   Multiple steps are separated by semicolons on separate lines
+#+BEGIN_SRC js :exports code
+console.log("this");
+console.log("is");
+console.log("a");
+console.log("sequence");
+console.log("of");
+console.log("steps");
+#+END_SRC 
+** Making Choices
+   + *If* it's raining, take an umbrella \pause
+   + *If* you see the purple Little Free Library, take a right, otherwise keep walking \pause
+   + *If* the username and password match, log the user in
+** Choices in Programming
+   * if-statements \pause
+   * Need to formalize truth \pause
+   * Boolean data \pause
+     + ~true~
+     + ~false~
+** If-Statement
+*** 
+#+BEGIN_SRC js :exports code
+  if (2 < 5) {
+      console.log("two is less than five");
+  }
+#+END_SRC
+** If-Statement
+*** 
+#+BEGIN_SRC  js :exports code
+  if (2 === 5) {
+      console.log("two is equal to five");
+  }
+  else {
+      console.log("two wasn't equal to five");
+  }
+#+END_SRC
+** Code Academy
+   + Break from lecturing \pause
+   + I'll guide you through difficulties \pause
+   + If you're bored, just say so!
+** Next Time
+   + How to change the flow of a program: \pause iteration and loops \pause
+   + How to write functions \pause
+   + A mini-lecture on how web browsers and web servers communicate \pause
+   + More Code Academy!
