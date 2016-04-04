@@ -199,6 +199,9 @@ We're all familiar with instructions of the form
     + knit five rows
     + walk three blocks
 These are all directions that involve doing /something/ a set /number of times/. We've seen before that our intuitive notions of how instructions work have a direct analog in programming languages and this  
+*** Arrays 
+**** ~this~
+*** Objects
 ** What Are Servers?
 *** What Happens When You Visit a Webpage
     So what happens when you direct your browser to a website? The first thing is that our computer needs to /find/ the server that it's supposed to talk to. This whole process is handled by what's called /DNS lookup/. 
