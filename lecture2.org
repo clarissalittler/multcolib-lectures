@@ -18,11 +18,11 @@
 * Intermmediate Javascript
 ** Lists in real computation
 ** Arrays in JavaScript
-** Array Examples
+** Array Exercises
 ** Objects
    + Collections with names
 ** Making Objects
-   
+** Object Exercises   
 ** Objects-as-Containers
 ** this and That
 
