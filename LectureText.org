@@ -198,10 +198,52 @@ We're all familiar with instructions of the form
     + chop three onions
     + knit five rows
     + walk three blocks
-These are all directions that involve doing /something/ a set /number of times/. We've seen before that our intuitive notions of how instructions work have a direct analog in programming languages and this  
+These are all directions that involve doing /something/ a set /number of times/. We've seen before that our intuitive notions of how instructions work have a direct analog in programming languages and iteration is no different. 
+
+The first thing to 
+**** For-statements
+**** While-statements
 *** Arrays 
-**** ~this~
 *** Objects
+**** ~this~
+*** Writing Functions
+We've seen how to /use/ functions so far, but we haven't /written/ any yet. You make a function with the =function= keyword, followed by the names of the arguments to the function as a comma-separated list inside the parentheses, then the sequence of statements that's the body of the function between braces just like with for-statements and if-statements etc. The one way that the body of a function is different than all the other constructs we've seen til now is the use of ~return~: ~return~ is the keyword that tells the function to stop running and give back a value.
+
+We can define a function that will add two numbers like
+#+BEGIN_SRC js :exports code
+  (function (x1,x2) {
+      return x1 + x2;
+  })
+#+END_SRC
+(The parentheses are ugly but I'll explain why they're needed shortly)
+
+You /could/ call this function once by immediately using it, as in
+#+BEGIN_SRC js :exports code
+  (function (x1,x2) {
+      return x1 + x2;
+  })(1,2);
+#+END_SRC
+
+Now, we can't easily call this function without naming it. We can name functions by assigning them to a variable or to a property of an object, just like any other value. For example, we can say something like
+
+#+BEGIN_SRC js :exports code :results output
+  var adder = function (x1,x2) {return x1+x2;};
+  console.log(adder(1,2));
+#+END_SRC
+
+#+RESULTS:
+: 3
+or we can assign it to the property of an object, as in
+#+BEGIN_SRC js :exports code :results output
+  var obj = {};
+  obj.adder = function (x1,x2) {return x1+x2;};
+  console.log(obj.adder(1,2));
+#+END_SRC
+
+#+RESULTS:
+: 3
+
+
 ** What Are Servers?
 *** What Happens When You Visit a Webpage
     So what happens when you direct your browser to a website? The first thing is that our computer needs to /find/ the server that it's supposed to talk to. This whole process is handled by what's called /DNS lookup/. 

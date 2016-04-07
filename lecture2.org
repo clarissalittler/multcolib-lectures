@@ -7,6 +7,161 @@
 #+LaTeX_CLASS_OPTIONS: [bigger]
 #+BEAMER_FRAME_LEVEL: 2
 
+* Intermediate Javascript
+** Dictionaries and Phonebooks
+   + Dictionaries :: names $\rightarrow$ defintions
+   + Phonebooks :: names $\rightarrow$ numbers
+   + Directory :: names $\rightarrow$ locations
+** Named Collections in JavaScript
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** 
+    + Objects \pause
+      + ={name : val, name : val, ...}= \pause
+      + =obj.name= \pause
+      + =obj.name = 10= \pause
+    + Sets of /properties/ and /values/ \pause
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** 
+ #+BEGIN_SRC js :exports code :results output
+   var obj = {prop1 : 0, prop2 : 1};
+   console.log(obj.prop1);
+   console.log(obj.prop2);
+   console.log(obj.prop3);
+ #+END_SRC
+
+ #+RESULTS:
+ : 0
+** Making Objects
+*** Quiz
+    Fill in the ellipses so that the two console.log statements print =true=
+    #+BEGIN_SRC js :exports code
+      var obj = {...};
+      console.log(obj.name === "chicken");
+      console.log(obj.typeOfAnimal === "dog");
+    #+END_SRC 
+\pause
+*** Answer
+    #+BEGIN_SRC js :exports code :results output
+      var obj = {name : "chicken", typeOfAnimal : "dog"};
+      console.log(obj.name === "chicken");
+      console.log(obj.typeOfAnimal === "dog");
+    #+END_SRC
+
+    #+RESULTS:
+    : true
+    : true
+\pause
+Are there any other answers?
+** Nesting Objects
+Objects can contain other objects
+*** Quiz
+    Fill in the ellipses so that the console.log statement prints =true=
+#+BEGIN_SRC js :exports code
+  var obj = {name : "Claire", possessions : {leftPocket : "A cell phone", rightPocket : "60 cents"}};
+
+  console.log(... === "60 cents");
+#+END_SRC
+\pause
+*** Answer
+#+BEGIN_SRC js :exports code
+  var obj = {name : "Claire", possessions : {leftPocket : "A cell phone", rightPocket : "60 cents"}};
+
+  console.log(obj.posessions.rightPocket === "60 cents");
+#+END_SRC
+
+** Objects are Everywhere
+   + 
+** Lists in real-life
+   + Grocery lists \pause
+   + Directions \pause
+   + Bookshelves \pause
+   + Music collections
+** Arrays in JavaScript
+   + Lists in JavaScript are called arrays \pause
+   + =[1,2,3,4]=
+   + =arr[2]= :: 2nd element or 3rd element?
+** Array Exercises
+   + 
+** Defining Functions
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** 
+   + Function expression \pause
+     + =function (arg1, arg2, ..) { body }= \pause
+     + =return= says /stop/, /exit/, give back a value \pause
+     + with no =return=, function gives back =undefined= \pause
+       + like =console.log= \pause
+     + Assign to variables and properties
+*** 								      :BMCOL:
+    :PROPERTIES:
+    :BEAMER_col: 0.45
+    :END:
+**** 
+#+BEGIN_SRC js :exports code :results output
+  var adding = function (x,y) {return x + y;};
+  console.log(adding(1,2));
+  var myObj = {};
+  myObj.adder = adding;
+  console.log(myObj.adder(1,2));
+#+END_SRC
+
+#+RESULTS:
+: 3
+: 3
+** Function Exercises
+*** 
+Will the following code print =1= or =2=?
+#+BEGIN_SRC js :exports code :results output
+  var myVar = 0;
+  var fun = function () {
+      myVar = myVar + 1;
+      return;
+      myVar = myVar + 1;
+  };
+  fun();
+  console.log(myVar);
+#+END_SRC
+
+#+RESULTS:
+: 1
+\pause
+*** 
+    It prints =1=. Why?
+** Function Exercises
+*** 
+Fill in the following code to make a function that will return 0 if the argument is less than 0, and 1 if the argument is greater than or equal to 0.
+#+BEGIN_SRC js :exports code
+  var compare = function (x) {
+      if (...) {
+          ...
+      }
+      else {
+          ...
+      }
+  }
+#+END_SRC
+\pause
+***
+#+BEGIN_SRC js :exports code
+  var compare = function (x) {
+      if (x < 0) {
+          return 0;
+      }
+      else {
+          return 1;
+      }
+  }
+#+END_SRC
+
+** this and That
 * What Makes a Website Tick
 ** What Happens When You Visit a Webpage
    + Your browser requests a page \pause
@@ -15,14 +170,4 @@
 ** The Server
 ** The Client
 ** Where Javascript fits in
-* Intermmediate Javascript
-** Lists in real computation
-** Arrays in JavaScript
-** Array Exercises
-** Objects
-   + Collections with names
-** Making Objects
-** Object Exercises   
-** Objects-as-Containers
-** this and That
 
