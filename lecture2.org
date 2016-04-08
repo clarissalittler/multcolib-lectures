@@ -75,8 +75,10 @@ Objects can contain other objects
   console.log(obj.posessions.rightPocket === "60 cents");
 #+END_SRC
 
-** Objects are Everywhere
-   + 
+** More on Objects
+   + Objects are ubiquitious in JavaScript \pause
+   + =console.log= \pause
+   + =str.length=
 ** Lists in real-life
    + Grocery lists \pause
    + Directions \pause
