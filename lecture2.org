@@ -8,8 +8,8 @@
 
 * Intermediate Javascript
 ** Dictionaries and Phonebooks
-   + Dictionaries :: names $\rightarrow$ defintions
-   + Phonebooks :: names $\rightarrow$ numbers
+   + Dictionaries :: names $\rightarrow$ defintions \pause
+   + Phonebooks :: names $\rightarrow$ numbers \pause
    + Directory :: names $\rightarrow$ locations
 ** Named Collections in JavaScript
 
@@ -274,7 +274,7 @@ Fill in the following code so that it prints all the powers of two less than 150
 *** Answer
 #+BEGIN_SRC js :exports code
   var sum = 1;
-  while (???) {
+  while (sum < 1500) {
       console.log(sum);
       sum = 2*sum;
   }
@@ -319,21 +319,21 @@ Will the following code print =1= or =2=?
 \pause
 *** 
     It prints =1=. Why?
-** Function Exercises
-*** 
+** Function Exercise
+*** Question 
 Fill in the following code to make a function that will return 0 if the argument is less than 0, and 1 if the argument is greater than or equal to 0.
 #+BEGIN_SRC js :exports code
   var compare = function (x) {
-      if (...) {
-          ...
+      if (???) {
+         ???
       }
       else {
-          ...
+         ???
       }
   }
 #+END_SRC
-\pause
-***
+** Function Exercise
+*** Answer
 #+BEGIN_SRC js :exports code
   var compare = function (x) {
       if (x < 0) {
