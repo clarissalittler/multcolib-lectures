@@ -1,11 +1,10 @@
 #+TITLE: Beginning Programming in JavaScript
 #+AUTHOR: Clarissa Littler
 
+#+OPTIONS: H:2 toc:nil
 #+startup: beamer
 #+BEAMER_THEME: Madrid
 #+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [bigger]
-#+BEAMER_FRAME_LEVEL: 2
 
 * Intermediate Javascript
 ** Dictionaries and Phonebooks
@@ -13,21 +12,15 @@
    + Phonebooks :: names $\rightarrow$ numbers
    + Directory :: names $\rightarrow$ locations
 ** Named Collections in JavaScript
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.45
-    :END:
-**** 
+
+*** 
     + Objects \pause
       + ={name : val, name : val, ...}= \pause
       + =obj.name= \pause
       + =obj.name = 10= \pause
     + Sets of /properties/ and /values/ \pause
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.45
-    :END:
-**** 
+** Named Collections in JavaScript
+*** 
  #+BEGIN_SRC js :exports code :results output
    var obj = {prop1 : 0, prop2 : 1};
    console.log(obj.prop1);
@@ -60,17 +53,21 @@
 Are there any other answers?
 ** Nesting Objects
 Objects can contain other objects
-*** Quiz
+*** Question
     Fill in the ellipses so that the console.log statement prints =true=
 #+BEGIN_SRC js :exports code
-  var obj = {name : "Claire", possessions : {leftPocket : "A cell phone", rightPocket : "60 cents"}};
+  var obj = {name : "Claire", possessions : 
+	       {leftPocket : "A cell phone", 
+	        rightPocket : "60 cents"}};
 
   console.log(... === "60 cents");
 #+END_SRC
 \pause
 *** Answer
 #+BEGIN_SRC js :exports code
-  var obj = {name : "Claire", possessions : {leftPocket : "A cell phone", rightPocket : "60 cents"}};
+  var obj = {name : "Claire", possessions :
+	       {leftPocket : "A cell phone", 
+	        rightPocket : "60 cents"}};
 
   console.log(obj.posessions.rightPocket === "60 cents");
 #+END_SRC
@@ -88,8 +85,22 @@ Objects can contain other objects
 ** Arrays in JavaScript
    + Lists in JavaScript are called arrays \pause
    + =[1,2,3,4]= \pause
-   + =arr[2]= :: 2nd element or 3rd element?
+   + Is =arr[2]= the 2nd element or 3rd element? \pause
+   + =arr.length= \pause
+   + =arr.slice(1,3)=
 ** Array Exercises
+*** Question
+   Fill in the ??? so that the following code prints "[2,3]"
+   #+BEGIN_SRC js :exports code
+     var arr1 = [1,2,3,4];
+     console.log(arr1.slice(???,???));
+   #+END_SRC
+\pause
+*** Answer
+  #+BEGIN_SRC js :exports code :results output 
+     var arr1 = [1,2,3,4];
+     console.log(arr1.slice(1,3);
+   #+END_SRC
 ** Iteration 
    + Peel six potatoes \pause
    + Take the next three lefts \pause
@@ -168,6 +179,23 @@ Fill in the question marks so the following code prints the numbers from 3-20
 19
 20
 #+end_example
+** For-loop Exercises
+*** Question
+    Fill in the question marks so the following code prints the contents of the array an element at a time
+#+BEGIN_SRC js :exports code
+  var myArray = [0,1,2,3,4];
+  for(var i = 0; i < ???; i = i +1){
+      console.log(???);
+  }
+#+END_SRC
+\pause
+*** Answer
+#+BEGIN_SRC js :exports code
+  var myArray = [0,1,2,3,4];
+  for(var i = 0; i < myArray.length; i = i +1){
+      console.log(myArray[i]);
+  }
+#+END_SRC
 ** Iteration
    + /Do/ this, /until/ that \pause
    + /While/ that, /do/ this \pause
@@ -181,23 +209,86 @@ Fill in the question marks so the following code prints the numbers from 3-20
   body
   }
 #+END_SRC
+** While-loops
+   + For is for a set number of times \pause
+     + Or set number of items \pause
+   + While is for general "loops"
+** While-example
+#+BEGIN_SRC js :exports code :results output
+  var sum0 = 0;
+  var sum1 = 1;
+  while (sum1 < 1000) {
+      console.log(sum0);
+      var temp = sum1;
+      sum1 = sum1 + sum0;
+      sum0 = temp;
+  }
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+0
+1
+1
+1
+1
+2
+2
+3
+3
+5
+5
+8
+8
+13
+13
+21
+21
+34
+34
+55
+55
+89
+89
+144
+144
+233
+233
+377
+377
+610
+610
+987
+#+end_example
+** While-loop Exercises
+*** Question
+Fill in the following code so that it prints all the powers of two less than 1500 
+#+BEGIN_SRC js :exports code
+  var sum = 1;
+  while (???) {
+      console.log(sum);
+      sum = 2*sum;
+  }
+#+END_SRC
+\pause
+*** Answer
+#+BEGIN_SRC js :exports code
+  var sum = 1;
+  while (???) {
+      console.log(sum);
+      sum = 2*sum;
+  }
+#+END_SRC
 ** Defining Functions
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.45
-    :END:
-**** 
+*** 
    + Function expression \pause
      + =function (arg1, arg2, ..) { body }= \pause
      + =return= says /stop/, /exit/, give back a value \pause
      + with no =return=, function gives back =undefined= \pause
        + like =console.log= \pause
      + Assign to variables and properties
-*** 								      :BMCOL:
-    :PROPERTIES:
-    :BEAMER_col: 0.45
-    :END:
-**** 
+** Defining Functions
+*** 					
 #+BEGIN_SRC js :exports code :results output
   var adding = function (x,y) {return x + y;};
   console.log(adding(1,2));
@@ -256,14 +347,32 @@ Fill in the following code to make a function that will return 0 if the argument
 
 * What Makes a Website Tick
 ** What Happens When You Visit a Webpage
-   + Your browser requests a page \pause
+   + You enter a URL \pause
    + The DNS system finds the server \pause
-   + 
+   + Your browser makes an HTTP request \pause
+   + The server processes the request \pause
+   + The server sends a response \pause
+   + Your browser receives the response
 ** HTTP
    + =GET= \pause
    + =POST= \pause
    + =PUT= \pause
    + =DELETE=
 ** The Client
+   + Sends the request \pause
+   + Receives \pause
+     + HTML \pause
+     + CSS \pause
+     + JavaScript \pause
+   + Renders the webpage
 ** Where Javascript fits in
-   + View source
+   + View source \pause
+   + The JavaScript code changes the page \pause
+   + Listens for events: \pause
+     + keyboard input \pause
+     + mouse movement \pause
+     + mouse clicks \pause
+   + https://www.tinkercad.com/
+** Code Academy
+   + More time for practice \pause
+   + I'll answer any questions you have
