@@ -8,6 +8,25 @@
 #+BEAMER_FRAME_LEVEL: 2
 
 * Closures
+  + Functions can return functions \pause
+  + Variable scope and inner functions \pause
+#+BEGIN_SRC js :exports code 
+  function fun1 () {
+      var inner = 0;
+      return (function () { inner = inner+1;
+                           return inner;
+                           });
+  }
+  var f = fun1();
+  f();
+  f();
+  console.log(f());
+#+END_SRC
+
+#+RESULTS:
+: 3
+: undefined
+
 * Where To Go From Here?
 ** Learning More Programming
    + Continuing Code Academy \pause
