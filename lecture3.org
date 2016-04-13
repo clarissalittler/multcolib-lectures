@@ -1,13 +1,14 @@
 #+TITLE: Beginning Programming in JavaScript
 #+AUTHOR: Clarissa Littler
 
+#+OPTIONS: toc:nil H:2
 #+startup: beamer
 #+BEAMER_THEME: Madrid
 #+LaTeX_CLASS: beamer
 #+LaTeX_CLASS_OPTIONS: [bigger]
-#+BEAMER_FRAME_LEVEL: 2
 
 * Closures
+** Functions and Variables
   + Functions can return functions \pause
   + Variable scope and inner functions \pause
 #+BEGIN_SRC js :exports code 
@@ -26,7 +27,15 @@
 #+RESULTS:
 : 3
 : undefined
-
+** The Use of Closures
+   + Hidden state \pause
+   + Data protection \pause
+   + Counters
+* =this= and That
+** =this=
+   + 
+* Prototypes
+  + 
 * Where To Go From Here?
 ** Learning More Programming
    + Continuing Code Academy \pause
