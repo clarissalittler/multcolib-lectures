@@ -1,0 +1,13 @@
+#+TITLE: Making Websites for Beginners
+#+AUTHOR: Clarissa Littler
+#+OPTIONS: H:2 toc:nil
+#+startup: beamer
+#+BEAMER_THEME: Madrid
+#+LaTeX_CLASS: beamer
+
+* The Components of a Web page
+* HTML
+* CSS
+* JavaScript
+* The Document Object Model
+
