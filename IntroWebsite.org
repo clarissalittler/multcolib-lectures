@@ -6,8 +6,28 @@
 #+LaTeX_CLASS: beamer
 
 * The Components of a Web page
+** What is a web page?
+** What is your browser?
+** What does a browser do?
+** The pieces of a web page
 * HTML
+** What is HTML?
+** Basic Elements of HTML
+** Links
+** Paragraphs
+** Lists
+** Headers
+** Quoting
+** Tables
 * CSS
+** What is CSS?
+** Classes, HTML, and pineal glands
+** Formatting with classes
+** Common attributes
 * JavaScript
 * The Document Object Model
-
+* Putting It Together
+* What To Learn Next?
+** CSS processors
+** More HTML
+** Frameworks for making 
