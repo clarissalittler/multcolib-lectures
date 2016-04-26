@@ -7,27 +7,200 @@
 
 * The Components of a Web page
 ** What is a web page?
+*** 
+    What your browser displays \pause
+*** 
+    (insert image of a page)
 ** What is your browser?
+   + The program that displays a page \pause
+     + Chrome \pause
+     + Firefox \pause
+     + Safari \pause
+     + Internet Explorer \pause
+     + ...
 ** What does a browser do?
+   + Communicates over the internet \pause
+   + 
 ** The pieces of a web page
+   + HTML \pause
+     + The information and semantic layout of the page \pause
+   + CSS \pause
+     + How the page /looks/ \pause
+   + JavaScript \pause
+     + How you can interact with the page
 * HTML
 ** What is HTML?
-** Basic Elements of HTML
-** Links
+   + Hyper Text Markup Language \pause
+   + Specialized language for formatting pages \pause
+   + HTML has *elements* for \pause
+     + lists \pause
+     + paragraphs \pause
+     + columns \pause
+     + headlines
+** Syntax of HTML
+   + Elements are denoted by "tags" \pause
+     + =<p> </p>= \pause
+     + =<ol> </ol>= \pause
+     + =<table> </table>= \pause
+   + Most tags \pause
+     + open $\Rightarrow$ =<name>= \pause
+     + close $\Rightarrow$ =</name>=
+   + Tags are nestable \pause
+*** 
+#+BEGIN_SRC html :exports code
+  <ol>
+    <li> one thing </li>
+    <li> another thing </li>
+  </ol>
+#+END_SRC
+** Syntax of HTMl
+   + Some tags don't contain anything \pause
+     + =<name />= \pause 
+     + =<link />= \pause
+     + =<br />= \pause
+   + Tags have /attributes/ \pause
+     + attributes are extra data \pause
+     + =href= \pause
+     + =class= \pause
+     + =id= \pause
+     + ~<p class="boldtext"> text here </p>~
 ** Paragraphs
+   Paragraphs $\Rightarrow$ =<p>= 
+
+#+BEGIN_SRC html :exports code :tangle paragraphTest.html
+  <p> This is a paragraph of text. It will display as separate from other paragraphs. By wrapping things in the paragraph tag we can be certain that our text will be separated and formatted properly.
+  </p>
+
+  <p> This is another paragraph. </p>
+#+END_SRC
 ** Lists
 ** Headers
 ** Quoting
+** Links and Anchors
+     + Anchors are the most fundamental element of HTML \pause
+     + Puts the hyper in hypertext \pause
+     + Anchors $\Rightarrow$ =<a>=
+
+     #+BEGIN_SRC html :exports none :tangle linkTest.html
+       <h1 id="headliner"> This is our headline </h1>
+
+       <p id="paragraph"> Here's some text here that has another id and some dummy text. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus diam nulla, in gravida lorem consectetur nec. Aliquam vehicula sem non ultricies dictum. Ut et blandit mauris, non posuere augue. Aliquam diam neque, venenatis eget tempor at, maximus id nunc. Nulla ornare ut erat vitae lobortis. Quisque eget iaculis massa, quis iaculis magna. Integer leo urna, ultricies in velit quis, tempor fermentum ligula. Donec venenatis vestibulum ornare. Duis consequat orci ante. Sed in mollis ante, ut euismod leo. Nullam nunc arcu, posuere eu mauris sit amet, consectetur porttitor felis. Pellentesque lacinia sit amet dui sed venenatis. Curabitur hendrerit ultricies ante.
+
+       In hac habitasse platea dictumst. Donec venenatis turpis sed vehicula ultricies. Nunc placerat pulvinar metus, et varius velit mattis id. Suspendisse non tempor ligula. Integer pellentesque bibendum magna, vel porta urna dictum euismod. Mauris neque mi, rhoncus in viverra id, fermentum eu mauris. Vestibulum egestas et urna quis imperdiet.
+
+       Sed consectetur interdum lorem, eget ultricies libero euismod id. Duis convallis laoreet risus in auctor. Aliquam erat volutpat. Donec sed diam justo. Praesent feugiat sollicitudin sem, sed lacinia ex cursus id. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sollicitudin ut tortor id faucibus. Ut ornare metus ex, eu mattis quam facilisis ac. Quisque commodo porttitor placerat. Mauris lobortis porta turpis at egestas. Pellentesque auctor lectus diam, bibendum lobortis justo finibus at. Ut maximus consequat arcu, et ornare ligula. Fusce sodales orci ac nibh luctus pretium. Donec eu magna enim.
+
+       Cras suscipit erat id vestibulum elementum. Mauris blandit molestie lorem. Quisque ornare nulla at enim maximus tempus. Suspendisse quis mauris vel leo facilisis tempor. Nullam nibh ante, tincidunt sed massa non, imperdiet tempor tortor. Vivamus eu massa ornare, pellentesque erat at, facilisis ipsum. Quisque sit amet mi a mi lacinia maximus. Donec aliquam tellus non odio porttitor fermentum. Cras vulputate nisi eu quam congue, nec aliquet lorem fringilla. Curabitur eleifend cursus quam, ac porta leo suscipit vel. Vivamus purus leo, aliquet nec pulvinar quis, tempus quis quam. Morbi viverra eu ante vel commodo.
+
+       In hac habitasse platea dictumst. Aliquam vel porttitor neque. Vestibulum aliquet odio mi, ac suscipit turpis ultricies non. Fusce vulputate, diam a lobortis finibus, risus lorem viverra mi, et cursus libero lorem at elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pretium arcu a imperdiet hendrerit. In convallis viverra lacinia. Nulla lacus neque, lacinia dictum velit ac, imperdiet mattis nisl. Sed viverra nunc a diam accumsan, congue pellentesque dui cursus.
+
+       Sed malesuada pharetra ante non placerat. Morbi interdum tristique porta. Proin enim velit, accumsan vitae faucibus non, sagittis eget lacus. Praesent tempor congue facilisis. Praesent vitae nunc massa. Integer fringilla ex in magna efficitur, nec tincidunt mauris varius. Integer tortor orci, gravida sit amet est sit amet, accumsan faucibus ligula. Praesent ultricies libero et pretium convallis. Sed malesuada mollis risus, at cursus eros. Sed laoreet aliquam erat. Maecenas fringilla iaculis cursus. Nullam sed fermentum ligula. Suspendisse potenti. Nullam rhoncus risus felis, eu efficitur ligula tincidunt et.
+
+       Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Curabitur non dui quam. Curabitur ultrices eu mauris vitae viverra. Vestibulum bibendum sodales lacinia. Ut ultricies fermentum lectus ut dignissim. Praesent viverra nisl fermentum mollis porttitor. Suspendisse laoreet lectus sed nunc blandit posuere. Donec dictum id dui vel cursus. Cras elementum gravida nisl ac pharetra. Curabitur blandit augue in enim blandit, sed laoreet justo rhoncus. Donec sed blandit neque. Pellentesque pulvinar, turpis eget dapibus pulvinar, sapien turpis aliquam turpis, et vulputate nisi ante nec lacus. Etiam lectus lorem, tempus porttitor tristique vitae, feugiat eu magna. Nulla ornare consectetur commodo.
+
+       Pellentesque imperdiet suscipit mauris, eget finibus leo rutrum blandit. Curabitur a dolor sed erat aliquam semper et vel dui. Maecenas sapien nunc, luctus id commodo vitae, gravida sed diam. Vivamus pulvinar non massa vitae aliquam. Maecenas luctus quis neque vitae lacinia. Vivamus bibendum enim efficitur fringilla pretium. Sed ut est in quam interdum aliquam. Pellentesque tincidunt nisi at semper faucibus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc et faucibus neque. Vivamus dapibus tortor pulvinar justo sagittis efficitur quis non elit. Vivamus id massa lectus. Etiam dapibus neque sit amet tincidunt malesuada. Duis viverra viverra felis in viverra. Phasellus pellentesque felis leo, a scelerisque enim pulvinar ut. Cras vitae ligula ultrices sem consectetur ultricies.
+
+       Mauris eget mauris at elit porttitor scelerisque. Maecenas viverra eleifend nibh, quis consectetur odio. In quis libero non neque condimentum cursus. Ut ac sapien eu velit vestibulum elementum. Morbi gravida eros id facilisis lacinia. Donec viverra sem in vehicula sollicitudin. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer vel tellus accumsan, bibendum turpis ut, placerat nisl.
+
+       Proin quis faucibus ligula. Phasellus dignissim sagittis orci, ac placerat justo euismod nec. Nunc luctus ipsum at libero sollicitudin convallis. Sed vel malesuada elit. Donec dapibus, odio sed sagittis varius, tellus orci sodales sapien, vitae dictum dui orci vitae ipsum. Ut quis vulputate nulla. Nam ac ligula ac risus molestie varius ac nec lacus. Vestibulum nec nisl in ipsum auctor finibus.
+
+	 </p>
+
+       <p>
+       This is going to be an internal link back to the <a href="#headliner">top</a> of the page.
+       </p>
+
+       <p>
+       Down here we'll have a link to an external <a href="http://multcolib.org">web site</a>
+       </p>
+     #+END_SRC
 ** Tables
+** Divs
+#+BEGIN_SRC html :exports none :tangle divpractice.html
+  <html>
+  <head>
+    <style>
+      #container {
+      display: table;
+      }
+
+      #row  {
+      display: table-row;
+      }
+
+      #left, #right, #middle {
+      display: table-cell;
+      width: 150px;
+      }
+      #left {
+      background-color: teal;
+      }
+      #middle {
+      background-color: red;
+      }
+      #right {
+      background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <div id="row">
+      
+        <div id="left">
+          <h4>Left Col</h4>
+          <p>...</p>
+        </div>
+      
+        <div id="middle">
+          <h4>Middle Col</h4>
+          <p>...</p>
+        </div>
+      
+        <div id="right">
+          <h4>Right Col</h4>
+          <p>...</p>
+        </div>
+      
+      </div>
+    </div>
+  </body>
+  </html>
+#+END_SRC
+** Formatting text
+In this section we need to convey that there are all these /semantic/ modifiers and that we should remember 
+   + =<b>= \pause
+   + =<i>= \pause
+   + =<strong>= \pause
+   + =<em>= \pause
+   + many more
 * CSS
 ** What is CSS?
 ** Classes, HTML, and pineal glands
 ** Formatting with classes
 ** Common attributes
+** Changing fonts
+** Putting the cascade in cascading style sheets
+** Background images
 * JavaScript
+** What is JavaScript?
+** What Is Programming?
+** What Are Programs?
+** JavaScript Syntax
+** Arithmetic
+** Strings
+** Variables
+** Objects
+** If-statements
+** For-statements
+** Function calls
+** Function declarations
 * The Document Object Model
+** What is the Document Object Model?
+** Accessing the DOM from JavaScript
+** Inserting JavaScript into your page
 * Putting It Together
 * What To Learn Next?
 ** CSS processors
 ** More HTML
-** Frameworks for making 
+** Frameworks for making web sites
