@@ -176,6 +176,8 @@ In this section we need to convey that there are all these /semantic/ modifiers 
    + many more
 * CSS
 ** What is CSS?
+   + Cascading Style Sheets \pause
+   + 
 ** Classes, HTML, and pineal glands
 ** Formatting with classes
 ** Common attributes
@@ -184,9 +186,9 @@ In this section we need to convey that there are all these /semantic/ modifiers 
 ** Background images
 * JavaScript
 ** What is JavaScript?
-** What Is Programming?
-** What Are Programs?
-** JavaScript Syntax
+** What is Programming?
+** What are Programs?
+** JavaScript syntax
 ** Arithmetic
 ** Strings
 ** Variables
