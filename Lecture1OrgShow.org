@@ -1,0 +1,24 @@
+* Why Learn Programming?
+elisp:org-show-mode
+elisp:org-show-start-slideshow
+** What you'll learn here					      :slide:
+   
+The questions we'll answer in this course
+   1. What even is programming?
+   2. What is JavaScript and why do we care?
+   3. How is JavaScript used in web pages?
+   4. What to study next?
+
+The bulk of our time will be spent on the first two questions
+** This course							      :slide:
+   This class will be *three* weeks of lectures, each lecture *two* hours each.
+
+   There will be small exercises and in-class quizzes to help you digest the material.
+** Why programming?						      :slide:
+   + Jobs
+   + Automation
+   + Fun
+** What can you do?						      :slide:
+things things things
+[[./website.png]]
+** What can you do?						      :slide:
