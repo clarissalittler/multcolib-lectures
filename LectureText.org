@@ -1,6 +1,6 @@
 #+TITLE: Beginning Programming in JavaScript (Lecture Notes)
 #+AUTHOR: Clarissa Littler
-
+* Meta								   :noexport:
 * Lecture 1
 ** Introduction
    If you're here in the class, I'll presume that you're hoping to learn at least a little bit about programming. This class is going to be 
