@@ -19,6 +19,22 @@ The bulk of our time will be spent on the first two questions
    + Automation
    + Fun
 ** What can you do?						      :slide:
-things things things
-[[./website.png]]
+All modern interactive websites have a very large amount of code that supports them. Much of this code is loaded into your browser every time you visit a site.
+q[[./website.png]]
 ** What can you do?						      :slide:
+
+[[./servers.jpg]]
+** What can you do?						      :slide:
+
+[[./talkwriting.png]]
+** What can you do?						      :slide:
+
+[[./SelfDrivingCar.jpg]]
+* What Is Programming?
+** Programming Is						      :slide:
+   Programming is a way to instruct a computer to do things?
+   But what things?
+   And more importantly, what can't it do?
+** Computers as people						      :slide:
+   Once upon a time, computers were women trained to crunch numbers. 
+** 

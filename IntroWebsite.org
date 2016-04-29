@@ -114,7 +114,6 @@
        Down here we'll have a link to an external <a href="http://multcolib.org">web site</a>
        </p>
      #+END_SRC
-** Tables
 ** Divs
 #+BEGIN_SRC html :exports none :tangle divpractice.html
   <html>
@@ -167,6 +166,7 @@
   </body>
   </html>
 #+END_SRC
+** Tables
 ** Formatting text
 In this section we need to convey that there are all these /semantic/ modifiers and that we should remember 
    + =<b>= \pause
@@ -177,13 +177,135 @@ In this section we need to convey that there are all these /semantic/ modifiers 
 * CSS
 ** What is CSS?
    + Cascading Style Sheets \pause
+   + The primary way we change how pages /look/
    + 
 ** Classes, HTML, and pineal glands
-** Formatting with classes
+   + two different ways to connect CSS and HTML \pause
+     1) =<style>= tags \pause
+     2) including =<link>= tags \pause
+   + three ways for CSS to refer to elements \pause
+     + id \pause
+     + class attribute \pause
+     + element type
+** Examples of CSS
+   #+BEGIN_SRC html :exports code :tangle firstCSS.html
+     <!doctype html>
+
+     <html>
+       <head>
+         <style>
+           div {
+             background-color: silver;
+	     width: 200px;
+           }
+           p {
+             font-weight: bold;
+           }
+         </style>
+       </head>
+       <body>
+         <div>
+           <p> This is some text that should appear nice and bold, but with a silver background color. </p>
+         </div>
+       </body>
+     </html>
+   #+END_SRC
+*** 								   :noexport:
+   [[./firstCSS.html]]
 ** Common attributes
 ** Changing fonts
 ** Putting the cascade in cascading style sheets
+   + the browser takes into account all applicable styles \pause
+   + in case of conflicts, specific wins
+** CSS Exercise
+*** Question 
+    What's the color of the text in the web page described below?
+    #+BEGIN_SRC html :exports code :tangle cssTest1.html
+      <!doctype html>
+      <html>
+        <head>
+          <style>
+            div {
+              width: 200px;
+              color: red;
+            }
+            #divvy {
+              color: blue;
+            }
+	    #perry {
+	      color: green;
+	    }
+            .texter {
+              color: silver;
+            }
+          </style>
+        </head>
+      <body>
+        <div id="divvy">
+          <p class="texter" id="perry"> This is some text. What color is it going to be?</p>
+        </div>
+      </body>
+      </html>
+    #+END_SRC
+*** 								   :noexport:
+    [[./cssTest1.html]]
 ** Background images
+   
+** Columns with Divs
+   + The old-fashioned way to format webpages was to use /tables/ \pause
+   + Now, tables are just for literal tables \pause
+     + Though you'll still examples written this way \pause
+   + =div= and css can do everything else we need 
+** Columns with Divs
+   The key is the display property
+   #+BEGIN_SRC html :exports code :tangle cssDivCol.html
+     <!doctype html>
+     <html>
+       <head>
+         <style>
+           #container {
+              display: table;
+           }
+           .row {
+             display: table-row;
+           }
+           .cell {
+             display: table-cell;
+             width: 50px;
+             background-color: silver;
+	     border-width: thin;
+	     border-color: blue;
+	     border-style: solid;
+           }
+	   p {
+	     text-align: center;
+	   }
+         </style>
+       </head>
+       <body>
+         <div id="container">
+           <div class="row">
+             <div class="cell">
+               <p>cells</p>
+             </div>
+             <div class="cell">
+               <p>in</p>
+             </div>
+             <div class="cell">
+               <p>row 1</p>
+             </div>
+           </div>
+           <div class="row">
+             <div class="cell"><p>cells</p> </div>
+             <div class="cell"><p> in </p> </div>
+             <div class="cell"><p> row 2 </p></div>
+           </div> 
+         </div>
+       </body>
+     </html>
+   #+END_SRC
+*** 								   :noexport:
+    [[./cssDivCol.html]]
 * JavaScript
 ** What is JavaScript?
 ** What is Programming?
@@ -206,3 +328,4 @@ In this section we need to convey that there are all these /semantic/ modifiers 
 ** CSS processors
 ** More HTML
 ** Frameworks for making web sites
+   
