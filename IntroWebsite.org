@@ -5,6 +5,8 @@
 #+BEAMER_THEME: Madrid
 #+LaTeX_CLASS: beamer
 
+* Meta								   :noexport:
+  I'm starting to get worried about how long this will be. I want this lecture to fit within 2 hours, but this is a massive amount of material for two hours. Maybe what's needed is to rethink this approach to, rather than being a firehose of information, we split this into two major pieces: the presentation and the supporting material. I write a large guide with a bunch of tutorial examples that you can walk through and reference material on how to do different things and then the lecture is basically just a taste of it, an overview
 * The Components of a Web page
 ** What is a web page?
 *** 
@@ -166,6 +168,15 @@
   </body>
   </html>
 #+END_SRC
+** Spans
+*** meta							   :noexport:
+    Not sure if we should have this here or later 
+
+** Forms and Inputs
+** Text fields
+** Buttons
+** Radio buttons
+** Check marks
 ** Tables
 ** Formatting text
 In this section we need to convey that there are all these /semantic/ modifiers and that we should remember 
@@ -174,6 +185,7 @@ In this section we need to convey that there are all these /semantic/ modifiers 
    + =<strong>= \pause
    + =<em>= \pause
    + many more
+** Block vs. inline
 * CSS
 ** What is CSS?
    + Cascading Style Sheets \pause
@@ -306,6 +318,8 @@ In this section we need to convey that there are all these /semantic/ modifiers 
    #+END_SRC
 *** 								   :noexport:
     [[./cssDivCol.html]]
+** Tweaking layout with spans
+   + =span= is like =div= but for inlines
 * JavaScript
 ** What is JavaScript?
 ** What is Programming?
@@ -317,13 +331,22 @@ In this section we need to convey that there are all these /semantic/ modifiers 
 ** Objects
 ** If-statements
 ** For-statements
-** Function calls
+** Function calls 
 ** Function declarations
 * The Document Object Model
 ** What is the Document Object Model?
+   + The document object model (DOM) is a /representation/ of the webpage as presented to JavaScript \pause
+   + The DOM 
 ** Accessing the DOM from JavaScript
 ** Inserting JavaScript into your page
+** Events and event handlers
+** Case study: Adding an element to a list
+   (Give a small form where clicking the button means adding an element to the list)
+** Case study: Mouse over a menu to make it drop down
+
 * Putting It Together
+** Case study: Formatting a blog posting engine
+   This might be too big but I think it might be useful to have something where we can make posts and tag them and then do things like delete past posts or hide-show them according to tags. That may not be a reasonable goal for a class this small, but then again it might be the kind of thing where we walk through it a little bit and then just give them a link to look at the code later. 
 * What To Learn Next?
 ** CSS processors
 ** More HTML
