@@ -1,6 +1,12 @@
 #+TITLE: Beginning Programming in JavaScript (Lecture Notes)
 #+AUTHOR: Clarissa Littler
 * Meta								   :noexport:
+  This whole text needs to be re-arranged so it's more of a resource after the fact rather than just purely the copy of lecture notes. 
+
+  The emphasis needs to be on
+  1. informal descriptions and how they translate into the skeletons of programs
+  2. various small problems and the entire process of translating from informal description to program
+  3. the ability to evaluate syntax by hand. I might even just make a new file for this.
 * Lecture 1
 ** Introduction
    If you're here in the class, I'll presume that you're hoping to learn at least a little bit about programming. This class is going to be 
