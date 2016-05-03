@@ -1,0 +1,449 @@
+#+TITLE: Beginning Programming in JavaScript
+#+AUTHOR: Clarissa Littler
+#+LaTeX_HEADER: \usepackage{color}
+
+\newcommand{\key}[1]{
+  \textcolor{blue}{#1}
+}
+
+* Introduction
+** What Is This Document?
+   This document is a part of a set of tutorial lectures for absolute beginners to learn programming. The mini-course is centered around JavaScript and on accomplishing certain small goals in JavaScript. 
+** What This Document Isn't
+   1. A full course on JavaScript
+   2. An explanation of how to do web-programming
+   3. A reference for the entire JavaScript language
+** Why Programming?
+   First, let's talk about why someone would even want to learn computer programming in the first place. There's the obvious pragmatic reason of hoping to get a job as a programmer. There's also all the things you can potentially /do/ as a programmer. These days we talk a lot about coding websites and mobile apps, which are massively important in their own right, but there's even more beyond that. In just the last few years we've reached a point where we can programmatically control the electronics in our houses, we can write code to control 3D printers, we can program AIs and robots and self-driving vehicles. A larger and larger portion of our lives is going to be mediated by code and automation, and since I have a strong populist streak I'd love to see more people be able to take control of this dependence on automation and artificial intelligence.
+
+   Even beyond all of those good reasons for learning programming, there's also just the pleasure of it. Coding can be a lot like cooking or any other form of crafting: you're figuring out how to make something and just the act of /making/ brings a certain pleasure with it.
+** What Is Programming?
+   Before we start talking about /how/ to program, we need to discuss /what/ programming is. The answer I think I lot of people would give is something like "programming is how you tell a computer to do things", which is true but I think we can go a little deeper than that by taking a detour through what "computer" and "computation" really mean. 
+
+   Once upon a time, by which I mean the first half of the twentieth century, "computer" was a job title not a noun. A computer was a person who made calculations, often for physics experiments or firing solution tables for the military. In other words, computers were people whose job was to /perform computation/. As a historical side-note, computers were mostly women and these computers, in turn, were some of the first programmers. 
+
+   Computers, whether people or machines, perform computations by executing a series of steps. Think back to how you learned to add big numbers together with a pencil and paper: you start at the rightmost column, add the two numbers together, carry the one if you need to, and proceed to the next column. In fact, every calculation you learned how to do in math classes all had some series of steps you were supposed to do to get the answer. 
+
+   We can generalize this idea of taking steps and calculations to be about more than just numbers. Any procedure that takes
+   + a finite[fn:1] number of steps 
+   + a finite amount of "material"
+   + a finite amount of time to complete 
+can be described as a computation. This includes things like
+   + cooking
+   + following a map
+   + building furniture from a wordless diagram
+
+And while tasks like these might seem like a bit of a digression when we're talkinga about /computers/, the point here is that anything that *can* be described in the "finite" way we did above can potentially be done by programmed machine. Self-driving cars can follow map directions to get to a destination. 3D printers can assemble solid objects given a blue print and enough matieral. 
+
+Computation is not just number crunching or showing you a webpage. Now, you might be wondering what /can't/ be described by a computation, and it turns out the answer is "quite a lot, but not a lot you'd care about". You're most likely to run into the limits of computation when writing programs that try to analyze other programs. This is why there's no perfect anti-virus program: it's physically impossible for there to be a program that can look at another program and determine, with perfect accuracy, whether or not its a virus. I'm not joking when I say "physically impossible". The limits of computation are as real and physical as the laws of motion. No amount of making computers faster can get around them. 
+
+The difference between a recipe and a "program" is the level of precision. A recipe can be short, to the point, and you can fill in the gaps because you're a person and you have experience you can draw on to make conclusions, to read between the lines. A computer doesn't have that ability. It needs instructions to be absolutely precise, to be 100% clear with no ambiguity. Writing in English, or any other natural language, isn't precise enough to be certain that you're telling the machine what you *think* you're telling it. 
+
+Because of this, programming languages tend to be small and with a very rigid, non-extensible grammar. The same way that in any language we speak there's a notion of "correct" and "incorrect" grammar, there's correct and incorrect grammar for a programming language. Unlike a natural language, where I can speak my native tongue of Texan and say "y'all'd've" and you probably know what I mean. Spend five minutes on tumblr and you'll see new idioms and words being coined constantly. It's really cool! Programming languages don't generally have this flexibility, though. Their grammar is set. 
+
+Instead, we have specialized, simple, languages for exactly describing what the computer should do. Unsurprisingly, we call these /programming languages/. There's many, many programming languages out there and some are good, some are bad, but most are just /different/ ways of describing computations to the computer. For this course, we'll be specifically learning a language called JavaScript.
+** Why JavaScript?
+   In this mini-course we'll be learning JavaScript. Why JavaScript in particular, though? First, JavaScript is the language that makes interactive websites *work*. Now, if your first thought is "what's a non-interactice site?" then I suggest you try looking at one of the GeoCities archive projects to see what 90s web pages looked like. They were ugly and they were basically just static text, images, and links. Nothing changed when you interacted with it. The only real points of interaction were forms and links.
+
+   Obviously, that's nothing what websites look like now. We have animations as you hover over and click things. We have pages that change constantly as you're interacting with them. We even have rich games that can run in the browser. All of that is possible because we now have the ability to run code that creates this interactive experience. All of the code that runs in your web browser is in JavaScript.
+
+   Why? Well, like most things related to programming language adoption it's a matter of someone deciding to use it and eventually everyone else settling on the ready solution rather than inventing their own. The end result, though, is that every browser that exists, whether on a phone, or a laptop, or a desktop, or a tablet all have what's called an /interpreter/ that can understand JavaScript programs and run them in order to make the page your own interactive. We'll talk more later about /what/ happens in your browser when you visit a webpage.
+
+   Suffice it to say, JavaScript is a ubiquitous and important language now.
+
+   Lukily, I happen to also think it's a fairly decent one. If you look online for people's opinions on JavaScript you'll find it gets some hate because there are some pretty weird and counterintuitve aspects of the language, but they're also mostly avoidable unless you're running into someone else's code that uses them. "JavaScript: The Good Parts" by Crockford is a good reference for the nice, clean core of the language. 
+
+* Basic Syntax and Translation
+** Loading and Running Code
+*** 								   :noexport:
+    Include three things here:
+    1. how to open the javascript console in the browser and run lines of code
+    2. how to run a javascript program in the browser
+    3. how to install and run a javascript program through node
+** Nouns and Verbs
+   The same way that, in English, there's nouns that describe objects and verbs that describe actions, in a programming language there's a distinction between the "nouns" that describe data and the "verbs" that describe what to do with the data. 
+
+   Data in a programming language are going to be things like numbers, pieces of text called strings, lists of things, and collections of things. 
+
+   The actions in a programming language are things like reading in user input, printing out messages, changing the webpage, changing data, and storing data. There's even more complicated constructs to do things multiple times or to even store code so it can be reused again and again. 
+** Descriptions vs. Algorithms
+   We've established that programs are detailed descriptions of instructions that are human readable but precise enough for a computer to understand.
+
+   There is a connection, though, between the ways we describe things to each other versus how we need to describe tasks to a computer. 
+
+   For the rest of these notes we'll be explaining how to take a description of how to perform a task in English and translate it into JavaScript. There are going to be keywords that are important clues in how we take an English solution and turn it into real code. We'll highlight these keywords when we first introduce them by having them show in the color \textcolor{blue}{blue}.
+
+   Our first example is that whenever we say \textcolor{blue}{print} something, we know that in JavaScript this is going to turn into =console.log(thing-to-print)=. So whenever you see in a description such as 
+
+#+BEGIN_CENTER
+Compare two numbers, =a= and =b=, and then print the value of the larger number.
+#+END_CENTER
+
+You know that you're going to use =console.log= to print out something.
+*** meta							   :noexport:
+    In this section we need to explain the idea that we'll be introducing syntax by explaining how informal phrases will lead to syntax
+** Running Code By Hand
+   The last bit of prologue before we start describing the JavaScript language is that throughout this document we'll be explaining how to evaluate code /by hand/ if you wish to. 
+
+   Now, that might seem an odd thing to do but it's a lot like learning arithmetic as a child. There's nothing wrong with using a calculator *once you know how it works*. First, though, you need to understand what the calculator is doing under the hood. Not even because it "builds character", but because unless you know how to do calculations yourself on some level you won't know how to spot what a right answer and a wrong answer looks like and you won't have the skills to double check calculations. 
+
+   It's easy to make typos and say something you didn't mean even entering things into a calculator and it's far easier still to say something you didn't mean at all when you're programming a computer. It's a useful skill to be able to check your code before you ever even run it. 
+
+   To this end, with each new piece of JavaScript we introduce we'll explain how to evaluate the code by hand with a pen and paper. You don't have to format the paper the way I suggest, just as long as it's clear to you what the state of the progrma is.
+*** meta 							   :noexport:
+    In this section we need to include explanation of the fact that you can run code by yourself with just a pen and paper if you wish. Why? Because it's a good way to get experience with writing code and ensures that you understand what's really happening.
+** Basic Expressions
+*** Expressions and Values    
+  In JavaScript, and a number of languages, there's a distinction between steps in a program and calculations that, usually, result in some kind of value. By calculations I mean things such as 
+   + concatenating strings
+   + adding numbers
+   + printing values
+  Most expressions will return some kind of /value/. By /value/ I mean the basic data of JavaScript. Numbers are values 
+
+*** Numbers
+     The first kind of data we'll look at are /numbers/. Numbers in JavaScript are just like numbers in math classes you took. The operations you're familiar with are all here: multiplication, division, addition, and subtraction. 
+
+     In JavaScript
+     + addition :: +
+     + subtraction :: -
+     + division :: /
+     + multiplication :: *
+
+     If you type in something like ~10*(3-2)+5~ into the console you'll see the JavaScript interpreter /evaluate/ the expression and then return the value, which in this case is 15.
+
+     Go ahead and try a few arithmetic expressions just to see what happens.
+*** Strings
+     One of the other incredibly important kinds of data are /strings/. Strings are pieces of text held within quotation marks, either double or single quotes. A programming language needs strings so that it can interact with text: either reading and understanding it or displaying it to the user. 
+
+ You can make a string either like 
+ #+BEGIN_SRC js :exports code
+   "this is a string, or should I say 'a string'"
+ #+END_SRC
+ or like this
+ #+BEGIN_SRC js :exports code
+   'this is a string, or should I say "a string"'
+ #+END_SRC
+ but there's a few things that /aren't/ valid. You can't do 
+ #+BEGIN_SRC js :exports code
+   "this is a string, or should I say "a string""
+ #+END_SRC
+ because since you started the string with a double-quote its not obvious to the interpreter where you wanted the end of the string to be. If you want to represent quotations-within-strings you should really just switch between single and double quotes.
+
+ This also means that it isn't valid to mis-match the kinds of quotation marks. So something like
+ #+BEGIN_SRC js :exports code
+   "this is a string'
+ #+END_SRC
+ will not work.
+** Statements and Steps
+   One of the first things we need to discuss before we begin writing real programs is how to do more than a single step in a program.
+*** meta 							   :noexport:
+    =undefined= should go in here
+** Variables
+   Now that we know how to do more than a single thing at a time, we need to deal with how data is stored and used later.  
+*** Variables-as-shorthand
+*** Variables-as-containers
+   
+** Objects
+   Objects 
+** Function calls
+    So far we've only seen very simple operations. Obviously a programming language needs a lot more to be able to be useful. A lot of the functionality of a programming language is going to be in the, well, /functions/.
+
+    Functions in a programming language such as JavaScript are a little the same and a little different from functions as you may have seen them in an algebra class. In algebra, there are things like
+#+BEGIN_EXAMPLE
+f(x) = x + 2
+#+END_EXAMPLE
+and then you can /apply/ the function to an argument. In this case, we have that =f(2)= is going to compute to 4. In algebra, we can think of functions as things that take arguments and perform computations, it's just that the computations are limited to number crunching.
+In a programming language such as JavaScript, there's many things that a function can do that aren't giving you back a number. Functions in JavaScript are allowed to 
+    + change variables
+    + display messages to a user
+    + communicate with other computers
+    + etc.
+in addition to returning a value. 
+
+Many functions, if they don't need to return anything particularly useful, will just return ~undefined~. 
+
+We'll cover how to define functions shortly, but for now let's talk about an example of a function, ~console.log~, which prints out a value to the console.
+
+We can use it like 
+#+BEGIN_SRC js :exports code
+  console.log(10+20)
+#+END_SRC
+
+We can see from this example the form, or syntax, of using a function is just like our example from algebra: you put the argument in parentheses just after the function name. If you have multiple arguments, you separate them by commas. 
+*** meta							   :noexport:
+    This section has some problems. First off, I don't want to appeal to just college algebra when it comes to 
+** Arrays
+   
+** Choices
+    Often when we're discussing instructions there's a notion of /choice/. \key{If} it's raining, take an umbrella. \key{If} you see the purple Little Free Library, take a right, \key{otherwise} you should keep walking. \key{If} the avocados are ripe, make tacos.
+
+    We can make these choices in programming as well. \key{If} the username and password match, log the user in. \key{If} the user clicks send, send the email. 
+**** Booleans
+     In order to make these choices, though, we need for the programming language to understand what it means for something to be "true".
+
+     While truth is a pretty complicated concept if you ask a philosopher, for the purposes of basic programming it's quite simple: there is a kind of data called a /boolean/. Booleans are either ~true~ or ~false~. In order to make decisions, we need operations and functions that will return booleans. 
+
+     For example, we have the equality operator, ~===~, and the less than operator ~<~, and the greater than operator ~>~. These operations follow our intuitive notions of what they should mean. ~2 < 5~ is true, but ~2 === 5~ is false. 
+**** If-statements
+    As you can imagine from the way I've been emphasizing the word "if", it's somehow important to the syntax of making choices.
+
+    We call these "if-statements", and we use them like
+#+BEGIN_SRC js :exports code
+  if (2 < 5) {
+      console.log("two is less than five");
+  }
+#+END_SRC
+
+What if you have alternatives in mind: code that you want to run if the condition /isn't true/? In that case you need the keyword ~else~, as in
+#+BEGIN_SRC  js :exports code
+  if (2 === 5) {
+      console.log("two is equal to five");
+  }
+  else {
+      console.log("two wasn't equal to five");
+  }
+#+END_SRC
+
+** Repetition
+Very often, there are /subtasks/ when we're performing a task. We need to do something again and again. This repetition has a couple of obvious forms and a more subtle one.
+The two obvious ones are
+
+   1. doing something a /number/ of times
+   2. doing something until there's some change
+
+and the more subtle one is /naming/ actions so that you can perform them again and again as a sequence of steps.
+
+*** For-loops
+    
+For the first kind of repetition think of times you've said or heard instructions like, 
+   + cut \key{three} onions
+   + put \key{every} book on the shelf
+   + send a letter to \key{each} address on the list
+
+When the instruction lists either a number of times to perform an action or specifies a collection of /things/ that you need to act on. Both of these are going to be handled in JavaScript with what are called *for loops*.
+
+The basic structure of a for-loop is something like  
+#+BEGIN_SRC js :exports code
+  for(var i=0; i < 10; i = i+1){
+      console.log(i);
+  }
+#+END_SRC
+
+where you have 
+  1. the JavaScript keyword =for=, followed by three semi-colon separated things in parentheses:
+     1. the initialization of a variable to be used to count
+
+**** A number of times
+**** A collection of things
+***** 								   :noexport:
+      do we want to include the for-of and for-each loops in this section as well?
+*** While-loops
+*** Defining functions
+**** meta							   :noexport:
+     The point of the defining functions is that you can re-use code more than once in a program.
+     The informal idea is that when you have a sub-task in your algorithm, such as "cracking an egg" or  
+* Sorting
+* Closures and Scope
+** meta								   :noexport:
+   There's a few important things in this section that we need to discuss. We need to explain the idea of how scope works with defining functions
+* Advanced Iteration
+** meta								   :noexport:
+   In this section we need to talk about mapping and .forEach functions and things like that that are useful and getting to be very idiomatic, though they require a bit more complicated understanding of higher-order functions to get them right.  
+* Appendix: Evaluating Code By Hand
+** General Rules and Setup for Interpreting a Program
+   First, mark down a box labeled "current line". Every step you take, make a note of what line you're on.
+
+   You'll start at the first line of the program and, unless some rule specifies otherwise, go to the /next/ line of code after you're finished with each line.
+
+   Also make a special section labled "output", which you'll use every time something is written to the console by the program.
+
+   If a line of code is an expression *only*, evaluate the expression as normal then *throw away* the return value of the expression.
+** Variable declaration
+    Look at your program. For all of the instances you see of ~var name~ or ~var name = expression~ (that isn't in the body of a function (and if you haven't seen functions yet, don't worry)), make a table that looks like
+
+    | name1 | name2 | name3 | name4 | ... |
+    |       |       |       |       |     | 
+
+It should have one column for each variable name. 
+
+You don't actually fill anything *in* to start, instead if there's a ~= expression~ portion of the variable declaration you wait until the line in question is reached before filling in the entry in the table according to the rules of the assignment expression.
+** Expressions
+   If an *expression* is the only thing on the line, evaluate the expression according to the appropriate rules for that expression.
+*** Arithmetic
+    Numbers evaluate to themselves. Arithmetic operations evaluate exactly according to their  them to: ~+~ is addition, ~-~ is subtraction, etc.
+*** Strings
+    Strings evaluate to themselves. The ~+~ operator "concatenates" two strings together.
+*** Booleans
+    ~true~ evaluates to ~true~, ~false~ evaluates to ~false~. 
+
+    The boolean operator ~!~ takes an expression. Evaluate ~! exp~ by first evaluating the expression ~exp~. If it returns a truthy value, then return ~false~. If it returns a falsy value, then return ~true~.
+
+    The short-circuiting operators ~&&~ and ~||~ have special rules. ~exp1 && exp2~ is evaluated by first evaluating ~exp1~, if it is truthy then evaluate ~exp2~ and return its value. If it is falsy, then return the value of ~exp1~.
+
+    ~exp1 || exp2~ is evaluated by first evaluating ~exp1~. If it is truthy then return the value of ~exp1~. If it is falsy then evaluate ~exp2~ and return its value.
+
+    As a reminder, falsy values are ~NaN~, ~null~, ~undefined~, ~0~, ~""~, and ~false~. Everything else is truthy.
+*** Assignment
+    Assignment is always of the form ~name = expression~. First, you evaluate the expression based on the kind of expression it is, then fill whatever value it returns *into* the appropriate entry in the table.
+     
+    The value you wrote into the table is also the value returned by the expression.
+
+*** Output to console
+    For purposes of "being the interpreter", we're going to treat the function ~console.log~ as a special operation. When you see an expression of the form ~console.log(exp)~, evaluate the expresion that is the argument, then write the value in the output column you've set aside. As an expression, ~console.log~ returns ~undefined~. 
+*** typeof
+    The ~typeof~ operator takes an /expression/ as an argument. Evaluate this expression is and return, as a string, the type of the value returned according to the following rules
+    + numbers return "number"
+      + this includes ~NaN~ and ~Infinity~
+    + strings return "string"
+    + undefined returns "undefined"
+    + objects return "object"
+    + booleans return "boolean"
+*** Variables resolution
+    To evaluate a variable, you have to first consider where the variable's ~var~ statement is and you then you examine the corresponding table that you made. If there is an overlap in names between two tables that are both visible from a point in the code, precedence goes to the more recently created table.
+*** Function calls
+    A function is called when it is passed zero or more arguments. For example, ~fun()~, ~fun(1)~, ~fun(1,2)~, etc. are all valid function calls.
+
+    A function call is evaluated by:
+    1) substituting the passed in values for the arguments of the function, which means everywhere the formal argument was seen in the function body, rewrite it to be the corresponding value
+    2) evaluate the body like you would a new program
+       1) make a variable table
+       2) evaluate each statement sequentially
+       3) if there is a return statement, then *stop* executing the function, go back to the point of where the function was called and hand back the value of the expression passed to the ~return~
+       4) if there is no return statement by the end of the function, return ~undefined~
+
+**** A caveat on variable tables for functions
+     After exiting the function, if there is nothing else that can reference the function's local variable table, then you may erase the table.
+
+     If, on the other hand, that table is still visible to some entity in the program, you may *not* erase it and must keep the variable table in play.
+** Object specific expressions
+*** General object layout
+ An object is represented as a table a list of pairs of 
+    + a property name
+    + the value corresponding to the property
+
+*** Objects and variables
+    An important note about variables and objects. A variable never holds a literal object. Instead, what the variable contains is an "arrow" that points to the object. The "value" of an object is, then, simply the pointer rather than the object itself.
+
+    The implication of this is that there's no 
+    
+*** Object creation with new
+    Objects can be created using the ~new Constr()~ syntax. This is evaluated by
+    1. creating a new object
+    2. setting the ~.constructor~ property to the constructor function
+    3. running the constructor function with ~this~ bound to the new object
+    4. returning *a pointer to* the new object after the constructor function finishes running
+
+    An object created with the ~{}~ or ~{ prop : val, prop : val, ...}~ syntax is equivalent to an object created using ~new Object()~ that then has the corresponding properties, if any, set.
+*** Object property access and assignment
+    An object's properties can be accessed through two methods: the "dot" syntax ~obj.prop~ or the "array" syntax ~obj["prop"]~. These are evaluated identically, the only distinction is the names that are allowed to be used for the properties: the array syntax is far more permissive with allowed names. 
+
+    You evaluate property access by looking up the value of the property in the object and returning it. If the property isn't in the table corresponding to the object, first check the prototype of the constructor of the object. If the property isn't in the prototype or the prototype's prototype etc., then return undefined. When searching for a property, the first place you find it takes precedence and you return with *that value* immediately and do not continue searching up the prototype tree.
+
+    You evaluate property *assignment* by first evaluating the expression to the right of the ~=~ and putting that value into the table corresponding to the object, making a new space for the property if there isn't already one in the object.
+*** this
+     The statement ~this~ acts like a variable with special evaluation rules. There's two different ways in which ~this~ can be used
+     1) in the constructor of an object
+     2) in a function to be called *by* an object
+
+In the first case, when ~new Cons()~ is called to make a new object using the constructor ~Cons~, ~this~ is a reference to the fresh object that is being constructed. See also the section on object creation.
+
+In the second case, when a function is called *as a method*, ~this~ points to the parent object. 
+
+If ~this~ is encountered outside of these two cases, then it resolves to the "global object" of the program.
+** For loops
+    A basic for loop has the form
+    #+BEGIN_SRC js :exports code
+      for (initialization; condition_for_continuing; next_step){
+          statement1;
+          statement2;
+          statement3;
+          ...
+      }
+    #+END_SRC
+It's not *strictly* required, but you should make the "initialization" code only be of the form ~var name = exp~ or ~name = exp~. The condition for continuing the loop should be an expression that returns a boolean. The next step slot should be an assignment expression that modifies the variable named in the initialization.
+
+The rule is that you 
+   1) execute the code in the "initialization" slot
+   2) evaluate the condition for continuing
+      1) if it is truthy, go to step (3)
+      2) if it falsey, jump to the line of code *after* the end of the for loop
+   3) execute the statements in the for loop
+   4) execute the code in the "next step" part of the for loop
+   5) go to step (2)
+** While loops
+    A while loop has the form
+    #+BEGIN_SRC js :exports code
+      while (condition){
+          statement1;
+          statement2;
+          statement3;
+          ...
+      }
+    #+END_SRC
+The rule is that you
+   1) evaluate the condition
+      1) if it is truthy, go to step (2)
+      2) if it is falsey, jump to the line of code *after* the end of the while loop
+   2) execute the statements in the while loop
+   3) go to step (1)
+
+** If statements
+    If statements have the basic form
+    #+BEGIN_SRC js :exports code
+      if (condition){
+          statement1;
+          statement2;
+          ...
+      }
+      else {
+          morestatement1;
+          morestatement2;
+          morestatement3;
+      }
+    #+END_SRC
+    The rule for them is that you
+
+    1) evaluate the condition
+       1) if it is truthy, perform the statements listed between the braces of the "if"
+       2) if it is falsy, perform the statements listed between the braces of the "else"
+    
+
+The other form of if-statement is to leave out the ~else~ branch. In this case, our rule reads
+
+    1) evaluate the condition
+       1) if it is truthy, perform the statements listed between the braces of the "if"
+       2) if it is falsy, do nothing
+  
+** Function declarations
+    There are two function declarations. There is the *expression* form which has the following syntax 
+    #+BEGIN_SRC js :exports code
+      function (arg1, arg2, ...) {
+          statement1;
+          statement2;
+          statement3;
+      }
+    #+END_SRC
+ This evaluates to a function value, which in our pen and paper we'll represent as a box that
+    + contains the list of arguments to the function
+    + the lines of code for the body of the function
+    + an arrow pointing to the variable table within which the function was defined (this is important for calling functions!)
+
+The second kind of function declaration, which is a *statement*, is the named function declaration, which has the following syntax.
+    #+BEGIN_SRC js :exports code
+      function name (arg1,arg2,arg3) {
+          statement1;
+          statement2;
+          statement3;
+      }
+    #+END_SRC
+
+You evaluate this by treating it as equivalent to 
+#+BEGIN_SRC js :exports code
+  var name = function (...){
+     ...
+  };
+#+END_SRC
+
+* Footnotes
+
+[fn:1] Finite means a quantity that can be held, measured, stored. Infinite means that it's too big to be held.
