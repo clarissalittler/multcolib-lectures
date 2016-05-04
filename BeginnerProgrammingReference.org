@@ -1,10 +1,8 @@
 #+TITLE: Beginning Programming in JavaScript
 #+AUTHOR: Clarissa Littler
 #+LaTeX_HEADER: \usepackage{color}
-
-\newcommand{\key}[1]{
-  \textcolor{blue}{#1}
-}
+#+LaTeX_HEADER: \usepackage{minted}
+#+LaTeX_HEADER: \newcommand{\key}[1]{\textcolor{blue}{#1}}
 
 * Introduction
 ** What Is This Document?
