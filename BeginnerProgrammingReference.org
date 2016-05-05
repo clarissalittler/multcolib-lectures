@@ -171,7 +171,7 @@ We can see from this example the form, or syntax, of using a function is just li
 *** meta							   :noexport:
     This section has some problems. First off, I don't want to appeal to just college algebra when it comes to 
 ** Arrays
-   
+*** meta							   :noexport:
 ** Choices
     Often when we're discussing instructions there's a notion of /choice/. \key{If} it's raining, take an umbrella. \key{If} you see the purple Little Free Library, take a right, \key{otherwise} you should keep walking. \key{If} the avocados are ripe, make tacos.
 
@@ -240,7 +240,6 @@ where you have
 **** meta							   :noexport:
      The point of the defining functions is that you can re-use code more than once in a program.
      The informal idea is that when you have a sub-task in your algorithm, such as "cracking an egg" or  
-* Sorting
 * Closures and Scope
 ** meta								   :noexport:
    There's a few important things in this section that we need to discuss. We need to explain the idea of how scope works with defining functions
