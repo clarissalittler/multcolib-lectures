@@ -1,9 +1,12 @@
 #+TITLE: Beginning Programming in JavaScript
 #+AUTHOR: Clarissa Littler
 #+LaTeX_HEADER: \usepackage{color}
+#+LaTeX_HEADER: \usepackage{framed}
 #+LaTeX_HEADER: \usepackage{minted}
 #+LaTeX_HEADER: \newcommand{\key}[1]{\textcolor{blue}{#1}}
 
+* todos 							   :noexport:
+** TODO Fix the sections on how to run code in the browser
 * Introduction
 ** What Is This Document?
    This document is a part of a set of tutorial lectures for absolute beginners to learn programming. The mini-course is centered around JavaScript and on accomplishing certain small goals in JavaScript. 
@@ -103,15 +106,26 @@ You know that you're going to use =console.log= to print out something.
 *** Numbers
      The first kind of data we'll look at are /numbers/. Numbers in JavaScript are just like numbers in math classes you took. The operations you're familiar with are all here: multiplication, division, addition, and subtraction. 
 
-     In JavaScript
-     + addition $\Rightarrow$ +
-     + subtraction $\Rightarrow$ -
-     + division $\Rightarrow$ /
-     + multiplication $\Rightarrow$ *
+     In JavaScript, the symbols are pretty similar to what you may have seen before
+     #+ATTR_LATEX: :align |l|l|
+     |----------------+--------|
+     | name           | symbol |
+     |----------------+--------|
+     | addition       | $+$    | 
+     | subtraction    | $-$    |
+     | division       | $/$    |
+     | multiplication | $*$    |
+     |----------------+--------|
 
      If you type in something like ~10*(3-2)+5~ into the console you'll see the JavaScript interpreter /evaluate/ the expression and then return the value, which in this case is 15.
 
      Go ahead and try a few arithmetic expressions just to see what happens.
+**** Evaluation by hand
+     This is our very first example of how to evaluate code *by hand*. Now, there's two pieces here that are important. The base numbers in JavaScript, the /literals/ as they're often called in programming, just evaluate to themselves: the number =4= becomes the value 4, the number =0= becomes the value 0.
+
+     You can test that yourself in the JavaScript console by just entering numbers and seeing that the /value/ returned is just the number you entered. 
+
+     The arithmetic expressions evaluate in the normal order of operations[fn:2]
 *** Strings
      One of the other incredibly important kinds of data are /strings/. Strings are pieces of text held within quotation marks, either double or single quotes. A programming language needs strings so that it can interact with text: either reading and understanding it or displaying it to the user. 
 
@@ -124,9 +138,12 @@ You know that you're going to use =console.log= to print out something.
    'this is a string, or should I say "a string"'
  #+END_SRC
  but there's a few things that /aren't/ valid. You can't do 
+#+LATEX: \begin{framed}
  #+BEGIN_SRC js :exports code
    "this is a string, or should I say "a string""
  #+END_SRC
+#+LATEX: \end{framed}
+
  because since you started the string with a double-quote its not obvious to the interpreter where you wanted the end of the string to be. If you want to represent quotations-within-strings you should really just switch between single and double quotes.
 
  This also means that it isn't valid to mis-match the kinds of quotation marks. So something like
@@ -135,19 +152,66 @@ You know that you're going to use =console.log= to print out something.
  #+END_SRC
  will not work.
 
-    What can we actually *do* with strings though? We're able to 
-    + concatenate them
-    + break them into pieces
-    + 
+     The most primitive operation on strings is the ability to /concatenate/ text. Concatenate really just means "stick together" and, in JavaScript is /also/ represented by the =+= symbol. If you enter something like
+     #+BEGIN_SRC js :exports code 
+       "this is one string" + " this is another string" + " and together we are..."
+     #+END_SRC
+
+     You will see "this is one string this is another string and together we are..." as one string. Now, you'll notice that we needed to put /space/ at the beginning of " this is another string" and " and together we are..." in order for their to be a space between the pieces of the sentence. We could also have just as easily written 
+     #+BEGIN_SRC js :exports code
+       "this is one string " + "this is another string " + "and together we are..."
+     #+END_SRC
+because all that matters is that the spaces are /somewhere/.
+
+Leaving out spaces is a *very* common mistake, so get in the habit of paying attention to the spaces at the beginning or end of the string.
+
+**** Evaluation by hand
+     Strings evaluate to themselves, so the a valid string such as 
+     #+BEGIN_SRC js :exports code
+     "my dog is named chicken"     
+     #+END_SRC
+     evaluates to the /value/ "my dog is named chicken"
+
+     String concatenation is evaluated by combining the two strings, being careful to not add any extra space.
 ** Statements and Steps
    One of the first things we need to discuss before we begin writing real programs is how to do more than a single step in a program. 
 
-   We've already seen expressions
-*** meta 							   :noexport:
-    =undefined= should go in here
+   We've already seen two basic kinds of expressions: we've seen numeric and string /literals/, where the thing you type *is* the value, and basic arithmetic operations that evaluate to a number just the way you'd expect. 
+
+   Real programs, just like real directions, have many /steps/. These steps in JavaScript are called /statements/. Statements are *generally* separated by semi-colons (*;*), though not always. We'll be explicit about where they are unnecessary. [fn:3]
+
+   Any expression can be put on a line by itself, like this
+   #+BEGIN_SRC js :exports code :tangle statementsExample.js
+     10;
+     20;
+     "lalalala";
+   #+END_SRC
+
+   but simple expressions don't really do anything. A more /interesting/ expression that we looked at in the opening was =console.log=. We'll still delay a bit in explaining *why* =console.log= works the way it does, but we'll use it at the JavaScript console to print things out. The following simple program just prints out the numbers 1,2,3 in succession. 
+
+   #+BEGIN_SRC js :exports code :results output :tangle consoleLogTest.js
+     console.log(1);
+     console.log(2);
+     console.log(3);
+   #+END_SRC
+
+If you point your browser to the file =consoleLogTest.js= and then open up the console you should see the numbers 1,2,3 printed out.
 ** Variables
-   Now that we know how to do more than a single thing at a time, we need to deal with how data is stored and used later. In essentially every programming language we have   
+   Now that we know how to do more than a single thing at a time, we need to deal with how data is stored and used later. In essentially every programming language we have some notion of /variables/. Variables have two basic uses:
+   1. as a shorthand that gives us a way to refer to some other piece of data
+   2. as a container for data
 *** Variables-as-shorthand
+    The first use of variables is something we're all familiar with in our speech in general. Have you ever heard a story where someone says "I have a friend, let's call her Anna, ...". For the rest of the story you know that "Anna" is the speaker's friend, even if that's not her real name. The name Anna "points" to the person.
+
+    Similarly, we have /pronouns/ in English. We can say "he" or "him" and, if we've already established who "he" is, then you know who the "variable" points to. For example, in the sentence "Bob has three hats. He wears two of them each day." you know that "he" is Bob of the three hats.
+
+    Variables are the pronouns of a programming language. We make them like 
+
+    #+BEGIN_SRC js :exports code
+      var thisIsAVariable = 20;
+    #+END_SRC
+
+    where =var= is the start of the expression that says 
 *** Variables-as-containers
 ** Objects
    Objects 
@@ -454,5 +518,16 @@ You evaluate this by treating it as equivalent to
 #+END_SRC
 
 * Footnotes
+
+[fn:3] Technically there's many places where you *could* leave semi-colons out, but it's generally a bad habit. Why? Because it generally leads to very /strange/ error messages when something goes wrong. Anything that makes your code harder to debug is generally a bad idea.
+
+[fn:2] Please Excuse My Dear Aunt Sally
+ 
+      | Please | Parentheses    |
+      | Excuse | Exponent       |
+      | My     | Multiplication |
+      | Dear   | Division       |
+      | Aunt   | Addition       |
+      | Sally  | Subtraction    |
 
 [fn:1] Finite means a quantity that can be held, measured, stored. Infinite means that it's too big to be held.
