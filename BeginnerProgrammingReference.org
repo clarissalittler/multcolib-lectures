@@ -64,6 +64,9 @@ Instead, we have specialized, simple, languages for exactly describing what the 
    Data in a programming language are going to be things like numbers, pieces of text called strings, lists of things, and collections of things. 
 
    The actions in a programming language are things like reading in user input, printing out messages, changing the webpage, changing data, and storing data. There's even more complicated constructs to do things multiple times or to even store code so it can be reused again and again. 
+*** meta							   :noexport:
+    Is it possible that we need to explain the idea of "types" of data here? Or is that a distraction?
+    On some level types are a fairly natural way to think of things and they might not even need to be pointed out.
 ** Descriptions vs. Algorithms
    We've established that programs are detailed descriptions of instructions that are human readable but precise enough for a computer to understand.
 
@@ -91,21 +94,20 @@ You know that you're going to use =console.log= to print out something.
 *** meta 							   :noexport:
     In this section we need to include explanation of the fact that you can run code by yourself with just a pen and paper if you wish. Why? Because it's a good way to get experience with writing code and ensures that you understand what's really happening.
 ** Basic Expressions
-*** Expressions and Values    
-  In JavaScript, and a number of languages, there's a distinction between steps in a program and calculations that, usually, result in some kind of value. By calculations I mean things such as 
+*** Expressions and Values 
+  In JavaScript, and a number of languages, there's a distinction between steps in a program and calculations that result in some kind of value. By calculations I mean things such as 
    + concatenating strings
    + adding numbers
    + printing values
-  Most expressions will return some kind of /value/. By /value/ I mean the basic data of JavaScript. Numbers are values 
-
+  Most expressions will return some kind of /value/. By /value/ I mean the basic data of JavaScript: numbers are values, pieces of literal text are values, lists are values, and other kinds of data we'll end up seeing. There's even a value called /undefined/ that's the value that corresponds to "this expression didn't return anything useful", which might seem odd at first but it's similar to the way the number 0 is the quantity of "no quantity".
 *** Numbers
      The first kind of data we'll look at are /numbers/. Numbers in JavaScript are just like numbers in math classes you took. The operations you're familiar with are all here: multiplication, division, addition, and subtraction. 
 
      In JavaScript
-     + addition :: +
-     + subtraction :: -
-     + division :: /
-     + multiplication :: *
+     + addition $\Rightarrow$ +
+     + subtraction $\Rightarrow$ -
+     + division $\Rightarrow$ /
+     + multiplication $\Rightarrow$ *
 
      If you type in something like ~10*(3-2)+5~ into the console you'll see the JavaScript interpreter /evaluate/ the expression and then return the value, which in this case is 15.
 
@@ -132,15 +134,21 @@ You know that you're going to use =console.log= to print out something.
    "this is a string'
  #+END_SRC
  will not work.
+
+    What can we actually *do* with strings though? We're able to 
+    + concatenate them
+    + break them into pieces
+    + 
 ** Statements and Steps
-   One of the first things we need to discuss before we begin writing real programs is how to do more than a single step in a program.
+   One of the first things we need to discuss before we begin writing real programs is how to do more than a single step in a program. 
+
+   We've already seen expressions
 *** meta 							   :noexport:
     =undefined= should go in here
 ** Variables
-   Now that we know how to do more than a single thing at a time, we need to deal with how data is stored and used later.  
+   Now that we know how to do more than a single thing at a time, we need to deal with how data is stored and used later. In essentially every programming language we have   
 *** Variables-as-shorthand
 *** Variables-as-containers
-   
 ** Objects
    Objects 
 ** Function calls
@@ -172,6 +180,10 @@ We can see from this example the form, or syntax, of using a function is just li
     This section has some problems. First off, I don't want to appeal to just college algebra when it comes to 
 ** Arrays
 *** meta							   :noexport:
+    Lessons that need to be in this section
+    1. arrays function as lists in JavaScript
+    2. arrays can have different /kinds/ of data
+       * but is this even a thing that mostly needs to be pointed out for people who think in terms of "types"
 ** Choices
     Often when we're discussing instructions there's a notion of /choice/. \key{If} it's raining, take an umbrella. \key{If} you see the purple Little Free Library, take a right, \key{otherwise} you should keep walking. \key{If} the avocados are ripe, make tacos.
 
