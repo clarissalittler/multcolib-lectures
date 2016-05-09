@@ -211,7 +211,9 @@ If you point your browser to the file =consoleLogTest.js= and then open up the c
       var thisIsAVariable = 20;
     #+END_SRC
 
-    where =var= is the start of the expression that says 
+    where =var= is the start of the expression that tells JavaScript that you are /declaring/ a variable and the expression to the right of the equals sign is the going to be evaluated to give the initial value of the variable.
+
+    Essentially, you're declaring a new pronoun with 
 *** Variables-as-containers
 ** Objects
    Objects 
