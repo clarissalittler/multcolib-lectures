@@ -195,13 +195,25 @@ Leaving out spaces is a *very* common mistake, so get in the habit of paying att
      console.log(3);
    #+END_SRC
 
-If you point your browser to the file =consoleLogTest.js= and then open up the console you should see the numbers 1,2,3 printed out.
+#+BEGIN_SRC html :exports none :tangle consoleLogTest.html
+  <!doctype html>
+  <html>
+    <head>
+      <script src="consoleLogTest.js">
+      </script>
+    </head>
+    <body>
+      Open the JavaScript console and see what happened!
+    </body>
+  </html>
+#+END_SRC
+
+
+If you point your browser to the file =consoleLogTest.html=, which includes the above code as a script, and then open up the console you should see the numbers 1,2,3 printed out. 
 ** Variables
-   Now that we know how to do more than a single thing at a time, we need to deal with how data is stored and used later. In essentially every programming language we have some notion of /variables/. Variables have two basic uses:
-   1. as a shorthand that gives us a way to refer to some other piece of data
-   2. as a container for data
-*** Variables-as-shorthand
-    The first use of variables is something we're all familiar with in our speech in general. Have you ever heard a story where someone says "I have a friend, let's call her Anna, ...". For the rest of the story you know that "Anna" is the speaker's friend, even if that's not her real name. The name Anna "points" to the person.
+   Now that we know how to do more than a single thing at a time, we need to deal with how data is stored and used later. In essentially every programming language we have some notion of /variables/. 
+
+    Variables are something we're all familiar with in our speech in general. Have you ever heard a story where someone says "I have a friend, let's call her Anna, ...". For the rest of the story you know that "Anna" is the speaker's friend, even if that's not her real name. The name Anna "points" to the person.
 
     Similarly, we have /pronouns/ in English. We can say "he" or "him" and, if we've already established who "he" is, then you know who the "variable" points to. For example, in the sentence "Bob has three hats. He wears two of them each day." you know that "he" is Bob of the three hats.
 
@@ -211,10 +223,32 @@ If you point your browser to the file =consoleLogTest.js= and then open up the c
       var thisIsAVariable = 20;
     #+END_SRC
 
-    where =var= is the start of the expression that tells JavaScript that you are /declaring/ a variable and the expression to the right of the equals sign is the going to be evaluated to give the initial value of the variable.
+    where =var= is the start of the expression that tells JavaScript that you are /declaring/ a variable, the name "thisIsAVariable" is the actual name of the variable, the /pronoun/ you're making, and the expression to the right of the equals sign is the going to be evaluated to give the value the variable /pointing/ at.
 
-    Essentially, you're declaring a new pronoun with 
-*** Variables-as-containers
+    If you consider the English sentence "She waved at Anna, and she waved back" you'll notice that "she" means two different people within the same sentence. Similarly to English pronouns, in a programming language variables are allowed to refer to, to point to, different things at different times.
+
+    The act of making a variable refer to a piece of data is called /assignment/ and we say that you're /assigning the variable/.
+
+    Assigning the variable has the following form
+    #+BEGIN_SRC js :exports code
+      thisIsAVariable = "assigning a string instead";
+    #+END_SRC
+
+    In this case, we're assigning a string to =thisIsAVariable=. 
+
+    You might wonder if it's possible to do /declare/ a variable without /assigning/ it and, in fact, you can
+    #+BEGIN_SRC js :exports code
+      var thisIsntAssigned;
+    #+END_SRC
+    But this is like starting a conversation with "He says hi!". You have no idea who /he/ is at the start and the person, or computer, you're talking to is just going to be confused. Now, you can clarify who /he/ is by assigning a value later in the "conversation" but it's generally best to assign something to a variable when it's declared. 
+*** What can you name variables?
+    You might be wondering what variables can be named. While technically the rules are slightly broader than this, I recommend variables to use just letters when possible, starting with a lower case letter, and using alternate casing when a variable name is multiple words.
+
+    Now, some folks like to say you should give variables really long descriptive names like =howFarTheMisslesShouldGo= but I think it's good enough to give them a name that's distinctive and memorable such as =missleDist= for the /dist/ance the missles should go. I personally find very long multi-word names make it harder to skim code effectively.
+*** Evaluating by hand    
+    To start evaluating by hand 
+*** 								   :noexport:
+    I don't really like the example and need to figure out another one
 ** Objects
    Objects 
 ** Function calls
