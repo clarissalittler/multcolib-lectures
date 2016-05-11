@@ -1,5 +1,6 @@
 #+TITLE: Beginning Programming in JavaScript
 #+AUTHOR: Clarissa Littler
+#+OPTIONS: toc:nil
 #+LaTeX_HEADER: \usepackage{color}
 #+LaTeX_HEADER: \usepackage{framed}
 #+LaTeX_HEADER: \usepackage{minted}
@@ -10,6 +11,7 @@
 * Introduction
 ** What Is This Document?
    This document is a part of a set of tutorial lectures for absolute beginners to learn programming. The mini-course is centered around JavaScript and on accomplishing certain small goals in JavaScript. 
+
 ** What This Document Isn't
    1. A full course on JavaScript
    2. An explanation of how to do web-programming
@@ -34,7 +36,7 @@ can be described as a computation. This includes things like
    + following a map
    + building furniture from a wordless diagram
 
-And while tasks like these might seem like a bit of a digression when we're talkinga about /computers/, the point here is that anything that *can* be described in the "finite" way we did above can potentially be done by programmed machine. Self-driving cars can follow map directions to get to a destination. 3D printers can assemble solid objects given a blue print and enough matieral. 
+And while tasks like these might seem like a bit of a digression when we're talking about /computers/, the point here is that anything that *can* be described in the "finite" way we did above can potentially be done by programmed machine. Self-driving cars can follow map directions to get to a destination. 3D printers can assemble solid objects given a blue print and enough material. 
 
 Computation is not just number crunching or showing you a webpage. Now, you might be wondering what /can't/ be described by a computation, and it turns out the answer is "quite a lot, but not a lot you'd care about". You're most likely to run into the limits of computation when writing programs that try to analyze other programs. This is why there's no perfect anti-virus program: it's physically impossible for there to be a program that can look at another program and determine, with perfect accuracy, whether or not its a virus. I'm not joking when I say "physically impossible". The limits of computation are as real and physical as the laws of motion. No amount of making computers faster can get around them. 
 
@@ -44,7 +46,7 @@ Because of this, programming languages tend to be small and with a very rigid, n
 
 Instead, we have specialized, simple, languages for exactly describing what the computer should do. Unsurprisingly, we call these /programming languages/. There's many, many programming languages out there and some are good, some are bad, but most are just /different/ ways of describing computations to the computer. For this course, we'll be specifically learning a language called JavaScript.
 ** Why JavaScript?
-   In this mini-course we'll be learning JavaScript. Why JavaScript in particular, though? First, JavaScript is the language that makes interactive websites *work*. Now, if your first thought is "what's a non-interactice site?" then I suggest you try looking at one of the GeoCities archive projects to see what 90s web pages looked like. They were ugly and they were basically just static text, images, and links. Nothing changed when you interacted with it. The only real points of interaction were forms and links.
+   In this mini-course we'll be learning JavaScript. Why JavaScript in particular, though? First, JavaScript is the language that makes interactive websites *work*. Now, if your first thought is "what's a non-interactive site?" then I suggest you try looking at one of the GeoCities archive projects to see what 90s web pages looked like. They were ugly and they were basically just static text, images, and links. Nothing changed when you interacted with it. The only real points of interaction were forms and links.
 
    Obviously, that's nothing what websites look like now. We have animations as you hover over and click things. We have pages that change constantly as you're interacting with them. We even have rich games that can run in the browser. All of that is possible because we now have the ability to run code that creates this interactive experience. All of the code that runs in your web browser is in JavaScript.
 
@@ -52,11 +54,11 @@ Instead, we have specialized, simple, languages for exactly describing what the 
 
    Suffice it to say, JavaScript is a ubiquitous and important language now.
 
-   Lukily, I happen to also think it's a fairly decent one. If you look online for people's opinions on JavaScript you'll find it gets some hate because there are some pretty weird and counterintuitve aspects of the language, but they're also mostly avoidable unless you're running into someone else's code that uses them. "JavaScript: The Good Parts" by Crockford is a good reference for the nice, clean core of the language. 
+   Luckily, I happen to also think it's a fairly decent one. If you look online for people's opinions on JavaScript you'll find it gets some hate because there are some pretty weird and counterintuitve aspects of the language, but they're also mostly avoidable unless you're running into someone else's code that uses them. "JavaScript: The Good Parts" by Crockford is a good reference for the nice, clean core of the language. 
 
 * Basic Syntax and Translation
 ** Loading and Running Code
-*** 								   :noexport:
+*** meta 							   :noexport:
     Include three things here:
     1. how to open the javascript console in the browser and run lines of code
     2. how to run a javascript program in the browser
@@ -67,9 +69,6 @@ Instead, we have specialized, simple, languages for exactly describing what the 
    Data in a programming language are going to be things like numbers, pieces of text called strings, lists of things, and collections of things. 
 
    The actions in a programming language are things like reading in user input, printing out messages, changing the webpage, changing data, and storing data. There's even more complicated constructs to do things multiple times or to even store code so it can be reused again and again. 
-*** meta							   :noexport:
-    Is it possible that we need to explain the idea of "types" of data here? Or is that a distraction?
-    On some level types are a fairly natural way to think of things and they might not even need to be pointed out.
 ** Descriptions vs. Algorithms
    We've established that programs are detailed descriptions of instructions that are human readable but precise enough for a computer to understand.
 
@@ -129,14 +128,18 @@ You know that you're going to use =console.log= to print out something.
 *** Strings
      One of the other incredibly important kinds of data are /strings/. Strings are pieces of text held within quotation marks, either double or single quotes. A programming language needs strings so that it can interact with text: either reading and understanding it or displaying it to the user. 
 
- You can make a string either like 
+ You can make a string either like
+#+LaTeX: \begin{framed}
  #+BEGIN_SRC js :exports code
    "this is a string, or should I say 'a string'"
  #+END_SRC
+#+LaTeX: \end{framed}
  or like this
+#+LATEX: \begin{framed}
  #+BEGIN_SRC js :exports code
    'this is a string, or should I say "a string"'
  #+END_SRC
+#+LaTeX: \end{framed}
  but there's a few things that /aren't/ valid. You can't do 
 #+LATEX: \begin{framed}
  #+BEGIN_SRC js :exports code
@@ -147,20 +150,28 @@ You know that you're going to use =console.log= to print out something.
  because since you started the string with a double-quote its not obvious to the interpreter where you wanted the end of the string to be. If you want to represent quotations-within-strings you should really just switch between single and double quotes.
 
  This also means that it isn't valid to mis-match the kinds of quotation marks. So something like
+#+LATEX: \begin{framed}
  #+BEGIN_SRC js :exports code
    "this is a string'
  #+END_SRC
+#+LATEX: \end{framed}
  will not work.
 
      The most primitive operation on strings is the ability to /concatenate/ text. Concatenate really just means "stick together" and, in JavaScript is /also/ represented by the =+= symbol. If you enter something like
+     #+LATEX: \begin{framed}
      #+BEGIN_SRC js :exports code 
-       "this is one string" + " this is another string" + " and together we are..."
+       "this is one string" + " this is another string"
+       + " and together we are..."
      #+END_SRC
+     #+LaTeX: \end{framed}
 
-     You will see "this is one string this is another string and together we are..." as one string. Now, you'll notice that we needed to put /space/ at the beginning of " this is another string" and " and together we are..." in order for their to be a space between the pieces of the sentence. We could also have just as easily written 
+     You will see "this is one string this is another string and together we are..." as one string. Now, you'll notice that we needed to put /space/ at the beginning of " this is another string" and " and together we are..." in order for their to be a space between the pieces of the sentence. We could also have just as easily written
+     #+LATEX: \begin{framed}
      #+BEGIN_SRC js :exports code
-       "this is one string " + "this is another string " + "and together we are..."
+       "this is one string " + "this is another string "
+       + "and together we are..."
      #+END_SRC
+     #+LATEX: \end{framed}
 because all that matters is that the spaces are /somewhere/.
 
 Leaving out spaces is a *very* common mistake, so get in the habit of paying attention to the spaces at the beginning or end of the string.
@@ -181,19 +192,23 @@ Leaving out spaces is a *very* common mistake, so get in the habit of paying att
    Real programs, just like real directions, have many /steps/. These steps in JavaScript are called /statements/. Statements are *generally* separated by semi-colons (*;*), though not always. We'll be explicit about where they are unnecessary. [fn:3]
 
    Any expression can be put on a line by itself, like this
+   #+LATEX: \begin{framed}
    #+BEGIN_SRC js :exports code :tangle statementsExample.js
      10;
      20;
      "lalalala";
    #+END_SRC
+   #+LaTeX: \end{framed}
 
    but simple expressions don't really do anything. A more /interesting/ expression that we looked at in the opening was =console.log=. We'll still delay a bit in explaining *why* =console.log= works the way it does, but we'll use it at the JavaScript console to print things out. The following simple program just prints out the numbers 1,2,3 in succession. 
 
+   #+LATEX: \begin{framed}
    #+BEGIN_SRC js :exports code :results output :tangle consoleLogTest.js
      console.log(1);
      console.log(2);
      console.log(3);
    #+END_SRC
+   #+LaTeX: \end{framed}
 
 #+BEGIN_SRC html :exports none :tangle consoleLogTest.html
   <!doctype html>
@@ -210,6 +225,9 @@ Leaving out spaces is a *very* common mistake, so get in the habit of paying att
 
 
 If you point your browser to the file =consoleLogTest.html=, which includes the above code as a script, and then open up the console you should see the numbers 1,2,3 printed out. 
+*** Evaluating by hand
+    To evaluate a sequence of statements, just evaluate each statement in turn in the order they appear down the page.
+
 ** Variables
    Now that we know how to do more than a single thing at a time, we need to deal with how data is stored and used later. In essentially every programming language we have some notion of /variables/. 
 
@@ -218,10 +236,11 @@ If you point your browser to the file =consoleLogTest.html=, which includes the 
     Similarly, we have /pronouns/ in English. We can say "he" or "him" and, if we've already established who "he" is, then you know who the "variable" points to. For example, in the sentence "Bob has three hats. He wears two of them each day." you know that "he" is Bob of the three hats.
 
     Variables are the pronouns of a programming language. We make them like 
-
+    #+LATEX: \begin{framed}
     #+BEGIN_SRC js :exports code
       var thisIsAVariable = 20;
     #+END_SRC
+    #+LaTeX: \end{framed}
 
     where =var= is the start of the expression that tells JavaScript that you are /declaring/ a variable, the name "thisIsAVariable" is the actual name of the variable, the /pronoun/ you're making, and the expression to the right of the equals sign is the going to be evaluated to give the value the variable /pointing/ at.
 
@@ -230,54 +249,78 @@ If you point your browser to the file =consoleLogTest.html=, which includes the 
     The act of making a variable refer to a piece of data is called /assignment/ and we say that you're /assigning the variable/.
 
     Assigning the variable has the following form
+    #+LATEX: \begin{framed}
     #+BEGIN_SRC js :exports code
       thisIsAVariable = "assigning a string instead";
     #+END_SRC
+    #+LaTeX: \end{framed}
 
     In this case, we're assigning a string to =thisIsAVariable=. 
 
     You might wonder if it's possible to do /declare/ a variable without /assigning/ it and, in fact, you can
+    #+LATEX: \begin{framed}
     #+BEGIN_SRC js :exports code
       var thisIsntAssigned;
     #+END_SRC
+    #+LaTeX: \end{framed}
     But this is like starting a conversation with "He says hi!". You have no idea who /he/ is at the start and the person, or computer, you're talking to is just going to be confused. Now, you can clarify who /he/ is by assigning a value later in the "conversation" but it's generally best to assign something to a variable when it's declared. 
 *** What can you name variables?
     You might be wondering what variables can be named. While technically the rules are slightly broader than this, I recommend variables to use just letters when possible, starting with a lower case letter, and using alternate casing when a variable name is multiple words.
 
     Now, some folks like to say you should give variables really long descriptive names like =howFarTheMisslesShouldGo= but I think it's good enough to give them a name that's distinctive and memorable such as =missleDist= for the /dist/ance the missles should go. I personally find very long multi-word names make it harder to skim code effectively.
 *** Evaluating by hand    
-    To start evaluating by hand 
-*** 								   :noexport:
-    I don't really like the example and need to figure out another one
+    To evaluate variables by hand, first create a small two-column table on your paper with the headings "names" and "values". Fill the first column with the names of all the variables you see declared in the program and leave the second column empty for now. [fn:4]
+
+    Then, when you come to the line of a variable declaration, evaluate the expression to the right of the equals sign, if any, and fill in the value in the corresponding spot of the table. If there is no expression when the variable is declared, put =undefined= in the table instead.
+
+    When you assign a variable, evaluate the expression to the right of the equals sign then change the value in the table corresponding to the variable.
+
+    Finally, when a variable is /referenced/, just look up the value of the variable in the table and return that value.
 ** Objects
-   Objects 
-** Function calls
-    So far we've only seen very simple operations. Obviously a programming language needs a lot more to be able to be useful. A lot of the functionality of a programming language is going to be in the, well, /functions/.
+   In everyday life we have things like contact lists, directories, dictionaries, and glossaries. These are all kinds of data that map \key{names} to some kind of /information/.
 
-    Functions in a programming language such as JavaScript are a little the same and a little different from functions as you may have seen them in an algebra class. In algebra, there are things like
-#+BEGIN_EXAMPLE
-f(x) = x + 2
-#+END_EXAMPLE
-and then you can /apply/ the function to an argument. In this case, we have that =f(2)= is going to compute to 4. In algebra, we can think of functions as things that take arguments and perform computations, it's just that the computations are limited to number crunching.
-In a programming language such as JavaScript, there's many things that a function can do that aren't giving you back a number. Functions in JavaScript are allowed to 
-    + change variables
-    + display messages to a user
-    + communicate with other computers
-    + etc.
-in addition to returning a value. 
+   All these general concepts of mapping are capture in JavaScript by /objects/. Objects are simply collections of names and values. We generally call the names /properties/.
 
-Many functions, if they don't need to return anything particularly useful, will just return ~undefined~. 
+   You can make an object by including a list of pairs of names and expressions, separated by commas
+   #+LaTeX: \begin{framed}
+   #+BEGIN_SRC js :exports code
+     { name1 : 1, name2 : 2, name3 : "3"}
+   #+END_SRC
+   #+LaTeX: \end{framed}
 
-We'll cover how to define functions shortly, but for now let's talk about an example of a function, ~console.log~, which prints out a value to the console.
+   The colons between the names and values are important.
 
-We can use it like 
-#+BEGIN_SRC js :exports code
-  console.log(10+20)
-#+END_SRC
+   Once you have your data in an object, you can access the data two different ways. The first one is what people call the "dot syntax". It works like
 
-We can see from this example the form, or syntax, of using a function is just like our example from algebra: you put the argument in parentheses just after the function name. If you have multiple arguments, you separate them by commas. 
-*** meta							   :noexport:
-    This section has some problems. First off, I don't want to appeal to just college algebra when it comes to 
+   #+LaTeX: \begin{framed}
+   #+BEGIN_SRC js :exports code
+     var ourObject = {name1 : 10, name2 : "thing"};
+     console.log(ourObject.name1);
+   #+END_SRC
+   #+LaTeX: \end{framed}
+
+   where to /get/ the value connected to =name1= in the object =ourObject=, we put a dot between =ourObject= and =name1=. There's no quotation marks needed. In this way object properties are much like variables: they are names that refer to values.
+
+   The other way you can refer to the properties of an object are with the "bracket syntax", where you put the name of the property *in quotes* and inside a pair of brackets instead. Our example above becomes,
+
+   #+LaTeX: \begin{framed}
+   #+BEGIN_SRC js :exports code
+     var ourObject = {name1 : 10, name2 : "thing"};
+     console.log(ourObject["name1"]);
+   #+END_SRC
+   #+LaTeX: \end{framed}
+*** Why "object"?
+    The name object might seem a bit odd, but there's some intution for it.
+
+    First, think about how you might want to represent a physical /object/ like a table in a computer program. If you want to represent a table in, say, a game then you probably only care about a few things about it such as
+    1. the table's location
+    2. the table's dimensions
+    3. the table's color
+
+ These attributes you care about are the table's /properties/ and a collection of all of this data is the representation of a table as an object.
+**** Exercises
+     1. How would you represent a user account for a social media site /as an object/?
+     2. How would you represent a car /as an object/ in a racing game?
 ** Arrays
 *** meta							   :noexport:
     Lessons that need to be in this section
@@ -293,7 +336,54 @@ We can see from this example the form, or syntax, of using a function is just li
 
      While truth is a pretty complicated concept if you ask a philosopher, for the purposes of basic programming it's quite simple: there is a kind of data called a /boolean/. Booleans are either ~true~ or ~false~. In order to make decisions, we need operations and functions that will return booleans. 
 
-     For example, we have the equality operator, ~===~, and the less than operator ~<~, and the greater than operator ~>~. These operations follow our intuitive notions of what they should mean. ~2 < 5~ is true, but ~2 === 5~ is false. 
+     For example, we have the equality operator, ~===~, and the less than operator ~<~, and the greater than operator ~>~. These operations follow our intuitive notions of what they should mean. ~2 < 5~ is true, but ~2 === 5~ is false.
+
+     We also have operations /on/ booleans such as \key{or} (=||=), \key{and} (=&&=), and \key{not} (=!=) that represent logical operations. The or operation (=a||b=) is true whenever =a= is true *or* =b= is true or both are true. The and operation =a&&b= is true /only/ when =a= is true *and* =b= is true. The not operation =!a= is true only when =a= is false.
+
+     These correspond to how we make decisions. \key{If} you're hungry \key{and} you have a snack, \key{then} eat it. \key{If} you're \key{not} bored, keep working. \key{If} you have a date or it's been more than a month, \key{then} shower.
+***** Truthy and falsy
+      JavaScript's notion of booleans is slightly more flexible than most programming languages. You can actually use any kind of data like booleans. All data in JavaScript is either /truthy/, or is treated like the boolean =true= in operations, or it is =falsy= and is treated like =false=.
+***** Shortcut evaluation
+***** Evaluation by hand
+      Both =true= and =false= are literals, just like basic strings and numbers, and they evaluate to the values =true= and =false= respectively.
+
+      The boolean operations =&&=, =||=, and =!= are operators summarized below
+      
+      And:
+
+      #+attr_latex: :align |l|l|l|
+      |------------+------------+--------|
+      | argument 1 | argument 2 | result |
+      |------------+------------+--------|
+      | true       | true       | true   |
+      | true       | false      | false  |
+      | false      | true       | false  |
+      | false      | false      | false  |
+      |------------+------------+--------|
+
+      Or:
+
+      #+attr_latex: :align |l|l|l|
+      |------------+------------+--------|
+      | argument 1 | argument 2 | result |
+      |------------+------------+--------|
+      | true       | true       | true   |
+      | true       | false      | true   |
+      | false      | true       | true   |
+      | false      | false      | false  |
+      |------------+------------+--------|
+
+
+      Not:
+
+      #+attr_latex: :align |l|l|
+      |----------+--------|
+      | argument | result |
+      |----------+--------|
+      | true     | false  |
+      | false    | true   |
+      |----------+--------|
+
 **** If-statements
     As you can imagine from the way I've been emphasizing the word "if", it's somehow important to the syntax of making choices.
 
@@ -303,6 +393,8 @@ We can see from this example the form, or syntax, of using a function is just li
       console.log("two is less than five");
   }
 #+END_SRC
+
+If-statements are the first exception we've seen to the rule that all-statements end with a semi-colon.
 
 What if you have alternatives in mind: code that you want to run if the condition /isn't true/? In that case you need the keyword ~else~, as in
 #+BEGIN_SRC  js :exports code
@@ -314,6 +406,52 @@ What if you have alternatives in mind: code that you want to run if the conditio
   }
 #+END_SRC
 
+If you have complicated conditions you can even chain if-else statements like
+#+BEGIN_SRC js :exports code
+  var thing = 10;
+
+  if (thing > 20) {
+      console.log("print one thing");
+  }
+  else if (thing < 0) {
+      console.log("print another thing");
+  }
+  else {
+      console.log("THE THING");
+  }
+#+END_SRC
+
+***** Evaluation by hand
+      To evaluate an if-statement of the form
+ #+LaTeX: \begin{framed}
+ #+BEGIN_SRC js :exports code
+   if(condition){
+       ...
+   }
+   else {
+       ...
+   }
+ #+END_SRC
+ #+LaTeX: \end{framed}
+ first evaluate the condition. If it is /truthy/, execute the code in the body of the if-clause and, when you're done, move onto the next statement after the if-statement. If the condition is /falsy/, then evaluate the code inside the else-clause and, when you're done, move onto the next statement after the if-statement. If there's no else-clause, then simply move onto the next statement if the condition is falsy.
+
+ If you're evaluating a if-else-chain of the form
+ #+LaTeX: \begin{framed}
+ #+BEGIN_SRC js :exports code
+   if (condition1) {
+           ...
+   }
+   else if (condition2) {
+           ...
+   }
+       ...
+   else {
+        
+   }
+ #+END_SRC
+ #+LaTeX: \end{framed}     
+
+ Evaluate 
 ** Repetition
 Very often, there are /subtasks/ when we're performing a task. We need to do something again and again. This repetition has a couple of obvious forms and a more subtle one.
 The two obvious ones are
@@ -348,13 +486,12 @@ where you have
 ***** 								   :noexport:
       do we want to include the for-of and for-each loops in this section as well?
 *** While-loops
-*** Defining functions
+*** Defining and calling unctions
 **** meta							   :noexport:
      The point of the defining functions is that you can re-use code more than once in a program.
      The informal idea is that when you have a sub-task in your algorithm, such as "cracking an egg" or  
 * Closures and Scope
-** meta								   :noexport:
-   There's a few important things in this section that we need to discuss. We need to explain the idea of how scope works with defining functions
+  What happens when we define a function /inside/ another function?
 * Advanced Iteration
 ** meta								   :noexport:
    In this section we need to talk about mapping and .forEach functions and things like that that are useful and getting to be very idiomatic, though they require a bit more complicated understanding of higher-order functions to get them right.  
@@ -367,15 +504,15 @@ where you have
    Also make a special section labled "output", which you'll use every time something is written to the console by the program.
 
    If a line of code is an expression *only*, evaluate the expression as normal then *throw away* the return value of the expression.
-** Variable declaration
-    Look at your program. For all of the instances you see of ~var name~ or ~var name = expression~ (that isn't in the body of a function (and if you haven't seen functions yet, don't worry)), make a table that looks like
+*** Variable declaration     
+Look at your program. For all of the instances you see of ~var name~ or ~var name = expression~ (that isn't in the body of a function (and if you haven't seen functions yet, don't worry)), make a table that looks like
 
-    | name1 | name2 | name3 | name4 | ... |
-    |       |       |       |       |     | 
+     | name1 | name2 | name3 | name4 | ... |
+     |       |       |       |       |     | 
 
-It should have one column for each variable name. 
+ It should have one column for each variable name. 
 
-You don't actually fill anything *in* to start, instead if there's a ~= expression~ portion of the variable declaration you wait until the line in question is reached before filling in the entry in the table according to the rules of the assignment expression.
+ You don't actually fill anything *in* to start, instead if there's a ~= expression~ portion of the variable declaration you wait until the line in question is reached before filling in the entry in the table according to the rules of the assignment expression.
 ** Expressions
    If an *expression* is the only thing on the line, evaluate the expression according to the appropriate rules for that expression.
 *** Arithmetic
@@ -554,6 +691,8 @@ You evaluate this by treating it as equivalent to
 #+END_SRC
 
 * Footnotes
+
+[fn:4] Technically speaking this isn't *quite* how JavaScript works, because of something called /variable hoisting/ where declarations are evaluated, but that's an advanced topic and one that you shouldn't run into as long as you always /declare/ your variables /before/ using them.
 
 [fn:3] Technically there's many places where you *could* leave semi-colons out, but it's generally a bad habit. Why? Because it generally leads to very /strange/ error messages when something goes wrong. Anything that makes your code harder to debug is generally a bad idea.
 
