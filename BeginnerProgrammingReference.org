@@ -451,7 +451,7 @@ If you have complicated conditions you can even chain if-else statements like
  #+END_SRC
  #+LaTeX: \end{framed}     
 
- Evaluate 
+ Evaluate each 
 ** Repetition
 Very often, there are /subtasks/ when we're performing a task. We need to do something again and again. This repetition has a couple of obvious forms and a more subtle one.
 The two obvious ones are
@@ -491,7 +491,177 @@ where you have
      The point of the defining functions is that you can re-use code more than once in a program.
      The informal idea is that when you have a sub-task in your algorithm, such as "cracking an egg" or  
 * Closures and Scope
+** Inner and outer functions
   What happens when we define a function /inside/ another function?
+
+  We've talked a little about variables and scope. To review, we know that when you /execute/ a function you are creating a new scope, or "variable table", that, whenever you use a variable, is checked before all the other scopes that are in play. Much of the time, this new scope is no longer used after you exit the function, but there's one case where it can live on indefinitely: when you have an /inner/ function that you return as a value. 
+
+  This is a consequence of JavaScript's scoping rules, which say that the place you look for the value of a variable is defined by where the variable is located in the /text/ of the program. This is called /lexical/ scoping. That's a bit abstract so let's look at a few examples.
+
+  First, here's a simple example. In the following program a function is defined and called: what value will it print out?
+
+  #+LaTeX: \begin{framed}
+  #+BEGIN_SRC js :exports code :results output
+    var number = 0;
+
+    function testFunction () {
+        var number = 20;
+        console.log(number);
+    }
+
+    testFunction();
+  #+END_SRC
+
+  #+RESULTS:
+  : 20
+
+  #+LaTeX: \end{framed}
+
+  If you test this yourself you'll see that it prints /20/ because when you call the function, you create a /new/ variable named =number= in the *new* scope of the function and when you use the variable =number= in the =console.log= call, you look up the value in the new scope and find the value of 20.
+
+What about a slightly more complicated example? Instead of defining a function that prints, we define a function that *returns* a function that prints. What value does this program print out now?
+
+  #+LaTeX: \begin{framed}
+  #+BEGIN_SRC js :exports code :results output 
+    var number = 0;
+
+    function testFunction () {
+        var number = 20;
+        return function () {
+            console.log(number);
+        }
+    }
+
+    var fun = testFunction();
+
+    fun();
+  #+END_SRC
+
+  #+RESULTS:
+  : 20
+
+  #+LaTeX: \end{framed}
+
+  It /still/ prints out 20! You might think that when we call =fun()= at the bottom of the program the code
+  #+BEGIN_SRC js :exports code
+    function () {
+        console.log(number);
+    }
+  #+END_SRC
+  would look at the value at the /global/ scope, not the scope of =testFunction=. Languages that do that are called /dynamically/ scoped. Instead, JavaScript, as a /lexically/ scoped language looks at what the =number= would have pointed to at the time the function was /defined/. 
+
+Meanwhile, if we print out =console.log(number)= at global scope we'll print out the number 0 instead of 20.
+
+Further, variables defined in the outer function are /only/ visible to the inner function. If we try an example such as 
+
+  #+LaTeX: \begin{framed}
+  #+BEGIN_SRC js :exports code
+    function outerFun () {
+        var thing = "I'M HIDDEN";
+        return function () {
+            return thing;
+        }
+    }
+
+    var thinger = outerFun();
+
+    console.log(thinger());
+    console.log(thing);
+  #+END_SRC
+
+  #+LaTeX: \end{framed}
+
+Then we'll 
+
+  For example, if you navigate to the file =counterExample.html=, which runs the following code
+
+  #+LaTeX: \begin{framed}
+  #+BEGIN_SRC js :results output :exports code :tangle counterExample.js
+    function outer () {
+        var counter = 0;
+        return function (){
+            counter = counter + 1;
+            console.log(counter);
+        }
+    }
+
+    inc = outer();
+
+    inc();
+    inc();
+    inc();
+  #+END_SRC
+ 
+
+  #+RESULTS:
+  : 1
+  : 2
+  : 3
+
+ #+LaTeX: \end{framed}
+
+
+#+BEGIN_SRC html :exports none :tangle counterExample.html
+  <!doctype html>
+
+  <html>
+    <head>
+      <script src="counterExample.js"></script>
+    </head>
+  <body>
+  <h1>Open the console and see what happened</h1>
+  </body>
+  </html>
+#+END_SRC
+
+you can see that the number the function =inc= prints out changes each time, because the variable =counter= which was defined in the scope of the =outer= function is still being referred to by the body of the function defined inside =outer=.
+
+#+LaTeX: \begin{framed}
+As an exercise, try running through this example by hand. Keep in mind the rules of scope for inner functions.
+#+LaTeX: \end{framed}
+
+We call a function like =inc= that can refer to variables "hidden" from normal view a /closure/.
+
+** Closures and objects
+   Closures become even more useful once we combine them with objects. For example, let's say we want to represent a counter as an object like
+   #+BEGIN_SRC js :exports code
+     var counter = { value : 0,
+                     inc : function () {
+                         counter.value = counter.value + 1;
+                         return counter.value;
+                     },
+                     dec : function () {
+                         counter.value = counter.value - 1;
+                         return counter.value;
+                     }
+                   }
+   #+END_SRC
+
+but there's a slight problem with object. You can just change the =value= property to whatever you want by setting the property as normal as in the following example
+#+BEGIN_SRC js :exports code
+  counter.value = "thing";
+#+END_SRC
+which means that if later in your program you call =counter.inc= then you'll get a rather unexpected result: 
+#+BEGIN_SRC js :exports results :results output
+  var counter = { value : 0,
+                  inc : function () {
+                      counter.value = counter.value + 1;
+                      return counter.value;
+                  },
+                  dec : function () {
+                      value = value - 1;
+                      return counter.value;
+                  }
+                };
+
+  counter.value = "thing";
+  counter.inc();
+  console.log(counter.value);
+#+END_SRC
+
+#+RESULTS:
+: thing1
+
 * Advanced Iteration
 ** meta								   :noexport:
    In this section we need to talk about mapping and .forEach functions and things like that that are useful and getting to be very idiomatic, though they require a bit more complicated understanding of higher-order functions to get them right.  
