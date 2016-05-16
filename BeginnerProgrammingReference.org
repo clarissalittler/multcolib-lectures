@@ -119,8 +119,10 @@ You know that you're going to use =console.log= to print out something.
      If you type in something like ~10*(3-2)+5~ into the console you'll see the JavaScript interpreter /evaluate/ the expression and then return the value, which in this case is 15.
 
      Go ahead and try a few arithmetic expressions just to see what happens.
+**** When is a number not a number?
+     T
 **** Evaluation by hand
-     This is our very first example of how to evaluate code *by hand*. Now, there's two pieces here that are important. The base numbers in JavaScript, the /literals/ as they're often called in programming, just evaluate to themselves: the number =4= becomes the value 4, the number =0= becomes the value 0.
+     This is our very first example of how to evaluate code *by hand*. Now, there's two pieces here that are important. The base numbers in JavaScript, the /literals/ as they're often called in programming, just evaluate to themselves: the number =4= becomes the value 4, the number =0= becomes the value 0. =Nan= and =Infinity= also evaluate to themselves.
 
      You can test that yourself in the JavaScript console by just entering numbers and seeing that the /value/ returned is just the number you entered. 
 
