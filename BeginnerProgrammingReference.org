@@ -120,7 +120,9 @@ You know that you're going to use =console.log= to print out something.
 
      Go ahead and try a few arithmetic expressions just to see what happens.
 **** When is a number not a number?
-     T
+     A number isn't a number when it is /not a number/! Now that sounds like some kind of bad joke, but there is actually a number called =NaN=, which stands for "not a number", in JavaScript. JavaScript allows 
+**** Infinity
+     
 **** Evaluation by hand
      This is our very first example of how to evaluate code *by hand*. Now, there's two pieces here that are important. The base numbers in JavaScript, the /literals/ as they're often called in programming, just evaluate to themselves: the number =4= becomes the value 4, the number =0= becomes the value 0. =Nan= and =Infinity= also evaluate to themselves.
 
