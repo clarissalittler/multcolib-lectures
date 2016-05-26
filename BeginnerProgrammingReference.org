@@ -6,6 +6,9 @@
 #+LaTeX_HEADER: \usepackage{minted}
 #+LaTeX_HEADER: \newcommand{\key}[1]{\textcolor{blue}{#1}}
 
+* Meta								   :noexport:
+  Starting words: [2016-05-25 Wed] 7962
+  Ending words: 8697
 * todos 							   :noexport:
 ** TODO Fix the sections on how to run code in the browser
 * Introduction
@@ -119,12 +122,8 @@ You know that you're going to use =console.log= to print out something.
      If you type in something like ~10*(3-2)+5~ into the console you'll see the JavaScript interpreter /evaluate/ the expression and then return the value, which in this case is 15.
 
      Go ahead and try a few arithmetic expressions just to see what happens.
-**** When is a number not a number?
-     A number isn't a number when it is /not a number/! Now that sounds like some kind of bad joke, but there is actually a number called =NaN=, which stands for "not a number", in JavaScript. JavaScript allows 
-**** Infinity
-     
 **** Evaluation by hand
-     This is our very first example of how to evaluate code *by hand*. Now, there's two pieces here that are important. The base numbers in JavaScript, the /literals/ as they're often called in programming, just evaluate to themselves: the number =4= becomes the value 4, the number =0= becomes the value 0. =Nan= and =Infinity= also evaluate to themselves.
+     This is our very first example of how to evaluate code *by hand*. Now, there's two pieces here that are important. The base numbers in JavaScript, the /literals/ as they're often called in programming, just evaluate to themselves: the number =4= becomes the value 4, the number =0= becomes the value 0.
 
      You can test that yourself in the JavaScript console by just entering numbers and seeing that the /value/ returned is just the number you entered. 
 
@@ -179,7 +178,6 @@ You know that you're going to use =console.log= to print out something.
 because all that matters is that the spaces are /somewhere/.
 
 Leaving out spaces is a *very* common mistake, so get in the habit of paying attention to the spaces at the beginning or end of the string.
-
 **** Evaluation by hand
      Strings evaluate to themselves, so the a valid string such as 
      #+BEGIN_SRC js :exports code
@@ -280,6 +278,24 @@ If you point your browser to the file =consoleLogTest.html=, which includes the 
     When you assign a variable, evaluate the expression to the right of the equals sign then change the value in the table corresponding to the variable.
 
     Finally, when a variable is /referenced/, just look up the value of the variable in the table and return that value.
+** Arrays
+   In every day life, we use /lists/ constantly: todo lists, grocery lists, email lists, even your Facebook friends or Twitter followers is, in some sense, a general list of things. 
+
+   More generally, the concept of a "list" describes everything from a hastily made scrawling of directions to general containers of thigns like bookshelves and clothes racks.
+
+   The key features are that there is an /order/ to the elements of the "list", a beginning and an end, and there's a way to retrieve and replace what's in different spots in the "list", much like how you can grab a book from the middle of a bookcase and put a book in another spot later. In this generalized list you don't have to worry about the size per se the way you would with a bookcase. You can keep adding items to the list, wherever you want in the list.
+   
+   These lists in JavaScript are called arrays and they're the first kind of compound container that we'll see in JavaScript. In JavaScript, we make arrays by putting expressions between square brackets and separated by commas as in =[1,3,"thing"]=. 
+
+   
+
+*** meta							   :noexport:
+    Lessons that need to be in this section
+    1. arrays function as lists in JavaScript
+    2. arrays can have different /kinds/ of data
+       * but is this even a thing that mostly needs to be pointed out for people who think in terms of "types"
+     1. How would you represent a user account for a social media site /as an object/?
+     2. How would you represent a car /as an object/ in a racing game?
 ** Objects
    In everyday life we have things like contact lists, directories, dictionaries, and glossaries. These are all kinds of data that map \key{names} to some kind of /information/.
 
@@ -323,72 +339,105 @@ If you point your browser to the file =consoleLogTest.html=, which includes the 
 
  These attributes you care about are the table's /properties/ and a collection of all of this data is the representation of a table as an object.
 **** Exercises
-     1. How would you represent a user account for a social media site /as an object/?
-     2. How would you represent a car /as an object/ in a racing game?
-** Arrays
-*** meta							   :noexport:
-    Lessons that need to be in this section
-    1. arrays function as lists in JavaScript
-    2. arrays can have different /kinds/ of data
-       * but is this even a thing that mostly needs to be pointed out for people who think in terms of "types"
 ** Choices
     Often when we're discussing instructions there's a notion of /choice/. \key{If} it's raining, take an umbrella. \key{If} you see the purple Little Free Library, take a right, \key{otherwise} you should keep walking. \key{If} the avocados are ripe, make tacos.
 
     We can make these choices in programming as well. \key{If} the username and password match, log the user in. \key{If} the user clicks send, send the email. 
-**** Booleans
-     In order to make these choices, though, we need for the programming language to understand what it means for something to be "true".
+*** Booleans
+    In order to make these choices, though, we need for the programming language to understand what it means for something to be "true".
 
-     While truth is a pretty complicated concept if you ask a philosopher, for the purposes of basic programming it's quite simple: there is a kind of data called a /boolean/. Booleans are either ~true~ or ~false~. In order to make decisions, we need operations and functions that will return booleans. 
+    While truth is a pretty complicated concept if you ask a philosopher, for the purposes of basic programming it's quite simple: there is a kind of data called a /boolean/. Booleans are either ~true~ or ~false~. In order to make decisions, we need operations and functions that will return booleans. 
 
-     For example, we have the equality operator, ~===~, and the less than operator ~<~, and the greater than operator ~>~. These operations follow our intuitive notions of what they should mean. ~2 < 5~ is true, but ~2 === 5~ is false.
+    For example, we have the equality operator, ~===~, and the less than operator ~<~, and the greater than operator ~>~. These operations follow our intuitive notions of what they should mean. ~2 < 5~ is true, but ~2 === 5~ is false.
 
-     We also have operations /on/ booleans such as \key{or} (=||=), \key{and} (=&&=), and \key{not} (=!=) that represent logical operations. The or operation (=a||b=) is true whenever =a= is true *or* =b= is true or both are true. The and operation =a&&b= is true /only/ when =a= is true *and* =b= is true. The not operation =!a= is true only when =a= is false.
+    We also have operations /on/ booleans such as \key{or} (=||=), \key{and} (=&&=), and \key{not} (=!=) that represent logical operations. The or operation (=a||b=) is true whenever =a= is true *or* =b= is true or both are true. The and operation =a&&b= is true /only/ when =a= is true *and* =b= is true. The not operation =!a= is true only when =a= is false.
 
-     These correspond to how we make decisions. \key{If} you're hungry \key{and} you have a snack, \key{then} eat it. \key{If} you're \key{not} bored, keep working. \key{If} you have a date or it's been more than a month, \key{then} shower.
-***** Truthy and falsy
-      JavaScript's notion of booleans is slightly more flexible than most programming languages. You can actually use any kind of data like booleans. All data in JavaScript is either /truthy/, or is treated like the boolean =true= in operations, or it is =falsy= and is treated like =false=.
-***** Shortcut evaluation
-***** Evaluation by hand
-      Both =true= and =false= are literals, just like basic strings and numbers, and they evaluate to the values =true= and =false= respectively.
+    These correspond to how we make decisions. \key{If} you're hungry \key{and} you have a snack, \key{then} eat it. \key{If} you're \key{not} bored, keep working. \key{If} you have a date or it's been more than a month, \key{then} shower.
+**** Truthy and falsy
+     JavaScript's notion of booleans is slightly more flexible than most programming languages. You can actually use any kind of data like booleans. All data in JavaScript is either /truthy/, or is treated like the boolean =true= in operations, or it is =falsy= and is treated like =false=.
+**** Evaluation by hand
+     Both =true= and =false= are literals, just like basic strings and numbers, and they evaluate to the values =true= and =false= respectively.
 
-      The boolean operations =&&=, =||=, and =!= are operators summarized below
-      
-      And:
+     The boolean operations =&&=, =||=, and =!= are operators summarized below.
+***** Boolean operations on Booleans
+     And:
 
+     #+attr_latex: :align |l|l|l|
+     |------------+------------+--------|
+     | argument 1 | argument 2 | result |
+     |------------+------------+--------|
+     | true       | true       | true   |
+     | true       | false      | false  |
+     | false      | true       | false  |
+     | false      | false      | false  |
+     |------------+------------+--------|
+
+     Or:
+
+     #+attr_latex: :align |l|l|l|
+     |------------+------------+--------|
+     | argument 1 | argument 2 | result |
+     |------------+------------+--------|
+     | true       | true       | true   |
+     | true       | false      | true   |
+     | false      | true       | true   |
+     | false      | false      | false  |
+     |------------+------------+--------|
+
+
+     Not:
+
+     #+attr_latex: :align |l|l|
+     |----------+--------|
+     | argument | result |
+     |----------+--------|
+     | true     | false  |
+     | false    | true   |
+     |----------+--------|
+***** Boolean operations in general
+     We've skipped over an important detail about how the boolean operations =||= and =&&= work: something often called "shortcircuiting evaluation".
+
+     If you'll notice back at the tables in our previous [[*Evaluation by hand][section]] then you'll see that if the /first/ argument to =||= evaluates to true (or a truthy value), then we don't /need/ to evaluate the second argument to =||= to know that the expression will evaluate to =true=. In fact, JavaScript (and most languages) won't evaluate the second argument to =||= if the first argument is true. If you type the following code into the console
+     #+LaTeX: \begin{framed}
+     #+BEGIN_SRC js :exports code :results output
+       5 || console.log(10);
+     #+END_SRC
+     #+LaTeX: \end{framed}
+
+     You should just get the number =5= without the number =10= being printed out. 
+
+     Similarly, you'll see that for =&&= that the second argument only /needs/ to be evaluated if the first argument is false or falsey.
+
+     Thus we can summarize the tables more generally as
+     
+     =a && b=:
       #+attr_latex: :align |l|l|l|
-      |------------+------------+--------|
-      | argument 1 | argument 2 | result |
-      |------------+------------+--------|
-      | true       | true       | true   |
-      | true       | false      | false  |
-      | false      | true       | false  |
-      | false      | false      | false  |
-      |------------+------------+--------|
-
-      Or:
-
-      #+attr_latex: :align |l|l|l|
-      |------------+------------+--------|
-      | argument 1 | argument 2 | result |
-      |------------+------------+--------|
-      | true       | true       | true   |
-      | true       | false      | true   |
-      | false      | true       | true   |
-      | false      | false      | false  |
-      |------------+------------+--------|
+     |--------+-------------+--------|
+     | a      | b           | result |
+     |--------+-------------+--------|
+     | truthy | evaluated   | b      |
+     | falsey | unevaluated | a      |
+     |--------+-------------+--------|
 
 
-      Not:
+      =a || b=:
+     #+attr_latex: :align |l|l|l|
+     |--------+-------------+--------|
+     | a      | b           | result |
+     |--------+-------------+--------|
+     | truthy | unevaluated | a      |
+     | falsey | evaluated   | b      |
+     |--------+-------------+--------|
 
-      #+attr_latex: :align |l|l|
-      |----------+--------|
-      | argument | result |
-      |----------+--------|
-      | true     | false  |
-      | false    | true   |
-      |----------+--------|
-
-**** If-statements
+     =! a=
+     #+attr_latex: :align |l|l|
+     |----------+--------|
+     | a        | result |
+     |----------+--------|
+     | truthy   | false  |
+     | falsey   | true   |
+     |----------+--------|      
+*** If-statements
     As you can imagine from the way I've been emphasizing the word "if", it's somehow important to the syntax of making choices.
 
     We call these "if-statements", and we use them like
@@ -425,37 +474,39 @@ If you have complicated conditions you can even chain if-else statements like
   }
 #+END_SRC
 
-***** Evaluation by hand
-      To evaluate an if-statement of the form
- #+LaTeX: \begin{framed}
- #+BEGIN_SRC js :exports code
-   if(condition){
-       ...
-   }
-   else {
-       ...
-   }
- #+END_SRC
- #+LaTeX: \end{framed}
- first evaluate the condition. If it is /truthy/, execute the code in the body of the if-clause and, when you're done, move onto the next statement after the if-statement. If the condition is /falsy/, then evaluate the code inside the else-clause and, when you're done, move onto the next statement after the if-statement. If there's no else-clause, then simply move onto the next statement if the condition is falsy.
+**** Evaluation by hand
+     To evaluate an if-statement of the form
+#+LaTeX: \begin{framed}
+#+BEGIN_SRC js :exports code
+  if(condition){
+      ...
+  }
+  else {
+      ...
+  }
+#+END_SRC
+#+LaTeX: \end{framed}
+first evaluate the condition. If it is /truthy/, execute the code in the body of the if-clause and, when you're done, move onto the next statement after the if-statement. If the condition is /falsy/, then evaluate the code inside the else-clause and, when you're done, move onto the next statement after the if-statement. If there's no else-clause, then simply move onto the next statement if the condition is falsy.
 
- If you're evaluating a if-else-chain of the form
- #+LaTeX: \begin{framed}
- #+BEGIN_SRC js :exports code
-   if (condition1) {
-           ...
-   }
-   else if (condition2) {
-           ...
-   }
-       ...
-   else {
+If you're evaluating a if-else-chain of the form
+#+LaTeX: \begin{framed}
+#+BEGIN_SRC js :exports code
+  if (condition1) {
+          ...
+  }
+  else if (condition2) {
+          ...
+  }
+      ...
+  else {
         
-   }
- #+END_SRC
- #+LaTeX: \end{framed}     
+  }
+#+END_SRC
+#+LaTeX: \end{framed}     
 
- Evaluate each 
+Evaluate each 
+**** Explaining shortcircuiting evaluation with if-statements
+
 ** Repetition
 Very often, there are /subtasks/ when we're performing a task. We need to do something again and again. This repetition has a couple of obvious forms and a more subtle one.
 The two obvious ones are
@@ -475,20 +526,22 @@ For the first kind of repetition think of times you've said or heard instruction
 When the instruction lists either a number of times to perform an action or specifies a collection of /things/ that you need to act on. Both of these are going to be handled in JavaScript with what are called *for loops*.
 
 The basic structure of a for-loop is something like  
+#+LaTeX: \begin{framed}
 #+BEGIN_SRC js :exports code
   for(var i=0; i < 10; i = i+1){
       console.log(i);
   }
 #+END_SRC
+#+LaTeX: \end{framed}
 
 where you have 
   1. the JavaScript keyword =for=, followed by three semi-colon separated things in parentheses:
-     1. the initialization of a variable to be used to count
+     1. the initialization of a variable to be used to count (~var i =0~)
+     2. how you know when you're done (=i < 10=)
+     3. what the next step should be (~i = i+1~)
+  2. the body of the function (=console.log(i)=) in braces
 
-**** A number of times
-**** A collection of things
-***** 								   :noexport:
-      do we want to include the for-of and for-each loops in this section as well?
+Putting all these pieces together, what's your guess about what this code does?
 *** While-loops
 *** Defining and calling unctions
 **** meta							   :noexport:
@@ -864,6 +917,35 @@ You evaluate this by treating it as equivalent to
   };
 #+END_SRC
 
+* Appendix: Numbers That Aren't Numbers
+** When is a number not a number?
+   When is a number not a number? When it's /not a number/! Now that sounds like some kind of bad joke, but there is actually a "number" called =NaN=, which stands for "not a number", in JavaScript. This "number" is how JavaScript denotes that at some point a numerical calculation /went wrong/, for example if you type the expression \verb+3 / "chicken"+ into the console then you'll get back =NaN=. You may have already discovered it if you tried something that is ill-defined mathematically such as =0/0=.
+     
+   Once you're trapped in =NaN= land you can't get back out again. 
+
+   #+LaTeX: \begin{leftbar}
+   Try typing the following expressions into the console just to see what happens:
+   1. =NaN + NaN=
+   2. =NaN * 0=
+   3. =1 + NaN=
+   #+LaTeX: \end{leftbar}
+** Infinity
+   The other odd number you might encounter in JavaScript is =Infinity=. =Infinity= is the "number" you get when you perform an operation such as dividing a non-zero number by zero, such as =1/0=.
+
+   Now, as you might expect a number of operations on =Infinity= still yield =Infinity=. For example,
+   #+LaTeX: \begin{leftbar}
+   1. =0 + Infinity=
+   2. =Infinity - 10=
+   3. =Infinity * 2=
+   4. =Infinity / 0=
+   #+LaTeX: \end{leftbar}
+   will all output =Infinity=, but =Infinity*0= is going to be =NaN=.
+** Why have these?   
+   In day-to-day programming, you won't encounter these pseudo-numbers very often. They're much like =undefined= in that their use is to signal that /something went wrong/, but instead of =undefined= which could be the result of many different kinds of errors, =Infinity= and =NaN= have very particular causes involving numeric operations.
+
+   The fact that JavaScript is so nice about dividing by zero is somewhat rare. An older programming language such as C or C++ has "undefined behavior" when dividing by zero, which means that you can't rely on your program behaving predictably when this error happens.
+** Evaluation By Hand
+ =Nan= and =Infinity= evaluate to themselves. Any numeric operation involving =NaN= will result again in =NaN=. Any numeric operation on =Infinity=, other than multiplying by =0=, will give back =Infinity=.
 * Footnotes
 
 [fn:4] Technically speaking this isn't *quite* how JavaScript works, because of something called /variable hoisting/ where declarations are evaluated, but that's an advanced topic and one that you shouldn't run into as long as you always /declare/ your variables /before/ using them.
