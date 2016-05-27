@@ -9,6 +9,7 @@
 * Meta								   :noexport:
   Starting words: [2016-05-25 Wed] 7962
   Ending words: 8697
+                8878
 * todos 							   :noexport:
 ** TODO Fix the sections on how to run code in the browser
 * Introduction
@@ -279,15 +280,29 @@ If you point your browser to the file =consoleLogTest.html=, which includes the 
 
     Finally, when a variable is /referenced/, just look up the value of the variable in the table and return that value.
 ** Arrays
-   In every day life, we use /lists/ constantly: todo lists, grocery lists, email lists, even your Facebook friends or Twitter followers is, in some sense, a general list of things. 
+   In every day life, we use /lists/ constantly: todo \key{lists}, grocery \key{lists}, email \key{lists}, even your Facebook friends or Twitter followers is, in some sense, a general \key{list} of things. 
 
-   More generally, the concept of a "list" describes everything from a hastily made scrawling of directions to general containers of thigns like bookshelves and clothes racks.
+   More generally, the concept of a \key{list} describes everything from a hastily made scrawling of directions to general containers of thigns like bookshelves and clothes racks.
 
    The key features are that there is an /order/ to the elements of the "list", a beginning and an end, and there's a way to retrieve and replace what's in different spots in the "list", much like how you can grab a book from the middle of a bookcase and put a book in another spot later. In this generalized list you don't have to worry about the size per se the way you would with a bookcase. You can keep adding items to the list, wherever you want in the list.
    
-   These lists in JavaScript are called arrays and they're the first kind of compound container that we'll see in JavaScript. In JavaScript, we make arrays by putting expressions between square brackets and separated by commas as in =[1,3,"thing"]=. 
-
+   These lists in JavaScript are called arrays and they're the first kind of compound container that we'll see in JavaScript. In JavaScript, we make arrays by putting expressions between square brackets and separated by commas as in =[1,3,"thing"]=. This example gives us an array that has three items in it: these three "slots" are numbered /starting with zero/ [fn:5]. More explicitly, we have that =1= is stored in the 0th place in the array, =3= is stored in the 1st place in the array, and \verb+"thing"+ is stored in the 2nd place in the array.
    
+   In JavaScript, we can retrieve items from the array with the "square bracket" syntax as in the following example
+   #+LaTeX: \begin{shaded}
+   #+BEGIN_SRC js :exports code :results output
+     var arr = [1,3,"thing"];
+     console.log(arr[0]);
+     console.log(arr[1]);
+     console.log(arr[2]);
+   #+END_SRC
+   #+LaTeX: \end{shaded}
+
+   In other words, we take 
+   1. the name of the array (=arr=)
+   2. open square bracket (=[=)
+   3. the number corresponding to the place, or \key{index}, in the array (=0=)
+   4. a closing square bracket (=]=)
 
 *** meta							   :noexport:
     Lessons that need to be in this section
@@ -947,6 +962,8 @@ You evaluate this by treating it as equivalent to
 ** Evaluation By Hand
  =Nan= and =Infinity= evaluate to themselves. Any numeric operation involving =NaN= will result again in =NaN=. Any numeric operation on =Infinity=, other than multiplying by =0=, will give back =Infinity=.
 * Footnotes
+
+[fn:5] This is called "0-indexing" and is almost universal in computer science. If you do any amount of programming you'll start unconciously counting things starting with the "0th" item.
 
 [fn:4] Technically speaking this isn't *quite* how JavaScript works, because of something called /variable hoisting/ where declarations are evaluated, but that's an advanced topic and one that you shouldn't run into as long as you always /declare/ your variables /before/ using them.
 
