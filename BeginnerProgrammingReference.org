@@ -10,6 +10,7 @@
   Starting words: [2016-05-25 Wed] 7962
   Ending words: 8697
                 8878
+		9113
 * todos 							   :noexport:
 ** TODO Fix the sections on how to run code in the browser
 * Introduction
@@ -537,6 +538,7 @@ For the first kind of repetition think of times you've said or heard instruction
    + cut \key{three} onions
    + put \key{every} book on the shelf
    + send a letter to \key{each} address on the list
+   + do 20 jumping jacks
 
 When the instruction lists either a number of times to perform an action or specifies a collection of /things/ that you need to act on. Both of these are going to be handled in JavaScript with what are called *for loops*.
 
@@ -556,8 +558,25 @@ where you have
      3. what the next step should be (~i = i+1~)
   2. the body of the function (=console.log(i)=) in braces
 
+#+LaTeX: \begin{shaded}
 Putting all these pieces together, what's your guess about what this code does?
+#+LaTeX: \end{shaded}
+
+Now, our examples above for real-life analogues of for loops mention the ideas of \key{for each} and \key{for every}, but it might not be obvious how for-loops accomplish that! So, generally, whenever you have a task that's \key{for each} thing in some \key{collection} then this means that you have some kind of list, which in JavaScript means an /array/, and then you want to do /something/ for each element of the array.
+
+In JavaScript, and many other languages with for-loops, this means you loop over all the valid slots, the indexes, in the array. What are the valid indexes of an array, though? 
+
+Consider the array =["thing 1","thing 2","chicken"]=. This array has /three elements/. The valid indexes are then =0=, =1=, and =2=. In fact, for every array of length =n= then the valid indices are 0 through =n-1=, which are all the numbers greater than or equal to =0= /less than/ =n=.. So if we want to print out every element of an array we can do something like
+#+BEGIN_SRC js :exports code
+  var arr = ...;
+
+  for(var i=0; i < arr.length; i = i+1){
+      console.log(arr[i]);
+  }
+#+END_SRC
+
 *** While-loops
+    While loops are the other very basic form of repetition in JavaScript. In terms of our everyday experiences, while-loops correspond to 
 *** Defining and calling unctions
 **** meta							   :noexport:
      The point of the defining functions is that you can re-use code more than once in a program.
