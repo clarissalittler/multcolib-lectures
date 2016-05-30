@@ -11,6 +11,8 @@
   Ending words: 8697
                 8878
 		9113
+		9299
+		10310
 * todos 							   :noexport:
 ** TODO Fix the sections on how to run code in the browser
 * Introduction
@@ -305,13 +307,33 @@ If you point your browser to the file =consoleLogTest.html=, which includes the 
    3. the number corresponding to the place, or \key{index}, in the array (=0=)
    4. a closing square bracket (=]=)
 
+Very similarly, you can change what's in the slot of an array by assigning to the slot =arr[i]= as in the following exmaple
+
+   #+LaTeX: \begin{shaded}
+   #+BEGIN_SRC js :exports code
+     var arr = [2,4,6];
+     arr[0] = 1;
+     arr[1] = 3;
+     arr[2] = 5;
+     console.log(arr);
+   #+END_SRC
+   #+LaTeX: \end{shaded}
+*** Exercises
+   #+LaTeX: \begin{shaded}
+   Consider the following program:
+   #+BEGIN_SRC js :exports code 
+     var myVariable = "variable";
+     var myArray = [1,3,myVariable,7];
+
+     myArray[2] = 5;
+   #+END_SRC
+   Now, what's the value of myVariable at the end of the program? Explain why in terms of your understanding of variables and arrays.
+   #+LaTeX: \end{shaded}
 *** meta							   :noexport:
     Lessons that need to be in this section
     1. arrays function as lists in JavaScript
     2. arrays can have different /kinds/ of data
        * but is this even a thing that mostly needs to be pointed out for people who think in terms of "types"
-     1. How would you represent a user account for a social media site /as an object/?
-     2. How would you represent a car /as an object/ in a racing game?
 ** Objects
    In everyday life we have things like contact lists, directories, dictionaries, and glossaries. These are all kinds of data that map \key{names} to some kind of /information/.
 
@@ -355,6 +377,104 @@ If you point your browser to the file =consoleLogTest.html=, which includes the 
 
  These attributes you care about are the table's /properties/ and a collection of all of this data is the representation of a table as an object.
 **** Exercises
+     1. How would you represent a user account for a social media site /as an object/?
+     2. How would you represent a car /as an object/ in a racing game?
+*** "Everything" is an object
+    In JavaScript, /essentially/ everything is an object [fn:6]. As such, almost everything in JavaScript has properties you can call on. Arrays, for example, have a length property that tells you how many pieces of data are currently stored in the array. Try a couple of simple examples like the following in your console:
+    #+LaTeX: \begin{shaded}
+    #+BEGIN_SRC js :exports code
+      [1,2,3].length;
+      [10,"50",["one","hundred","chickens"].length].length;
+    #+END_SRC
+    #+LaTeX: \end{shaded}
+** Defining and calling functions
+   The next major concept we'll be discussing are /function/. Functions fill the role of being computations that are described *once* and used *many* times. We're actually very familiar with grouping and naming a series of steps, so familiar we might not even think about it! If I ask you to go to "google.com', you know exactly what I'm asking you to do and how to do it. You know how to
+   #+LaTeX: \begin{framed}
+   1. turn on your computer, if it isn't already
+   2. navigate with your mouse or keyboard to open a browser
+   3. type "google.com" into the URL bar of the browser
+   4. and hit enter so the page loads
+   #+LaTeX: \end{framed}
+We could break these steps down even further into describing how to turn on your computer, how to use a mouse, /how to even move your hand/, etc. The point, though, is that if I say "open google" or "go to google" you know what I'm asking you to do and can perform the entire sequence of steps.
+
+*That* is what functions are in any programming language: they are a sequence of steps that is grouped together so it can be used again and again. We see this in any kind of instructions: cookbooks assume you know what it means to dice or julienne, knitting books assume you can knit or purl, etc. 
+      
+   All that being said, ou might /also/ be familiar with the idea of functions from something like a math class in high school or college, where a function in math is defined like
+#+BEGIN_LaTeX
+\begin{displaymath}
+  f(x) := x + 2
+\end{displaymath}
+#+END_LaTeX
+
+and then you /call/ this function by putting an argument between the parentheses like $f(2)$. Now, you don't need to remember this or have seen this before in a math class, but if you do have that experience it might help to remember how functions worked then.
+
+Namely, that a function has three parts:
+#+LaTeX: \begin{framed}
+   1. Its name ($f$)
+   2. Its parameters ($x$)
+   3. Its body ($x + 2$)
+#+LaTeX: \end{framed}
+and that when you /call/ a function, you use the /name/ of the function and then wrap the arguments you're providing to the function in parentheses ($f(2)$). Then you evaluate the body of a function by substituting the /arguments/ for the /parameters/ and then executing what's left now that the parameters are gone ($2+2$).
+
+JavaScript works almost the same way, but more verbosely: let's see the same function defined in JavaScript.
+
+#+LaTeX: \begin{shaded}
+#+BEGIN_SRC js :exports code
+  function f (x) {
+      return x + 2;
+  }
+  console.log(f(2));
+#+END_SRC
+#+LaTeX: \end{shaded}
+
+There's still a name for the function (=f=) and we still put the sparameters in parentheses and we still call the function the same way as before. 
+
+The difference is that we put the /body/ of the function between two braces and we have this keyword \key{return} that we haven't seen before. This reflects that in *programming* we sometimes want to call functions that don't give back any useful value. In fact, we've been using one this whole time: namely, =console.log=. You may have noticed that when you type =console.log(..)= in the console you see the value of the argument printed out *and* you'll see =undefined= \key{returned} from the function. Any function that doesn't explicitly \key{return} a value will return =undefined=. For example, the following function
+#+LaTeX: \begin{shaded}
+#+BEGIN_SRC js :exports code
+  function test (x,y) {
+      console.log(x);
+      console.log(y);
+      console.log(x);
+  }
+#+END_SRC
+#+LaTeX: \end{shaded} 
+
+will print out the first argument, the second argument, and then the first again. It will return =undefined=.
+
+One other difference between functions in programming and functions in math is that functions in programming can have *no* arguments. Consider the following code
+#+LaTeX: \begin{shaded}
+#+BEGIN_SRC js :exports code
+
+#+END_SRC
+#+LaTeX: \end{shaded}
+*** Function scope
+    Functions act like mini-programs within your main program, and as such they can have their own variables that are independent of the larger program.
+
+    Try running the following program and seeing what happens:
+    #+LaTeX: \begin{shaded}
+    #+BEGIN_SRC js :exports code
+      var myVar = 0;
+      function test () {
+          var myVar = 10;
+          var testVar = 20;
+      }
+
+      test();
+
+      console.log(myVar);
+      console.log(testVar);
+    #+END_SRC
+    #+LaTeX: \end{shaded}
+
+    If you run this code, you'll see that the final values of =myVar= and =testVar= are =0= and =undefined= respectively. Recall that we described making variables as making a table, a place, that connects the name of the variable to the value the variable points to. However, when you declare a variable *within* a function, the variable goes into a separate table than a variable declared at the top-level of the program. When the function is done executing, there's no way to refer to refer to this special table anymore. [fn:7]
+
+    In JavaScript, when you're looking up a variable you look at the most recently declared 
+ 
+*** meta							   :noexport:
+    The point of the defining functions is that you can re-use code more than once in a program.
+    The informal idea is that when you have a sub-task in your algorithm, such as "cracking an egg", "pull out of your driveway", or "pull up a web page" these are tasks that don't need to be explained again and again to the person who is doing them. Once you know what it means /once/ to sit down at a computer, open a web browser, and type in a URL you don't have to have that explained in a set of instructions again. Instead, the writer of the instructions can just say "open X webpage"
+
 ** Choices
     Often when we're discussing instructions there's a notion of /choice/. \key{If} it's raining, take an umbrella. \key{If} you see the purple Little Free Library, take a right, \key{otherwise} you should keep walking. \key{If} the avocados are ripe, make tacos.
 
@@ -520,17 +640,13 @@ If you're evaluating a if-else-chain of the form
 #+END_SRC
 #+LaTeX: \end{framed}     
 
-Evaluate each 
-**** Explaining shortcircuiting evaluation with if-statements
-
+Evaluate each conditional and, if it is true, evaluate the body of the if-clause and if it is not true move on to the next conditional test. 
 ** Repetition
 Very often, there are /subtasks/ when we're performing a task. We need to do something again and again. This repetition has a couple of obvious forms and a more subtle one.
-The two obvious ones are
+The two main ones are
 
    1. doing something a /number/ of times
    2. doing something until there's some change
-
-and the more subtle one is /naming/ actions so that you can perform them again and again as a sequence of steps.
 
 *** For-loops
     
@@ -577,10 +693,6 @@ Consider the array =["thing 1","thing 2","chicken"]=. This array has /three elem
 
 *** While-loops
     While loops are the other very basic form of repetition in JavaScript. In terms of our everyday experiences, while-loops correspond to 
-*** Defining and calling unctions
-**** meta							   :noexport:
-     The point of the defining functions is that you can re-use code more than once in a program.
-     The informal idea is that when you have a sub-task in your algorithm, such as "cracking an egg" or  
 * Closures and Scope
 ** Inner and outer functions
   What happens when we define a function /inside/ another function?
@@ -981,6 +1093,10 @@ You evaluate this by treating it as equivalent to
 ** Evaluation By Hand
  =Nan= and =Infinity= evaluate to themselves. Any numeric operation involving =NaN= will result again in =NaN=. Any numeric operation on =Infinity=, other than multiplying by =0=, will give back =Infinity=.
 * Footnotes
+
+[fn:7] Mostly true! There's actually a way to keep around the ability to refer to these variables after the function is done. They're called /closures/ and we'll cover them later in these notes.
+
+[fn:6] This isn't quite true. Primitive data types such as booleans and numbers and strings aren't actually objects in-and-of themselves, but if you ask about their properties then they get "wrapped" with an object that handles the properties and methods. For all intents and purposes, though, you can think of these primitive data as objects that just don't have a /type/ of object.
 
 [fn:5] This is called "0-indexing" and is almost universal in computer science. If you do any amount of programming you'll start unconciously counting things starting with the "0th" item.
 
