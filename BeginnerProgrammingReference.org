@@ -12,9 +12,11 @@
                 8878
 		9113
 		9299
-		10310
+		10202
+		10804
 * todos 							   :noexport:
 ** TODO Fix the sections on how to run code in the browser
+** TODO Add a section explaining the idea that we'll introduce syntax with skeletons as well as words
 * Introduction
 ** What Is This Document?
    This document is a part of a set of tutorial lectures for absolute beginners to learn programming. The mini-course is centered around JavaScript and on accomplishing certain small goals in JavaScript. 
@@ -675,6 +677,7 @@ where you have
   2. the body of the function (=console.log(i)=) in braces
 
 #+LaTeX: \begin{shaded}
+ Exercise:
 Putting all these pieces together, what's your guess about what this code does?
 #+LaTeX: \end{shaded}
 
@@ -691,8 +694,86 @@ Consider the array =["thing 1","thing 2","chicken"]=. This array has /three elem
   }
 #+END_SRC
 
+Now, for-loops can do more than just count *up* by one, even though that's probably the most common use you'll see. [fn:8] You can count down, like in the following code
+  #+LaTeX: \begin{framed}
+  #+BEGIN_SRC js ;exports code
+    for(var i = 10; i > 0; i = i - 1){
+        console.log(i);
+    }
+  #+END_SRC
+  #+LaTeX: \end{framed}
+
+**** Evaluating by hand
+     For loops are 
+
 *** While-loops
-    While loops are the other very basic form of repetition in JavaScript. In terms of our everyday experiences, while-loops correspond to 
+**** General intuition
+    While loops are the other very basic form of repetition in JavaScript. In terms of our everyday experiences, while-loops correspond to the process of doing a task \key{while} something else is happening or \key{until} something happens.
+
+    Examples of this kind of iteration are 
+    #+LaTeX: \begin{framed}
+    + driving \key{until} you see a house with a rainbow streamer on the post box
+    + occassionally stirring \key{until} the soy curls are browned on all sides
+    + working on your homework \key{until} you're too tired
+    + \key{while} it's raining, keep your umbrella out
+    #+LaTeX: \end{framed}
+
+    In each of these examples you're still trying to do a task repeatedly, checking to see if something has changed. The only real difference between \key{while} and \key{until} is how we think of the condition. When we say \key{while}, this means that we're going to keep doing /something/ *while* some condition is true and when it *stops* being true, stop the task. When we say \key{until}, we mean that we're going to keep doing /something/ *until* some condition *becomes* true. 
+
+
+    #+LaTeX: \begin{shaded}
+    Exercise: Take all the English sentences describing while-loops and change them to use \key{until} if they used \key{while} and \key{while} if they used \key{until}
+    #+LaTeX: \end{shaded}
+**** Syntax
+     The way you write a while-loop is the following skeleton
+     #+LaTeX: \begin{framed}
+     #+BEGIN_SRC js :exports code
+       while (/condition/){
+               ...
+       }
+     #+END_SRC
+     #+LaTeX: \end{framed}
+     This means that \key{while} the condition between the parentheses is true, then run the code inside the while loop. 
+
+     As an example, here's a while-loop that will double a number until it is larger than 10000
+     #+LaTeX: \begin{framed}
+     #+BEGIN_SRC js :exports code :results output
+       var counter = 10;
+       while (counter < 10000) {
+           counter = 2 * counter;
+       }
+       console.log(counter);
+     #+END_SRC
+     #+LaTeX: \end{framed}
+
+     #+LaTeX: \begin{shaded}
+     Exercise:
+     Without running the code, what do you think will be printed to the console?
+     #+LaTeX: \end{shaded}
+     #+LaTeX: \begin{shaded}
+     Exercise:
+     What's wrong with the following code and what makes it different than the code above?
+     #+BEGIN_SRC js :exports code :results output
+       while (var counter = 10 && counter < 10000){
+           counter = 2 * counter;
+       }
+
+       console.log(counter);
+     #+END_SRC
+     #+LaTeX: \end{shaded}
+
+     I want to emphasize that the condition of the while loop is evaluated /every/ time we restart the loop. This is in contrast to the for-loop where in a for loop such as
+     #+LaTeX: \begin{framed}
+     #+BEGIN_SRC js :exports code
+       for(clause1; clause2; clause3){
+               ...
+       }
+     #+END_SRC
+     #+LaTeX: \end{framed}
+     where =clause2= is evaluated every time but =clause1= is only evaluated once and =clause3= is evaluated only at the end of a loop.
+**** Evaluating by hand
+     To evaluate a while loop by hand, /first/ evaluate the condition of the while loop. If it evaluates to a /truthy/ value, then execute the body of the loop. If it evaluates to a /falsy/ value, then skip to the first line of code after the end of the loop. Whenever you finish executing the body of the loop, repeat this process starting from evaluating the condition of the while loop.
+    
 * Closures and Scope
 ** Inner and outer functions
   What happens when we define a function /inside/ another function?
@@ -1093,6 +1174,8 @@ You evaluate this by treating it as equivalent to
 ** Evaluation By Hand
  =Nan= and =Infinity= evaluate to themselves. Any numeric operation involving =NaN= will result again in =NaN=. Any numeric operation on =Infinity=, other than multiplying by =0=, will give back =Infinity=.
 * Footnotes
+
+[fn:8] I once taught a class where a student hadn't realized that you were even allowed to put something other than =i++= as the third clause of the for-loop
 
 [fn:7] Mostly true! There's actually a way to keep around the ability to refer to these variables after the function is done. They're called /closures/ and we'll cover them later in these notes.
 
