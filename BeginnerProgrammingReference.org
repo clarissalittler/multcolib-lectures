@@ -1,10 +1,16 @@
 #+TITLE: Beginning Programming in JavaScript
 #+AUTHOR: Clarissa Littler
 #+OPTIONS: toc:nil
+#+LaTeX_HEADER: \usepackage{array,mathtools,amsmath}
+#+LaTeX_HEADER: \usepackage{xcolor}
 #+LaTeX_HEADER: \usepackage{color}
 #+LaTeX_HEADER: \usepackage{framed}
 #+LaTeX_HEADER: \usepackage{minted}
+#+LaTeX_HEADER: \newcommand*{\carry}[1][1]{\overset{#1}}
+#+LaTeX_HEADER: \newcolumntype{B}[1]{r*{#1}{@{\,}r}}
 #+LaTeX_HEADER: \newcommand{\key}[1]{\textcolor{blue}{#1}}
+#+LaTeX_HEADER: \definecolor{shadecolor}{gray}{0.8}
+#+LaTeX_HEADER: \setlength{\parskip}{0.5em}
 
 * Meta								   :noexport:
   Starting words: [2016-05-25 Wed] 7962
@@ -14,6 +20,7 @@
 		9299
 		10202
 		10804
+
 * todos 							   :noexport:
 ** TODO Fix the sections on how to run code in the browser
 ** TODO Add a section explaining the idea that we'll introduce syntax with skeletons as well as words
@@ -26,7 +33,13 @@
    2. An explanation of how to do web-programming
    3. A reference for the entire JavaScript language
 ** Why Programming?
-   First, let's talk about why someone would even want to learn computer programming in the first place. There's the obvious pragmatic reason of hoping to get a job as a programmer. There's also all the things you can potentially /do/ as a programmer. These days we talk a lot about coding websites and mobile apps, which are massively important in their own right, but there's even more beyond that. In just the last few years we've reached a point where we can programmatically control the electronics in our houses, we can write code to control 3D printers, we can program AIs and robots and self-driving vehicles. A larger and larger portion of our lives is going to be mediated by code and automation, and since I have a strong populist streak I'd love to see more people be able to take control of this dependence on automation and artificial intelligence.
+   First, let's talk about why someone would even want to learn computer programming in the first place. There's the obvious pragmatic reason of hoping to get a job as a programmer. 
+
+   There's also all the things you can potentially /do/ as a programmer. 
+
+   These days we talk a lot about coding websites and mobile apps, which are massively important in their own right, but there's even more beyond that. In just the last few years we've reached a point where we can programmatically control the electronics in our houses, we can write code to control 3D printers, we can program AIs and robots and self-driving vehicles. 
+
+   A larger and larger portion of our lives is going to be mediated by code and automation, and since I have a strong populist streak I'd love to see more people be able to take control of this dependence on automation and artificial intelligence.
 
    Even beyond all of those good reasons for learning programming, there's also just the pleasure of it. Coding can be a lot like cooking or any other form of crafting: you're figuring out how to make something and just the act of /making/ brings a certain pleasure with it.
 ** What Is Programming?
@@ -34,9 +47,46 @@
 
    Once upon a time, by which I mean the first half of the twentieth century, "computer" was a job title not a noun. A computer was a person who made calculations, often for physics experiments or firing solution tables for the military. In other words, computers were people whose job was to /perform computation/. As a historical side-note, computers were mostly women and these computers, in turn, were some of the first programmers. 
 
-   Computers, whether people or machines, perform computations by executing a series of steps. Think back to how you learned to add big numbers together with a pencil and paper: you start at the rightmost column, add the two numbers together, carry the one if you need to, and proceed to the next column. In fact, every calculation you learned how to do in math classes all had some series of steps you were supposed to do to get the answer. 
+   Computers, whether people or machines, perform computations by executing a series of steps. Think back to how you learned to add big numbers, like the ones below, together with a pencil and paper.
+
+#+BEGIN_LaTeX
+
+  \begin{displaymath}
+   \begin{framed}
+    \begin{array}{rr}
+      \ 32347 \\
+      \ 203423 \\
+      + \ 34323425 \\
+      \hline
+      \cdots 
+    \end{array}
+   \end{framed}
+  \end{displaymath}
+
+#+END_LaTeX
+
+ How do you calculate this? You start at the rightmost column, add the numbers together, carry if you need to, and proceed to the next column. 
+
+ If you do this on a piece of paper, your work-in-progress might look something like [fn:9]
+#+BEGIN_LaTeX
+\begin{displaymath}
+  \begin{framed}
+    \begin{array}{rr}
+      \ 32 \carry 3 \carry 47 \\
+      \ 203423 \\
+      + \ 34323425 \\
+      \hline
+      \cdots 35
+    \end{array}
+  \end{framed}
+\end{displaymath}
+
+#+END_LaTeX
+
+ In fact, every calculation you learned how to do in math classes all had some series of steps you were supposed to do to get the answer. You learned how to perform these steps with a pen and paper, and later a calculator, but the principle is fundamentally the same either way.
 
    We can generalize this idea of taking steps and calculations to be about more than just numbers. Any procedure that takes
+   #+LaTeX: \begin{framed}
    + a finite[fn:1] number of steps 
    + a finite amount of "material"
    + a finite amount of time to complete 
@@ -44,8 +94,9 @@ can be described as a computation. This includes things like
    + cooking
    + following a map
    + building furniture from a wordless diagram
+   #+LaTeX: \end{framed}
 
-And while tasks like these might seem like a bit of a digression when we're talking about /computers/, the point here is that anything that *can* be described in the "finite" way we did above can potentially be done by programmed machine. Self-driving cars can follow map directions to get to a destination. 3D printers can assemble solid objects given a blue print and enough material. 
+And while tasks like these might seem like a bit of a digression when we're talking about /computers/, the point here is that anything that *can* be described in the "finite" way we did above can potentially be done by programmed machine. Self-driving cars can follow map directions to get to a destination. 3D printers can assemble solid objects given a blueprint in the right format and enough material. 
 
 Computation is not just number crunching or showing you a webpage. Now, you might be wondering what /can't/ be described by a computation, and it turns out the answer is "quite a lot, but not a lot you'd care about". You're most likely to run into the limits of computation when writing programs that try to analyze other programs. This is why there's no perfect anti-virus program: it's physically impossible for there to be a program that can look at another program and determine, with perfect accuracy, whether or not its a virus. I'm not joking when I say "physically impossible". The limits of computation are as real and physical as the laws of motion. No amount of making computers faster can get around them. 
 
@@ -63,15 +114,26 @@ Instead, we have specialized, simple, languages for exactly describing what the 
 
    Suffice it to say, JavaScript is a ubiquitous and important language now.
 
-   Luckily, I happen to also think it's a fairly decent one. If you look online for people's opinions on JavaScript you'll find it gets some hate because there are some pretty weird and counterintuitve aspects of the language, but they're also mostly avoidable unless you're running into someone else's code that uses them. "JavaScript: The Good Parts" by Crockford is a good reference for the nice, clean core of the language. 
-
+   Luckily, it's a fairly decent one. If you look online for people's opinions on JavaScript you'll find it gets some hate because there are some strange and counterintuitve aspects of the language, but they're also mostly avoidable unless you're running into someone else's code that uses them. "JavaScript: The Good Parts" by Crockford is a good reference for the nice, clean core of the language. 
 * Basic Syntax and Translation
 ** Loading and Running Code
-*** meta 							   :noexport:
-    Include three things here:
-    1. how to open the javascript console in the browser and run lines of code
-    2. how to run a javascript program in the browser
-    3. how to install and run a javascript program through node
+Before we can do anything, we need to address how to /run/ JavaScript programs. We've already established that every web browser has the ability to run JavaScript code, but let's go over exactly how this works.
+
+First, every browser has something called the /JavaScript console/. Each browser is slightly different in how you open the browser, but here's how to open the browser for the Big 3 
+
+Our answers here come from 
+
+#+LATEX: {\tiny http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers}
+
+   + Internet Explorer $\Rightarrow$ hit f12 and the console is located in the "console" tab
+   + Chrome $\Rightarrow$ =Ctrl + Shift + J=
+   + Firefox $\Rightarrow$ =Ctrl + Shift + K=
+
+Once you've opened the console you'll see something like
+
+#+ATTR_LATEX: :width 12cm
+file:openconsole.png
+
 ** Nouns and Verbs
    The same way that, in English, there's nouns that describe objects and verbs that describe actions, in a programming language there's a distinction between the "nouns" that describe data and the "verbs" that describe what to do with the data. 
 
@@ -1174,6 +1236,8 @@ You evaluate this by treating it as equivalent to
 ** Evaluation By Hand
  =Nan= and =Infinity= evaluate to themselves. Any numeric operation involving =NaN= will result again in =NaN=. Any numeric operation on =Infinity=, other than multiplying by =0=, will give back =Infinity=.
 * Footnotes
+
+[fn:9] The formatting for this came from http://tex.stackexchange.com/questions/95812/how-to-show-carries-in-long-addition
 
 [fn:8] I once taught a class where a student hadn't realized that you were even allowed to put something other than =i++= as the third clause of the for-loop
 
