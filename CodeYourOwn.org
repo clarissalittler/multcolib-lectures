@@ -809,7 +809,9 @@ https://developer.mozilla.org/en-US/
 file:mdn.png
 *** That's all
 #+BEGIN_EXPORT latex
+\begin{center}
 {\Huge Any questions?}
+\end{center}
 #+END_EXPORT
 * Lecture 2                                                        :noexport:
 ** More HTML
