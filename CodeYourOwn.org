@@ -258,7 +258,7 @@ Markup should convey meaning
     1. Go to your neocities.org page
     2. Choose to make a new file, call it =ex1.html=
     3. Delete the starter text
-    4. Type the text in the right hand colunm, and hit =view=
+    4. Type the text in the right hand column, and hit =view=
 *****                                                                 :BMCOL:
       :PROPERTIES:
       :BEAMER_col: 0.60
