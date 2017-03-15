@@ -1,0 +1,163 @@
+\documentclass[letterpage,foldmark,10pt]{leaflet}
+\usepackage{lettrine}
+\usepackage{minted}
+\usepackage{framed}
+\usepackage{hyperref}
+\title{Handout for Code Your Own Site}
+\author{}
+\date{}
+\pagenumbering{gobble}
+
+\begin{document}
+\maketitle
+\section{Getting Started}
+  Welcome to the class!
+
+  The first step is to download the slides so you can follow along with the lectures: \url{https://github.com/clarissalittler/multcolib-lectures/blob/master/CodeYourOwn.pdf}
+
+  From here you can click ``Download'' and read the slides any time.
+\section{Links to resources}
+\begin{itemize}
+  \item General JavaScript notes: \url{http://bit.ly/2ahKOZc}
+  \item Tutorial on HTML and CSS: \url{http://bit.ly/2af3ifd}
+  \item Tutorial on JavaScript and the Document Object Model: \url{http://bit.ly/2abXKFa}
+  \item Neocities: \url{https://neocities.org/}
+\end{itemize}
+
+\section{Glossary of Terms}
+\begin{description}
+  \item [HTML] HyperText Markup Language, the content of a web page
+  \item [CSS] Cascading Style Sheets, how pages look
+  \item [JavaScript] A programming language that runs in the browser and provides interaction
+  \item [DOM] Document Object Model, which connects the JavaScript code to the page
+\end{description}
+
+\section{Common Tags}
+\begin{description}
+  \item [h1] heading tag, for headlines, section headings, chapter titles
+  \item [p] paragraph tag, holds basic text
+  \item [ol] ordered list tag, for numbered or enumerated lists
+  \item [ul] unordered list tag, for bulleted---unnumbered---lists
+  \item [li] list items, go inside ol or li tags
+  \item [style] CSS code goes between the style tags
+  \item [script] JavaScript code goes between the script tags
+  \item [a] anchor tag is used to make links
+\end{description}
+
+\section{HTML Template}
+\begin{minted}{html}
+  <!doctype html>
+  <html>
+    <head>
+    </head>
+    <body>
+    </body>
+  </html>
+\end{minted}
+\newpage
+\section{HTML Example}
+\begin{minted}{html}
+  <!doctype html>
+  <html>
+    <body>
+      <h1>This is a heading</h1>
+      <p>This is a paragraph</p>
+    </body>
+  </html>
+\end{minted}
+
+\section{Basic Selectors}
+\begin{description}
+  \item [.name] selection by class
+  \item [\#name] selection by ID
+  \item [name] selection by tag name
+\end{description}
+
+\section{Common CSS Properties}
+\begin{description}
+  \item [width] the width of the element
+  \item [height] the height of the element
+  \item [color] the color of the text
+  \item [background-color] the color of the background of the element
+  \item [display] how the element is displayed: block and none are two possible values
+\end{description}
+\section{CSS Example}
+\begin{minted}{html}
+  <!doctype html>
+  <html>
+    <head>
+      <style>
+        p {
+          color: red;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>This is a heading</h1>
+      <p>This is a paragraph</p>
+    </body>
+  </html>
+\end{minted}
+\section{Basic JavaScript Syntax}
+\subsection{Creating Variables}
+\begin{minted}{js}
+  var variableName = 20;
+  variableName;
+  variableName = 30;
+\end{minted}
+\subsection{Arithmetic}
+\begin{minted}{js}
+  10 + 10;
+  20 - 5;
+  30 * 3;
+  30 / 10;
+\end{minted}
+\subsection{Strings}
+\begin{minted}{js}
+  "this is a string";
+  'as is this';
+  "as is 'this'";
+  'and is "this"';
+\end{minted}
+\begin{framed}
+  You can mix quotation types for typesetting purposes, but otherwise they're the same.
+\end{framed}
+\subsection{Functions}
+\subsubsection{Creating functions}
+\begin{minted}{js}
+  function functionName (x) {
+    console.log(x);
+    return x + 10;
+  }
+\end{minted}
+\subsubsection{Using functions}
+\begin{minted}{js}
+  functionName(10);
+  console.log("thing");
+\end{minted}
+\subsection{Objects}
+\begin{minted}{js}
+  var myObject = {property1 : value1, 
+                  property2 : value2};
+  myObject.property1;
+  myObject.property2 = 100;
+\end{minted}
+\section{Document Object Model}
+\subsection{Preliminary}
+\begin{minted}{js}
+  window.onload = function () {
+    (your code here)
+  };
+\end{minted}
+\subsection{Objects and functions}
+\begin{description}
+  \item [document] the main object that connects JavaScript to the web page
+  \item [document.createElement] function that takes a tag name and returns an object
+  \item [document.findElementById] function that retrieves an element by ID
+  \item [document.createTextNode] function that creates text from strings
+  \item [e.appendChild] function that attaches one element to another
+  \item [e.style] object that contains CSS style properties
+  \item [e.addClass] function that adds a CSS class to an element
+\end{description}
+
+\end{document}
