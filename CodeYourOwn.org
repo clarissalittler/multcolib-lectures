@@ -1,0 +1,817 @@
+#+TITLE: Code Your Own Website
+#+AUTHOR: Clarissa Littler
+#+OPTIONS: H:3 toc:nil
+#+LaTeX_HEADER: \usepackage{minted}
+#+LaTeX_HEADER: \usepackage{tcolorbox}
+#+LaTeX_HEADER: \setbeamercovered{transparent}
+#+LaTeX_HEADER: \definecolor{RedOrange}{rgb}{1,0.3,0}
+#+LaTeX_HEADER:\newenvironment<>{varblock}[2][.9\textwidth]{%
+#+LaTeX_HEADER:  \setlength{\textwidth}{#1}
+#+LaTeX_HEADER:  \begin{actionenv}#3%
+#+LaTeX_HEADER:    \def\insertblocktitle{#2}%
+#+LaTeX_HEADER:    \par%
+#+LaTeX_HEADER:    \usebeamertemplate{block begin}}
+#+LaTeX_HEADER:  {\par%
+#+LaTeX_HEADER:    \usebeamertemplate{block end}%
+#+LaTeX_HEADER:  \end{actionenv}}
+
+
+#+startup: beamer
+#+BEAMER_THEME: Boadilla
+#+LaTeX_CLASS: beamer
+
+* Purpose of this class                                            :noexport:
+  These are the lectures notes for the revised, two part, class on learning how to make websites.
+
+  This class is going to be structured around [[https://neocities.org/][Neocities]], a free service that allows you to code your own site in the browser and have full control over the HTML, CSS, and JavaScript that goes into the class.
+
+  Each step of the way will involve an exercise with making simple web pages and looking at the results in the browser.
+
+  This will minimize the amount of time spent navigating the computers themselves.
+
+  The only downside to this is tying the lectures to particular service, but at least it's a free service is reasonably accessible and user friendly. It also creates a danger of reducing the understanding of how writing web pages works as a general process, e.g. how you can preview pages without hosting them on your own computer and how hosting works etc. I think the final "wrap up" of the class is going to need some kind of explanation of how neocities, while nice, is allowing us to take a lot of shortcuts. 
+
+** Summary of topics
+   So we have a few goals here that we need to explicate
+
+   + Get people set up for an account on neocities
+   + Explain what a webpage is
+   + Explain what HTML, CSS, and JavaScript even are
+   + Explain the concept of tags
+     + Explain the meaning of "markup"
+     + Introduce the concept of "semantic markup"
+     + Maybe a slide showing the notion of taking a bunch of text vs. marking it up into a real page
+   + Introduce basic tags
+   + Ask them to demonstrate that they understand tags with an exercise
+   + Introduce attributes
+   + Introduce links
+   + Images
+   + How do we make sites *look* better?
+   + CSS
+   + The general concept of CSS declarations
+     + Selectors and property:value pairs
+   + Selecting by type
+   + Selecting by class
+   + Selecting by ID
+   + When you use an ID & when you use a class
+   + Things CSS can do
+   + Div and span for styling
+   + Making columns
+   + Creating backgrounds
+   + 
+* Lecture 1
+** Basic HTML
+*** This class
+**** 
+  In this class we'll be covering the *basics* of how both HTML & CSS work together to make well designed websites. 
+*** What you'll learn
+**** 
+  + What *is* HTML \pause
+  + What *is* CSS \pause
+  + How you make a *basic* web page \pause
+  + How to host your web site on [[https://neocities.org][neocities.org]]
+*** What you won't learn
+**** 
+  + How to program \pause
+  + How to use frameworks such as Bootstrap \pause
+  + How to build web servers \pause
+  + Most of HTML & CSS
+*** Make an account
+**** 
+file:signup.png
+*** What's a website?
+**** 
+file:exampleWebsite.png
+*** Technology behind a website                                    :noexport:
+#+BEGIN_EXPORT latex
+  \begin{block}{}
+    Two pieces that talk to each other to make a site
+  \end{block}
+  \begin{columns}
+    \begin{column}{0.4\columnwidth}
+      \begin{block}{Server}
+        \begin{itemize}
+          \item<1-> \textcolor<2>{RedOrange}{Sends data to the browser}
+          \item<1,3-> \textcolor<3>{RedOrange}{Saves information for long term use}
+          \item<1,4-> \textcolor<4>{RedOrange}{Receives requests from the client}
+        \end{itemize}
+      \end{block}
+    \end{column}
+ 
+    \begin{column}{0.4\columnwidth}
+      \begin{block}{Client}
+        \begin{itemize}
+          \item<1,5-> \textcolor<5>{RedOrange}{Receives data from the server}
+          \item<1,6-> \textcolor<6>{RedOrange}{Renders server data into a usable page}
+          \item<1,7-> \textcolor<7>{RedOrange}{Handles the user interface}
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+#+END_EXPORT
+
+*** Technology behind a website
+**** Client and server
+#+ATTR_LATEX: :width 0.8\textwidth
+file:Client-server-model.svg.png
+***** pup                                                          :noexport:
+      Image from: https://en.wikipedia.org/wiki/File:Client-server-model.svg
+*** The three pieces of a web page
+   + HTML \pause
+   + CSS \pause
+   + JavaScript
+*** HTML
+**** What does HTML do?
+    HTML describes the content of the page, \pause \textcolor{RedOrange}{but not how it looks}
+*** CSS
+**** What does CSS do?
+    CSS describes how a page looks, \pause \textcolor{RedOrange}{but not its content}
+*** JavaScript
+**** What does JavaScript do?
+    The dynamics and the user interface of the page
+*** What is HTML?
+**** HTML stands for...
+#+BEGIN_EXPORT latex
+  \alert<2>{HyperText} \alert<3>{Markup} \alert<4>{Language}
+#+END_EXPORT
+*** Without markup
+**** 
+#+BEGIN_EXAMPLE
+    A most striking title
+
+    Here we have some text, and some more text, and 
+    even more on top of that. We're wondering what's going on
+    here
+
+    'Nother post from a few days ago, 
+     the most recent times you
+     decided to blog.
+#+END_EXAMPLE
+*** With markup
+**** 
+#+BEGIN_SRC html :exports code :tangle markupExplanation.html
+  <h1>A most striking title</h1>
+
+  <article>
+    <p>Here we have some text, and some more text, and 
+      even more on top of that. We're wondering what's going on
+      here</p>
+  </article>
+
+  <article>
+    <p>'Nother post from a few days ago, 
+      the most recent times you
+      decided to blog.</p>
+  </article>
+
+#+END_SRC
+*** Tags
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+
+**** 
+#+BEGIN_EXPORT latex
+\begin{semiverbatim}
+\onslide<1><!doctype html>
+\onslide<1><html>  
+\onslide<1-2> <body>
+\onslide<1,3>  <h1>This is a heading</h1>
+\onslide<1,4>  <p>
+\onslide<1,5>      This is a paragraph of text, 
+{\onslide<1,5>      where some of the text is }{\onslide<1,5,6>\alert<6>{<b>bold</b>}}{\onslide<1,5>, and}
+\onslide<1,5>      after this paragraph, there will be a numbered list
+\onslide<1,4>  </p>
+
+\onslide<1,7>  <ol>
+\onslide<1,8>    <li>lists are made of "list items"</li>
+\onslide<1,8>    <li>like these</li>
+\onslide<1,7>  </ol>
+\onslide<1-2> </body>
+\onslide<1></html>
+\end{semiverbatim}
+#+END_EXPORT
+*** Semantic markup
+#+BEGIN_CENTER
+#+LaTeX: {\Huge
+Markup should convey meaning
+#+LaTeX: }
+#+END_CENTER
+*** The shape of every page
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+**** 
+#+BEGIN_EXPORT latex
+\begin{semiverbatim}
+\onslide<1,2><!doctype html>
+
+\onslide<1,3><html>
+\onslide<1,4>  {\color<4>{blue}<head>}
+\onslide<4>    ...
+\onslide<1,4>  {\color<4>{blue}</head>}
+
+\onslide<1,5>  {\color<5>{blue}<body>}
+\onslide<5>    ...
+\onslide<1,5>  {\color<5>{blue}</body>}
+\onslide<1,3></html>
+\end{semiverbatim}
+#+END_EXPORT
+*** Why do we need closing tags?
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+**** 
+\setbeamercovered{invisible}
+    \begin{semiverbatim}
+      <body>
+        <ol>
+          <li>This is a list\onslide<2,3>{</li>}
+          <li>but\onslide<2,3>{</li>}
+          <li>there's ambiguity here\onslide<2>{</li>}
+        \onslide<2>{</ol>}
+        <ol>
+         <li> where does this part go?\onslide<2,3>{</li>}
+         <li> is it a sublist or a second list?\onslide<2,3>{</li>}
+        \onslide<2,3>{</ol>}
+        \onslide<3>{</li>}
+        \onslide<3>{</ol>}
+    \end{semiverbatim}
+\setbeamercovered{transparent}
+*** Our first tags
+**** 
+  + =<h1>= - =<h6>=
+  + =<ol>=, =<ul>=, =<li>=
+  + =<p>=
+  + =<q>=
+  + =<blockquote>=
+*** Exercise 1
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.35
+      :END:
+****** Instructions
+    1. Go to your neocities.org page
+    2. Choose to make a new file, call it =ex1.html=
+    3. Delete the starter text
+    4. Type the text in the right hand colunm, and hit =view=
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.60
+      :END:
+****** Follow along
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+
+  <html>
+    <body>
+      <h1>This is a heading</h1>
+      <p>Here is a paragraph. 
+      It has a <q>quote</q> in it.</p>
+      <ol>
+	<li>here's a list</li>
+	<li>it has elements</li>
+      </ol>
+    </body>
+  </html>
+#+END_SRC
+
+*** Attributes
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+#+BEGIN_EXPORT latex
+\begin{tcolorbox}[
+  title=\textbf{The form of attributes},
+  colback=blue!5!white,
+  colframe=blue!75!white]
+
+  Attributes consist of key-value pairs
+  \tcblower
+
+  \verb?<a href="http://multcolib.org">our library</a>? \\
+  \verb?<p id="theparagraph">text</p>? \\
+  \verb?<div class="bolder">more text</div>?
+  \verb?<img src="imagePath.png">?
+\end{tcolorbox}
+#+END_EXPORT
+*** Links
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.65
+      :END:
+****** 
+#+BEGIN_SRC html :exports code :tangle linkTest.html
+  <a href="http://multcolib.org">
+    This is our link</a>
+#+END_SRC
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.30
+      :END:
+****** 
+file:linkScreenshot.png
+*** Images
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.3
+      :END:
+#+BEGIN_SRC html :exports code :tangle imageTest.html
+  <img src="Chicken.jpg">
+#+END_SRC
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.6
+      :END:
+file:imageTest.png
+
+*** Exercise 2
+**** 
+   Try making something original!
+   + Make a new file called "firstExercise.html"
+   + Put in an =<h1>=, two =<p>=, and a =<a>= or an =<img>=
+   + Save the file and view it. Does it look how you expected?
+** Basic CSS
+*** Making sites less plain
+    So far, all of our sites have been *very* dull: there's been no *styling*
+*** What is CSS?
+**** Cascading Style Sheets
+     Cascading Style Sheets are how we change how things /look/ or are /laid out/ on the site.
+*** Style sheets in other contexts
+**** 
+/Style sheets/, in print media, are how the look of the book or magazine or report are defined.
+*** The shape of CSS to come
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+**** Selectors and Properties
+
+#+BEGIN_EXPORT latex
+    \begin{semiverbatim}
+\onslide<1,2>selector \{
+\onslide<1,3>    property: value;
+\onslide<1,3>    property: value;
+\onslide<1,3>    property: value;
+\onslide<1,2>\}
+     \end{semiverbatim}
+#+END_EXPORT
+*** Adding CSS directly to a page
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+**** Put the CSS code in the <style> tags
+#+BEGIN_EXPORT latex
+\begin{semiverbatim}
+\onslide<1><!doctyle html>
+\onslide<1><html>
+\onslide<1>  <head>
+\onslide<1,2>    <style>
+\onslide<1>      ...
+\onslide<1,2>    </style>
+\onslide<1>  </head>
+\onslide<1>  <body>
+\onslide<1>    ...
+\onslide<1>  </body>
+\onslide<1></html>
+\end{semiverbatim}
+#+END_EXPORT
+
+*** Selecting by type
+**** 
+#+BEGIN_SRC css :exports code
+p {
+    font-size: large;
+    background-color: green;
+    color: blue;
+    width: 200px;
+}
+#+END_SRC
+
+*** Changing color
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.48
+      :END:
+****** Text color
+#+BEGIN_SRC css
+  p {
+      color: blue;
+  }
+#+END_SRC
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.48
+      :END:
+****** Background color
+#+BEGIN_SRC css
+  ol {
+      background-color: purple;
+  }
+#+END_SRC
+*** Changing color
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+****** src                                                         :noexport:
+#+BEGIN_SRC html :exports none :tangle paraColor.html
+  <head>
+    <style>
+      p {
+	color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This text is here</p>
+    <ol>
+      <li>puppy</li>
+      <li>kitten</li>
+    </ol>
+  </body>
+#+END_SRC
+
+****** Text color
+file:paraColor.png
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+****** src                                                         :noexport:
+#+BEGIN_SRC html :exports none :tangle olColor.html
+  <head>
+    <style>
+      ol {
+      background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This text is here</p>
+    <ol>
+      <li>puppy</li>
+      <li>kitten</li>
+    </ol>
+  </body>
+#+END_SRC
+****** Background color
+file:olColor.png
+*** Exercise
+**** Instructions
+   1. Take the file from your previous exercise
+   2. Add style tags in the head
+   3. Write code to turn your paragraphs red 
+*** Selecting by ID
+**** 
+#+BEGIN_SRC css :exports code
+  #thesis {
+      font-weight: bold;
+  }
+#+END_SRC
+*** Selecting by ID
+#+BEGIN_SRC html :exports none :tangle byID.html
+  <head>
+    <style>
+      #thesis {
+	font-weight:bold;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="thesis">This paper presents a moral argument by the Kantian categorical imperative that cats are good</p>
+
+    <p>To begin with we need to first define what a cat is.</p>
+
+    <p>After defining cats, we need a phenomenologic account of being a cat.</p>
+  </body>
+#+END_SRC
+**** 
+file:byID.png
+*** Selecting by class
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+#+BEGIN_SRC css :exports code
+  .important {
+      font-weight: 900;
+  }
+#+END_SRC
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+#+Attr_latex: :width 0.5\textwidth
+file:byClass.png
+
+#+BEGIN_SRC html :exports none :tangle byClass.html
+  <head>
+    <style>
+      .important {
+	font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <ol class="important">
+      <li>Things</li>
+      <li>That</li>
+      <li>Are bold</li>
+    </ol>
+    <ol>
+      <li>Things</li>
+      <li>That</li>
+      <li>Aren't</li>
+    </ol>
+  </body>
+#+END_SRC
+
+*** Block and inline elements
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+***** Block                                                           :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+    Block elements take up space around themselves
+    + =<p>=
+    + =<h1>=
+    + =<ol>= & =<ul>=
+    + =<li>=
+    + =<div>=
+***** Inline                                                          :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+    Inline elements take up only the space of the text
+    + =<span>=
+    + =<a>=
+    + =<b>=
+    + =<strong>=
+    + =<i>=
+    + =<em>=
+*** Changing height and width
+**** 
+#+BEGIN_SRC css :exports code
+  .shortGraphs {
+      width: 20em;
+      height: 10em;
+      background-color: purple;
+  }
+#+END_SRC
+*** Changing height and width
+#+BEGIN_SRC html :exports none :tangle paraHeight.html
+  <head>
+    <style>
+      .shortGraphs {
+	width: 20em;
+	height: 10em;
+	background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="shortGraphs">There's things to say here </p>
+    <p class="shortGraphs">And even more here  </p>
+    <p>And, also, I'd like to say a few things here </p>
+  </body>
+#+END_SRC
+#+ATTR_LATEX: :width 0.5\textwidth
+file:paraHeight.png
+*** Exercise
+**** Instructions
+  1. Open your exercise file in the editor
+  2. Change the width of your paragraphs
+  3. Add a background color to your title
+*** Difference between ID and class
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+****** ID
+  IDs are used for referencing a unique element
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+****** Class
+  Classes are used for referencing multiple elements
+*** Pop quiz
+**** 
+ You need to style one element differently: ID, class, or type?
+*** Pop quiz
+**** 
+ You need to style all the elements of a single type: ID, class, or type?
+*** Pop quiz
+**** 
+ You need to style multiple elements, possibly of different types: ID, class, or type?
+*** Div and span
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+**** Tags for styling
+#+BEGIN_EXPORT latex
+\verb?<div>? and \verb?<span>? don't \alert<2>{look like anything} but can be used to \alert<3>{style} other text and elements
+#+END_EXPORT
+
+*** div vs. span
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.49
+      :END:
+****** =div= styles block elements 
+#+BEGIN_SRC html :exports code
+  <div id="makeitbig">
+    <p>Here's some text</p>
+    <ol>
+      <li>list item</li>
+      </li>list item</li>
+    </ol>
+  </div>
+#+END_SRC
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.49
+      :END:
+****** =span= styles inline elements
+  #+BEGIN_SRC html :exports code
+    <span class="spanner">And 
+        this text 
+	<em>should</em>
+	be styled too</span>
+  #+END_SRC
+*** Styling with span
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+#+BEGIN_EXPORT latex
+\begin{minted}[fontsize=\footnotesize]{html}
+  <head>
+    <style>
+      .emphasized {
+	color: red;
+	font-weight: bold;
+	font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is some
+      <span class="emphasized">important</span>
+      text, like
+      <span class="emphasized">super</span>
+      important.
+    </p>
+  </body>
+\end{minted}
+#+END_EXPORT
+
+#+BEGIN_SRC html :exports none :tangle spanExample.html
+  <head>
+    <style>
+      .emphasized {
+	color: red;
+	font-weight: bold;
+	font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is some
+      <span class="emphasized">important</span>
+      text, like
+      <span class="emphasized">super</span>
+      important.
+    </p>
+  </body>
+#+END_SRC
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+file:spanExample.png
+*** Styling with div 
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.55
+      :END:
+#+BEGIN_SRC html :exports none :tangle divStyle.html
+  <head>
+    <style>
+      #dividend {
+	width: 10em;
+	font-family: "Goudy Bookletter 1911", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="dividend">
+      <p>
+	Fourscore and something years ago
+      </p>
+      <p>
+	Our four puppers
+      </p>
+    </div>
+    <p>Sorry, that was silly</p>
+  </body>
+#+END_SRC
+
+#+BEGIN_EXPORT latex
+\begin{minted}[fontsize=\footnotesize]{html}
+  <head>
+    <style>
+      #dividend {
+	width: 10em;
+	font-family: "Goudy Bookletter 1911", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="dividend">
+      <p>
+	Fourscore and something years ago
+      </p>
+      <p>
+	Our four puppers
+      </p>
+    </div>
+    <p>Sorry, that was silly</p>
+  </body>
+\end{minted}
+#+END_EXPORT
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.35
+      :END:
+file:divStyle.png
+*** Exercise
+**** Instructions
+    1. Open the exercise file you've been working on
+    2. Group together a chunk of text you'd like to style with a =<span>=
+    3. Change the color of the text in your style
+** Where to go from here
+*** Using the Mozilla Developer Network
+***** 
+https://developer.mozilla.org/en-US/
+***** 
+file:mdn.png
+*** That's all
+#+BEGIN_EXPORT latex
+{\Huge Any questions?}
+#+END_EXPORT
+* Lecture 2                                                        :noexport:
+** More HTML
+** Advanced CSS
+** A little JavaScript
