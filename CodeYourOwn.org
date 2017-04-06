@@ -131,9 +131,7 @@ file:Client-server-model.svg.png
     The dynamics and the user interface of the page
 *** What is HTML?
 **** HTML stands for...
-#+BEGIN_EXPORT latex
-  \alert<2>{HyperText} \alert<3>{Markup} \alert<4>{Language}
-#+END_EXPORT
+  HyperText Markup Language
 *** Without markup
 **** 
 #+BEGIN_EXAMPLE
@@ -191,7 +189,7 @@ file:Client-server-model.svg.png
 \onslide<1></html>
 \end{semiverbatim}
 #+END_EXPORT
-*** Semantic markup
+*** Semantic markup                                                :noexport:
 #+BEGIN_CENTER
 #+LaTeX: {\Huge
 Markup should convey meaning
@@ -341,15 +339,15 @@ file:imageTest.png
 **** 
    Try making something original!
    + Make a new file called "firstExercise.html"
-   + Put in an =<h1>=, two =<p>=, and a =<a>= or an =<img>=
+   + Put in an =<h1>=, two =<p>=, and an =<a>= or an =<img>=
    + Save the file and view it. Does it look how you expected?
 ** Basic CSS
 *** Making sites less plain
-    So far, all of our sites have been *very* dull: there's been no *styling*
+    So far, all of our sites have been *very* dull: there has been no *styling*
 *** What is CSS?
 **** Cascading Style Sheets
      Cascading Style Sheets are how we change how things /look/ or are /laid out/ on the site.
-*** Style sheets in other contexts
+*** Style sheets in other contexts                                 :noexport:
 **** 
 /Style sheets/, in print media, are how the look of the book or magazine or report are defined.
 *** The shape of CSS to come
@@ -409,32 +407,7 @@ p {
       :BEAMER_col: 0.48
       :END:
 ****** Text color
-#+BEGIN_SRC css
-  p {
-      color: blue;
-  }
-#+END_SRC
-*****                                                                 :BMCOL:
-      :PROPERTIES:
-      :BEAMER_col: 0.48
-      :END:
-****** Background color
-#+BEGIN_SRC css
-  ol {
-      background-color: purple;
-  }
-#+END_SRC
-*** Changing color
-****                                                              :B_columns:
-     :PROPERTIES:
-     :BEAMER_env: columns
-     :END:
-*****                                                                 :BMCOL:
-      :PROPERTIES:
-      :BEAMER_col: 0.45
-      :END:
-****** src                                                         :noexport:
-#+BEGIN_SRC html :exports none :tangle paraColor.html
+#+BEGIN_SRC html :exports code :tangle paraColor.html
   <head>
     <style>
       p {
@@ -450,15 +423,12 @@ p {
     </ol>
   </body>
 #+END_SRC
-
-****** Text color
-file:paraColor.png
 *****                                                                 :BMCOL:
       :PROPERTIES:
-      :BEAMER_col: 0.45
+      :BEAMER_col: 0.48
       :END:
-****** src                                                         :noexport:
-#+BEGIN_SRC html :exports none :tangle olColor.html
+****** Background color
+#+BEGIN_SRC html :exports code :tangle olColor.html
   <head>
     <style>
       ol {
@@ -474,6 +444,21 @@ file:paraColor.png
     </ol>
   </body>
 #+END_SRC
+*** Changing color
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
+****** Text color
+file:paraColor.png
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.45
+      :END:
 ****** Background color
 file:olColor.png
 *** Exercise
@@ -481,14 +466,18 @@ file:olColor.png
    1. Take the file from your previous exercise
    2. Add style tags in the head
    3. Write code to turn your paragraphs red 
-*** Selecting by ID
+*** Selecting by ID                                                :noexport:
 **** 
 #+BEGIN_SRC css :exports code
   #thesis {
       font-weight: bold;
   }
 #+END_SRC
+
 *** Selecting by ID
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
 #+BEGIN_SRC html :exports none :tangle byID.html
   <head>
     <style>
@@ -498,14 +487,37 @@ file:olColor.png
     </style>
   </head>
   <body>
-    <p id="thesis">This paper presents a moral argument by the Kantian categorical imperative that cats are good</p>
+    <p id="thesis">This paper presents a moral argument 
+      that cats are good</p>
 
     <p>To begin with we need to first define what a cat is.</p>
 
-    <p>After defining cats, we need a phenomenologic account of being a cat.</p>
+    <p>After defining cats, we need a phenomenologic 
+    account of being a cat.</p>
   </body>
 #+END_SRC
-**** 
+
+#+BEGIN_EXPORT latex
+\begin{minted}[fontsize=\footnotesize]{html}
+<head>
+  <style>
+    #thesis {
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+  <p id="thesis">This paper presents a moral argument
+    that cats are good</p>
+
+  <p>To begin with we need to first define what a cat is.</p>
+
+  <p>After defining cats, we need a phenomenologic 
+    account of being a cat.</p>
+</body>
+\end{minted}
+#+END_EXPORT
+*** Selecting by ID
 file:byID.png
 *** Selecting by class
 ****                                                              :B_columns:
