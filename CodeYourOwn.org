@@ -73,7 +73,7 @@
 *** What you won't learn
 **** 
   + How to program \pause
-  + How to use frameworks such as Bootstrap \pause
+  + How to use Wordpress or Google Sites \pause
   + How to build web servers \pause
   + Most of HTML & CSS
 *** Make an account
@@ -163,7 +163,10 @@ file:Client-server-model.svg.png
   </article>
 
 #+END_SRC
-*** Tags
+*** In the browser
+**** 
+file:markupExplanation.png
+*** Tags                                                           :noexport:
     :PROPERTIES:
     :BEAMER_OPT: fragile
     :END:
@@ -195,7 +198,7 @@ file:Client-server-model.svg.png
 Markup should convey meaning
 #+LaTeX: }
 #+END_CENTER
-*** The shape of every page
+*** The shape of every page                                        :noexport:
     :PROPERTIES:
     :BEAMER_OPT: fragile
     :END:
@@ -215,6 +218,13 @@ Markup should convey meaning
 \onslide<1,3></html>
 \end{semiverbatim}
 #+END_EXPORT
+*** Our first tags
+**** 
+  + =<h1>= - =<h6>=
+  + =<ol>=, =<ul>=, =<li>=
+  + =<p>=
+  + =<q>=
+  + =<blockquote>=
 *** Why do we need closing tags?
     :PROPERTIES:
     :BEAMER_OPT: fragile
@@ -236,13 +246,34 @@ Markup should convey meaning
         \onslide<3>{</ol>}
     \end{semiverbatim}
 \setbeamercovered{transparent}
-*** Our first tags
-**** 
-  + =<h1>= - =<h6>=
-  + =<ol>=, =<ul>=, =<li>=
-  + =<p>=
-  + =<q>=
-  + =<blockquote>=
+*** What matters and what doesn't?
+**** Does
+     Having matching tags:
+     #+BEGIN_SRC html :exports code
+       <h1>This won't work<h1>
+
+       <b>Or this</>
+
+       <i>Or This</em>
+
+       <b>This will!</b>
+     #+END_SRC
+*** What matters and what doesn't?
+**** Doesn't
+     Whitespace:
+This
+#+BEGIN_SRC html :exports code
+  <ol>
+    <li>This is going to be</li>
+    <li>A list</li>
+    <li>Of things</li>
+  </ol>
+#+END_SRC
+is the same as this
+#+BEGIN_SRC html :exports code
+  <ol><li>This is going to be</li>
+      <li>A list</li><li>Of things</li></ol>
+#+END_SRC
 *** Exercise 1
 ****                                                              :B_columns:
      :PROPERTIES:
@@ -277,26 +308,6 @@ Markup should convey meaning
     </body>
   </html>
 #+END_SRC
-
-*** Attributes
-    :PROPERTIES:
-    :BEAMER_OPT: fragile
-    :END:
-#+BEGIN_EXPORT latex
-\begin{tcolorbox}[
-  title=\textbf{The form of attributes},
-  colback=blue!5!white,
-  colframe=blue!75!white]
-
-  Attributes consist of key-value pairs
-  \tcblower
-
-  \verb?<a href="http://multcolib.org">our library</a>? \\
-  \verb?<p id="theparagraph">text</p>? \\
-  \verb?<div class="bolder">more text</div>?
-  \verb?<img src="imagePath.png">?
-\end{tcolorbox}
-#+END_EXPORT
 *** Links
 ****                                                              :B_columns:
      :PROPERTIES:
@@ -334,11 +345,29 @@ file:linkScreenshot.png
       :BEAMER_col: 0.6
       :END:
 file:imageTest.png
+*** Attributes                                                     :noexport:
+    :PROPERTIES:
+    :BEAMER_OPT: fragile
+    :END:
+#+BEGIN_EXPORT latex
+\begin{tcolorbox}[
+  title=\textbf{The form of attributes},
+  colback=blue!5!white,
+  colframe=blue!75!white]
 
+  Attributes consist of key-value pairs
+  \tcblower
+
+  \verb?<a href="http://multcolib.org">our library</a>? \\
+  \verb?<p id="theparagraph">text</p>? \\
+  \verb?<div class="bolder">more text</div>?
+  \verb?<img src="imagePath.png">?
+\end{tcolorbox}
+#+END_EXPORT
 *** Exercise 2
 **** 
    Try making something original!
-   + Make a new file called "firstExercise.html"
+   + Make a new file called "ex2.html"
    + Put in an =<h1>=, two =<p>=, and an =<a>= or an =<img>=
    + Save the file and view it. Does it look how you expected?
 ** Basic CSS
@@ -350,7 +379,7 @@ file:imageTest.png
 *** Style sheets in other contexts                                 :noexport:
 **** 
 /Style sheets/, in print media, are how the look of the book or magazine or report are defined.
-*** The shape of CSS to come
+*** The shape of CSS to come                                       :noexport:
     :PROPERTIES:
     :BEAMER_OPT: fragile
     :END:
@@ -365,7 +394,7 @@ file:imageTest.png
 \onslide<1,2>\}
      \end{semiverbatim}
 #+END_EXPORT
-*** Adding CSS directly to a page
+*** Adding CSS directly to a page                                  :noexport:
     :PROPERTIES:
     :BEAMER_OPT: fragile
     :END:
@@ -386,12 +415,12 @@ file:imageTest.png
 \end{semiverbatim}
 #+END_EXPORT
 
-*** Selecting by type
+*** Selecting by type                                              :noexport:
 **** 
+This makes paragraphs 200 pixels wide with large blue text
 #+BEGIN_SRC css :exports code
 p {
     font-size: large;
-    background-color: green;
     color: blue;
     width: 200px;
 }
@@ -647,7 +676,7 @@ file:paraHeight.png
 *** Pop quiz
 **** 
  You need to style multiple elements, possibly of different types: ID, class, or type?
-*** Div and span
+*** div and span
     :PROPERTIES:
     :BEAMER_OPT: fragile
     :END:
