@@ -1,0 +1,134 @@
+#+TITLE: Intro. to Web Development
+#+AUTHOR: Clarissa Littler
+
+elisp:org-show-mode
+elisp:org-show-start-slideshow
+
+
+* Presentation
+** Welcome!                                                           :slide:
+#+BEGIN_SRC emacs-lisp-slide
+(org-show-animate '("Welcome to the library!"))
+#+END_SRC
+** HTML
+   The backbone of every web page, the actual content that's to be displayed
+
+   Made up of /matching tags/
+
+   #+BEGIN_SRC html :exports code
+     <p>The p tags help make this a paragraph</p>
+
+     <button>This is the text on a button</button>
+
+     <ol>
+       <li>Here's the pieces of a list</li>
+       <li>One by one, nested li tags inside an ol</li>
+     </ol>
+
+     <p>The important thing here isn't
+       where I put the
+       line
+       breaks
+       but rather
+       that the
+       tags match</p>
+   #+END_SRC
+** CSS                                                                :slide:
+   The code that describes how the content should /look/
+   
+   CSS has a very rigid structure
+   #+BEGIN_SRC css :exports code
+     selector {
+         property-name: property-value;
+         property-name: property-value;
+     }
+   #+END_SRC
+
+   The kinds of selectors we'll be using are the three basic ones
+
+   just using the /tag name/ selects every element with that tag
+   #+BEGIN_SRC css :exports code
+     p {
+         color: red;
+         width: 200px;
+     }
+   #+END_SRC
+   using a . means you want every element with that /class/ name
+   #+BEGIN_SRC css :exports code
+     .thesis {
+         font-weight: bold;
+         font-style: italic;
+     }
+   #+END_SRC
+   using a # means you want only the element with that /id/ to be affected
+   #+BEGIN_SRC css :exports code
+     #sidebar {
+         width: 300px;
+         background-color: green;
+     }
+   #+END_SRC
+   
+** JavaScript                                                         :slide:
+   An actual programming language
+
+   Makes web pages interactive!
+** Neocities                                                          :slide:
+   You should have a neocities tab open on your browser
+   (if you're not in the classroom you can make an account for yourself instead of using my teaching accounts)
+   It should look like
+   [[./neocitiesDashboard.png]]
+** Your Best Friend: Mozilla Developer Network                        :slide:
+   https://developer.mozilla.org/en-US/
+
+   [[./mdn.png]]
+** Review: Making a small page                                        :slide:
+   This is for review to remind your fingers of how things work!
+
+   Open a new file in neocities and type the following. See if it loads and ask about /anything/ confusing.
+
+   #+BEGIN_SRC html :exports code :tangle firstExample.html
+     <html>
+       <head>
+         <style>
+   	p {
+             width: 300px;
+             font-size: 30px;
+             color: blue;
+   	}
+
+   	li {
+             color: red;
+   	}
+         </style>
+       </head>
+       <body>
+         <p>You should fill in the text here with whatever you want.</p>
+         <ol>
+   	<li>And put some other text here</li>
+   	<li>And also here</li>
+         </ol>
+         <a href="http://multcolib.org">Here's a link!</a>
+       </body>
+     </html>
+   #+END_SRC
+** Making pages interactive
+   JavaScript makes pages interactive. The pineal gland between JavaScript interpreter and browser is the /Document Object Model/ usually just abbrevited to DOM. 
+** What's JavaScript?
+   JavaScript is a full programming language that is the agreed upon standard for browsers to use
+** What's the DOM?
+   The DOM is a way of presenting the webpage you're looking at as data for the JavaScript code to manipulate
+** What to learn?
+   If you want to learn more about HTML then try going to
+   https://developer.mozilla.org/en-US/docs/Learn/HTML
+   and looking through their examples and explanations, try making something out of what you've learned
+
+   If you feel comfortable with the HTML you know but want to learn more about CSS then try going to
+   https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS
+   and reading through their tutorials
+
+   Finally, if you're ready to jump into JavaScript 
+   https://developer.mozilla.org/en-US/docs/Learn/JavaScript
+   and specifically to learn more about the DOM
+   https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents
+
+   Try working on your own and if working on your own /doesn't work/ then ask me and I'll help guide you through!
