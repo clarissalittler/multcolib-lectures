@@ -70,13 +70,13 @@
   + What *is* CSS \pause
   + How you make a *basic* web page \pause
   + How to host your web site on [[https://neocities.org][neocities.org]]
-*** What you won't learn
+*** What you won't learn                                           :noexport:
 **** 
   + How to program \pause
   + How to use Wordpress or Google Sites \pause
   + How to build web servers \pause
   + Most of HTML & CSS
-*** Make an account
+*** Make an account                                                :noexport:
 **** 
 file:signup.png
 *** What's a website?
@@ -225,6 +225,41 @@ Markup should convey meaning
   + =<p>=
   + =<q>=
   + =<blockquote>=
+*** Exercise 1
+****                                                              :B_columns:
+     :PROPERTIES:
+     :BEAMER_env: columns
+     :END:
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.35
+      :END:
+****** Instructions
+    1. Go to your neocities.org page
+    2. Choose to make a new file, call it =ex1.html=
+    3. Delete the starter text
+    4. Type the text in the right hand column, and hit =view=
+*****                                                                 :BMCOL:
+      :PROPERTIES:
+      :BEAMER_col: 0.60
+      :END:
+****** Follow along
+#+BEGIN_SRC html :exports code
+  <!doctype html>
+
+  <html>
+    <body>
+      <h1>This is a heading</h1>
+      <p>Here is a paragraph. 
+      It has a <q>quote</q> in it.</p>
+      <ol>
+	<li>here's a list</li>
+	<li>it has elements</li>
+      </ol>
+    </body>
+  </html>
+#+END_SRC
+
 *** Why do we need closing tags?
     :PROPERTIES:
     :BEAMER_OPT: fragile
@@ -273,40 +308,6 @@ is the same as this
 #+BEGIN_SRC html :exports code
   <ol><li>This is going to be</li>
       <li>A list</li><li>Of things</li></ol>
-#+END_SRC
-*** Exercise 1
-****                                                              :B_columns:
-     :PROPERTIES:
-     :BEAMER_env: columns
-     :END:
-*****                                                                 :BMCOL:
-      :PROPERTIES:
-      :BEAMER_col: 0.35
-      :END:
-****** Instructions
-    1. Go to your neocities.org page
-    2. Choose to make a new file, call it =ex1.html=
-    3. Delete the starter text
-    4. Type the text in the right hand column, and hit =view=
-*****                                                                 :BMCOL:
-      :PROPERTIES:
-      :BEAMER_col: 0.60
-      :END:
-****** Follow along
-#+BEGIN_SRC html :exports code
-  <!doctype html>
-
-  <html>
-    <body>
-      <h1>This is a heading</h1>
-      <p>Here is a paragraph. 
-      It has a <q>quote</q> in it.</p>
-      <ol>
-	<li>here's a list</li>
-	<li>it has elements</li>
-      </ol>
-    </body>
-  </html>
 #+END_SRC
 *** Links
 ****                                                              :B_columns:
