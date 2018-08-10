@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <script src="todolist.js"></script>
+  </head>
+  <body>
+    <ol>
+    </ol>
+
+    <input>Add your todo items</input>
+    <button>Add!</button>
+  </body>
+</html>
