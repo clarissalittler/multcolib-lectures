@@ -1,0 +1,27 @@
+\documentclass[notes]{beamer}
+\usepackage{pgfpages}
+\usetheme{Montpellier}
+\usepackage{graphicx}
+\usepackage{minted}
+
+\title{Intro to Web Development \\ A Guided Tutorial}
+\date{Updates as of: \today}
+
+\begin{document}
+\section{Introduction}
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{What we're covering}
+\end{frame}
+
+\begin{frame}{What's JavaScript?}
+\end{frame}
+
+\begin{frame}{What we'll be using}
+\end{frame}
+
+
+
+\end{document}

@@ -1,0 +1,31 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+nb}{window}\PYG{p}{.}\PYG{n+nx}{onload} \PYG{o}{=} \PYG{k+kd}{function} \PYG{p}{()} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{var} \PYG{n+nx}{inputElement} \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{getElementById}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}input\PYGZdq{}}\PYG{p}{);}
+  \PYG{k+kd}{var} \PYG{n+nx}{todoList} \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{getElementById}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}list\PYGZdq{}}\PYG{p}{);}
+  \PYG{k+kd}{var} \PYG{n+nx}{addButton} \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{getElementById}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}add\PYGZdq{}}\PYG{p}{);}
+
+  \PYG{k+kd}{var} \PYG{n+nx}{listIndex} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{;}
+
+  \PYG{n+nx}{addButton}\PYG{p}{.}\PYG{n+nx}{addEventListener}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}click\PYGZdq{}}\PYG{p}{,} \PYG{k+kd}{function} \PYG{p}{()} \PYG{p}{\PYGZob{}}
+    \PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{log}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}Is this working?\PYGZdq{}}\PYG{p}{);}
+    \PYG{n+nx}{listIndex}\PYG{o}{++}
+    \PYG{k+kd}{var} \PYG{n+nx}{theIndex} \PYG{o}{=} \PYG{n+nx}{listIndex}\PYG{p}{;}
+    \PYG{k+kd}{var} \PYG{n+nx}{itemText} \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{createTextNode}\PYG{p}{(}\PYG{n+nx}{inputElement}\PYG{p}{.}\PYG{n+nx}{value} \PYG{o}{+} \PYG{l+s+s2}{\PYGZdq{} \PYGZdq{}}\PYG{p}{);}
+    \PYG{k+kd}{var} \PYG{n+nx}{newItem}  \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{createElement}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}li\PYGZdq{}}\PYG{p}{);}
+    \PYG{k+kd}{var} \PYG{n+nx}{divvy} \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{createElement}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}div\PYGZdq{}}\PYG{p}{);}
+    \PYG{k+kd}{var} \PYG{n+nx}{deleteBut} \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{createElement}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}button\PYGZdq{}}\PYG{p}{);}
+    \PYG{k+kd}{var} \PYG{n+nx}{deleteText} \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{createTextNode}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}X\PYGZdq{}}\PYG{p}{);}
+    \PYG{n+nx}{newItem}\PYG{p}{.}\PYG{n+nx}{setAttribute}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}id\PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{}item\PYGZdq{}}\PYG{o}{+}\PYG{n+nx}{listIndex}\PYG{p}{);}
+    \PYG{n+nx}{deleteBut}\PYG{p}{.}\PYG{n+nx}{appendChild}\PYG{p}{(}\PYG{n+nx}{deleteText}\PYG{p}{);}
+    \PYG{n+nx}{deleteBut}\PYG{p}{.}\PYG{n+nx}{addEventListener}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}click\PYGZdq{}}\PYG{p}{,} \PYG{k+kd}{function} \PYG{p}{()} \PYG{p}{\PYGZob{}}
+      \PYG{k+kd}{var} \PYG{n+nx}{theItem} \PYG{o}{=} \PYG{n+nb}{document}\PYG{p}{.}\PYG{n+nx}{getElementById}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}item\PYGZdq{}}\PYG{o}{+}\PYG{n+nx}{theIndex}\PYG{p}{);}
+      \PYG{n+nx}{todoList}\PYG{p}{.}\PYG{n+nx}{removeChild}\PYG{p}{(}\PYG{n+nx}{theItem}\PYG{p}{);}
+    \PYG{p}{\PYGZcb{});}
+    \PYG{n+nx}{divvy}\PYG{p}{.}\PYG{n+nx}{appendChild}\PYG{p}{(}\PYG{n+nx}{itemText}\PYG{p}{);}
+    \PYG{n+nx}{divvy}\PYG{p}{.}\PYG{n+nx}{appendChild}\PYG{p}{(}\PYG{n+nx}{deleteBut}\PYG{p}{);}
+    \PYG{n+nx}{newItem}\PYG{p}{.}\PYG{n+nx}{appendChild}\PYG{p}{(}\PYG{n+nx}{divvy}\PYG{p}{);}
+    \PYG{n+nx}{todoList}\PYG{p}{.}\PYG{n+nx}{appendChild}\PYG{p}{(}\PYG{n+nx}{newItem}\PYG{p}{);}
+    \PYG{n+nx}{inputElement}\PYG{p}{.}\PYG{n+nx}{value} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}\PYGZdq{}}\PYG{p}{;}
+  \PYG{p}{\PYGZcb{});}
+\PYG{p}{\PYGZcb{}}
+\end{Verbatim}
